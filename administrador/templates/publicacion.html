@@ -42,22 +42,13 @@
 				</form>
 
 				<h3 class="text-green border-top-g">Otros eventos</h3>
-				<div class="other-news-content border-bottom-g">
-					<a href="evento.html"><h4>Lorem ipsum dolor </h4></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi modi a impedit minus et ad iste nesciunt deserunt, debitis provident, cum eligendi nulla consequuntur pariatur expedita laborum ab perspiciatis eius.</p>
-				</div>
-				<div class="other-news-content border-bottom-g">
-					<a href="evento.html"><h4>Lorem ipsum dolor </h4></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi modi a impedit minus et ad iste nesciunt deserunt, debitis provident, cum eligendi nulla consequuntur pariatur expedita laborum ab perspiciatis eius.</p>
-				</div>
-				<div class="other-news-content border-bottom-g">
-					<a href="evento.html"><h4>Lorem ipsum dolor </h4></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi modi a impedit minus et ad iste nesciunt deserunt, debitis provident, cum eligendi nulla consequuntur pariatur expedita laborum ab perspiciatis eius.</p>
-				</div>
-				<div class="other-news-content">
-					<a href="evento.html"><h4>Lorem ipsum dolor </h4></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi modi a impedit minus et ad iste nesciunt deserunt, debitis provident, cum eligendi nulla consequuntur pariatur expedita laborum ab perspiciatis eius.</p>
-				</div>
+				{% for publicacion in otrasPublicaciones%}
+					<div class="other-news-content border-bottom-g">
+						<a  href="publicacion/{{ publicacion.id }}"><h4>{{ publicacion.titulo }}</h4></a>
+						{{ publicacion.resumen|slice:":150" }}
+					</div>
+				{% endfor %}
+
 			</div>
 		</article>	
 	</section>

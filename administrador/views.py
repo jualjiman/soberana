@@ -92,6 +92,11 @@ def postgrados(request):
 
 def publicacion(request, ide):
 	publicacion = get_object_or_404(Publicacion,activo = True, id=ide)
+	otrasPublicaciones = Publicacion.objects.filter(
+		Q(fecha_inicio__lte=now), 
+		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+		Q(activo = True)).order_by("-categoria")[:4]
+
 	titulo = "%s - " % (publicacion.titulo,)
 	return render(
 		request,
@@ -99,6 +104,7 @@ def publicacion(request, ide):
 		{
 			"publicacion" : publicacion,
 			"titulo" : titulo,
+			"otrasPublicaciones" : otrasPublicaciones
 		}
 	)
 
@@ -106,7 +112,7 @@ def publicaciones(request):
 	titulo = "Publicaciones - "
 	now = datetime.now()
 	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now) & 
+		Q(fecha_inicio__lte=now), 
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 		Q(activo = True)).order_by("-categoria")
 
