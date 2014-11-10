@@ -85,6 +85,7 @@ def busqueda(request):
 	        # ...
 			pista = searchform.cleaned_data['pista']
 			if pista != u'':
+				now = datetime.now()
 				publicaciones = Publicacion.objects.filter(
 					Q(fecha_inicio__lte=now), 
 					Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
