@@ -92,6 +92,8 @@ def postgrados(request):
 
 def publicacion(request, ide):
 	publicacion = get_object_or_404(Publicacion,activo = True, id=ide)
+
+	now = datetime.now()
 	otrasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now), 
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
