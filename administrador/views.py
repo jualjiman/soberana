@@ -54,7 +54,7 @@ def licenciaturas_ingenierias(request):
 	titulo = "Licenciaturas - Ingenierias - "
 	return render(
 		request,
-		"directorio.html",
+		"licenciaturas-ingenierias.html",
 		{
 			"titulo" : titulo,
 		}

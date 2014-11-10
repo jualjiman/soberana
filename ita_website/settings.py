@@ -64,12 +64,12 @@ WSGI_APPLICATION = 'ita_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -103,3 +103,8 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
+
+try:
+    from local_settings import *
+except ImportError, e:
+    print 'Unable to load local_settings.py:', e
