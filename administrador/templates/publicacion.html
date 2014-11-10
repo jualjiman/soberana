@@ -22,7 +22,7 @@
 						<a target="_blank" class="text-green link" href="{{ publicacion.pdf.url }}"><span class="icon-file-pdf"></span> {{ publicacion.descripcionPdf }}</a>		
 					{% endif %}		
 
-					{% if publicacion.codigoVideoYoutube|length > 0 %}
+					{% if publicacion.claveYoutube|length > 0 %}
 						<hr>
 						<p><span class="icon-youtube"></span>{{ publicacion.descripcionVideoYoutube }}</p>
 						<div class="embed-responsive embed-responsive-16by9">
