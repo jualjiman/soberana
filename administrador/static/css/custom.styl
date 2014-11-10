@@ -1,0 +1,199 @@
+@import "fonts.css"
+@import "bootstrap.css"
+
+permitedBackground = #fafafa
+enfasis = darken(permitedBackground,2%)
+
+lighterGray = #EEEEEE
+lightGray = #AEADB3
+darkGray = #98979C
+
+text = #626262;
+news-date-text = #707070
+
+redC = #A5273F
+greenC = #207146
+
+h2
+h3
+h4
+h5
+	font-family: 'soberanaTitularRegular'
+
+.text-red
+	color redC
+
+.text-white
+	color permitedBackground
+
+.text-green
+	color greenC
+
+a.text-green
+	&:hover
+		color darken(greenC,20%)
+ol.decimal-list
+	list-style none
+	padding-left 18px
+
+*
+	font-family 'soberanaSansRegular'
+
+body
+	background permitedBackground
+	color text
+
+#redesSociales
+	margin-top 25px
+
+hr.doubleLine
+	border-bottom double 3px lighterGray
+	margin 43px 0
+
+.border-top-g
+	margin 10px 0
+	padding 10px 0 0 0
+	border-top solid 1px lighterGray
+
+.border-right-g
+	border-right solid 1px lighterGray
+
+.border-left-g
+	border-left solid 1px lighterGray
+
+.border-bottom-g
+	margin 10px 0
+	border-bottom solid 1px lighterGray
+
+.other-news-content
+	h4
+		color greenC
+
+.autoWidth
+	width 100%
+
+.logoFederalFooter
+	width: 220px
+
+.navbar-brand
+	.logos-collapsed
+		width 220px
+		padding 4px
+	h5
+		display inline
+		font-family 'soberanaTitularRegular'
+		font-size 13px
+
+#bottomMenus
+	h5
+		color redC
+	ul
+		padding 0
+
+		li
+			list-style none
+			font-size 13px
+			line-height 30px
+
+.enfasis
+	background enfasis
+	padding-bottom 20px
+
+#recent-news
+	h3
+		color redC
+	h4
+		color redC
+
+.seach-field
+	margin 20px 0 10px 0
+
+.margin-top-low
+	margin-top 10px
+
+.margin-top-med
+	margin-top 15px
+
+.column-left
+	border-right solid 1px lighterGray
+
+.column-right
+	border-left solid 1px lighterGray
+
+.thumbnail
+	position relative
+	cursor: pointer
+
+header
+	padding-top 5px
+
+	.col-xs-3
+		text-align center
+		
+		img
+			display inline-block
+		.logoita
+			width 100px
+		.logofederal
+			width 245px
+		
+	
+	.col-xs-6
+		height 100px
+
+		h1
+			font 18px 'soberanaTitularBold' 
+			text-transform uppercase
+			text-align center
+			color #98979C
+
+.navbar-default 
+	.navbar-nav 
+		> li 
+			> a
+				font-family 'soberanaTitularRegular'
+				font-size 14px
+				transition all 0.4s ease
+.news-date
+	background url('../img/cintillo.png') 0px 0px no-repeat
+	width 85px
+	height 40px
+	display inline-block
+	position absolute
+	padding 9px
+	font-size 13px
+	left -13px
+	top 15px
+	color news-date-text
+
+.link
+	text-decoration underline
+
+///////////////////////////////MEDIA QUERIES////////////////////////////////
+@media (min-width: 768px)
+	.thumbnail
+		min-height 340px
+
+@media (max-width: 768px)
+	.carousel-caption 
+		background rgba(207, 36, 42, 0.3)
+
+		h3
+			font-size 14px
+			margin 10px
+			padding 10px
+
+	.logoFederalFooter
+		width 95px
+
+	#bottomMenus
+		h5
+		ul
+			text-align center
+
+	hr.doubleLine
+		margin 16px 0
+
+	#column-left
+	#column-right
+		border-left none

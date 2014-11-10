@@ -1,0 +1,4 @@
+ita_website/local_settings.py
+media/*
+*.pyc
+*.sqlite3

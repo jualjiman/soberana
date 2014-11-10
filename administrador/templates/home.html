@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block mainContent %}
+
+	<section id="mainContent">
+		<div id="slider">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			  
+			  <ol class="carousel-indicators">
+			    {% for slider in sliders %}
+		    		{% if forloop.first %}
+		    			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    		{% else %}
+		    			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    		{% endif%}
+			    {% endfor %}
+			  </ol>
+			  
+			  <div class="carousel-inner">
+			    
+			    {% for slider in sliders %}
+		    		{% if forloop.first %}
+			    		<div class="item active">
+			    	{% else %}
+			    		<div class="item">
+			    	{% endif %}
+			    		
+			    		{% thumbnail slider.imagen "2000x800" crop="center" as im %}
+			      			<img src="{{ im.url }}" alt="{{ slider.titulo }}">
+			      		{% endthumbnail %}
+
+			      	{% if slider.titulo|length > 0 %}
+						<div class="carousel-caption">
+					    	<h3>{{ slider.titulo }}</h3>
+					    </div>
+			      	{%endif%}
+
+			      	</div>
+
+		      	{% endfor %}
+
+			  </div>
+
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="icon-arrow-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="icon-arrow-right"></span>
+			  </a>
+			</div>
+		</div>
+
+		<article id="recent-news" class="container-fluid enfasis">
+			<div class="container">
+				<h3 class="text-center">Eventos</h3>
+				<div class="row">
+					
+					{% for publicacion in publicacionesPermanentes %}
+						<div class="col-sm-6 col-md-3">
+						    <a class="thumbnail" href="publicacion/{{ publicacion.id }}">
+						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
+						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
+				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
+				      			{% endthumbnail %}
+						      	<div class="caption">
+						        	<h4>{{ publicacion.titulo }}</h4>
+						         	<div class="new-content">
+						        	{{ publicacion.resumen|slice:":150" }}
+						        </div>
+						      </div>
+						    </a>
+						</div>
+					{% endfor%}
+
+				</div>
+			</div>
+		</article>
+
+		<article id="recent-news" class="container-fluid margin-top-med">
+			<div class="container">
+				<div class="row">
+					
+					{% for publicacion in publicaciones %}
+						<div class="col-sm-6 col-md-3">
+						    <a class="thumbnail" href="publicacion/{{ publicacion.id }}">
+						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
+						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
+				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
+				      			{% endthumbnail %}
+						      	<div class="caption">
+						        	<h4>{{ publicacion.titulo }}</h4>
+						         	<div class="new-content">
+						        	{{ publicacion.resumen|slice:":150" }}
+						        </div>
+						      </div>
+						    </a>
+						</div>
+					{% endfor%}
+
+				</div>
+				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">MÁS EVENTOS</a></p>
+			</div>
+		</article>
+		
+	</section>
+	
+{% endblock %}

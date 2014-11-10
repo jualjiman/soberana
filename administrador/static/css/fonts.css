@@ -1,0 +1,100 @@
+@font-face {
+	font-family: 'soberanaSansRegular';
+	src:url('../fonts/soberanaSansRegular/soberanasans-regular.eot');
+	src:url('../fonts/soberanaSansRegular/soberanasans-regular.eot') format('embedded-opentype'),
+		url('../fonts/soberanaSansRegular/soberanasans-regular.woff') format('woff'),
+		url('../fonts/soberanaSansRegular/soberanasans-regular.ttf') format('truetype'),
+		url('../fonts/soberanaSansRegular/soberanasans-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'soberanaTitularBold';
+	src:url('../fonts/soberanaTitularBold/soberanatitular-bold.eot');
+	src:url('../fonts/soberanaTitularBold/soberanatitular-bold.eot') format('embedded-opentype'),
+		url('../fonts/soberanaTitularBold/soberanatitular-bold.woff') format('woff'),
+		url('../fonts/soberanaTitularBold/soberanatitular-bold.ttf') format('truetype'),
+		url('../fonts/soberanaTitularBold/soberanatitular-bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'soberanaTitularRegular';
+	src:url('../fonts/soberanaTitularRegular/soberanatitular-regular.eot');
+	src:url('../fonts/soberanaTitularRegular/soberanatitular-regular.eot') format('embedded-opentype'),
+		url('../fonts/soberanaTitularRegular/soberanatitular-regular.woff') format('woff'),
+		url('../fonts/soberanaTitularRegular/soberanatitular-regular.ttf') format('truetype'),
+		url('../fonts/soberanaTitularRegular/soberanatitular-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*ICOMOON===================================================================================================*/
+
+
+#redesSociales > a > span{
+	font-size: 18px;
+	padding: 6px;
+	background: #7E7E7E;
+	color: #fafafa;
+	border-radius: 50%;
+	margin-right: 10px; 
+	transition: all 0.3s ease;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icons/icomoon/icomoon.eot?-l2hujn');
+	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix-l2hujn') format('embedded-opentype'),
+		url('../fonts/icons/icomoon/icomoon.woff?-l2hujn') format('woff'),
+		url('../fonts/icons/icomoon/icomoon.ttf?-l2hujn') format('truetype'),
+		url('../fonts/icons/icomoon/icomoon.svg?-l2hujn#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-youtube:hover{background: #CC181E !important}
+.icon-facebook:hover{background: #43609C !important}
+.icon-twitter:hover{background: #32C1C1 !important}
+
+.icon-youtube:before {
+	content: "\e600";
+}
+.icon-facebook:before {
+	content: "\e601";
+}
+.icon-twitter:before {
+	content: "\e602";
+}
+.icon-calendar:before {
+	content: "\e605";
+}
+.icon-link:before {
+	content: "\e606";
+}
+.icon-file-pdf:before {
+	content: "\e607";
+}
+.icon-arrow-left:before {
+	content: "\e603";
+}
+.icon-arrow-right:before {
+	content: "\e604";
+}
+
