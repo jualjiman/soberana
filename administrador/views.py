@@ -97,7 +97,7 @@ def publicacion(request, ide):
 	otrasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now), 
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-categoria")[:4]
+		Q(activo = True)).exclude(pk=ide).order_by("-categoria")[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
 	return render(
