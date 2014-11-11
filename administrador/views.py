@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from .models import *
 from .forms import *
+from django.core.cache import cache
 
 # Create your views here.
 
@@ -88,15 +89,25 @@ def busqueda(request):
 	        # ...
 			pista = searchform.cleaned_data['pista']
 			if pista != u'':
-				now = datetime.now()
-				publicaciones = Publicacion.objects.filter(
-					Q(fecha_inicio__lte=now), 
-					Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-					Q(activo = True),
-					Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
-					).order_by("-categoria").order_by("-orden")
+
+				cache_key = "pista_%s" % (pista,)
+				cache_time = 1800
+
+				publicaciones = cache.get(cache_key)
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
+
+				if not publicaciones:
+					now = datetime.now()
+					publicaciones = Publicacion.objects.filter(
+						Q(fecha_inicio__lte=now), 
+						Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+						Q(activo = True),
+						Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
+						).order_by("-categoria").order_by("-orden")
+					cache.set(cache_key, publicaciones, cache_time)
+					textoBusqueda = textoBusqueda + " (cacheado)"
+
 				searchform = BusquedaForm()
 
 				return render(request, 'busqueda.html', {
