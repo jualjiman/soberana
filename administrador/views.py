@@ -41,13 +41,15 @@ def publicacion(request, ide):
 		Q(activo = True)).exclude(pk=ide).order_by("-categoria")[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
+	searchform = BusquedaForm()
 	return render(
 		request,
 		"publicacion.html",
 		{
 			"publicacion" : publicacion,
 			"titulo" : titulo,
-			"otrasPublicaciones" : otrasPublicaciones
+			"otrasPublicaciones" : otrasPublicaciones,
+			"searchform" : searchform
 		}
 	)
 
@@ -94,9 +96,12 @@ def busqueda(request):
 					).order_by("-categoria")
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
+				searchform = BusquedaForm()
+
 				return render(request, 'busqueda.html', {
 					"publicaciones": publicaciones,
-					"textoBusqueda":textoBusqueda
+					"textoBusqueda":textoBusqueda,
+					"searchform" : searchform
 					})
 			else:
 				return HttpResponseRedirect("/")
