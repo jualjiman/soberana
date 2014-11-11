@@ -14,7 +14,7 @@ def home(request):
 	todasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now),
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-categoria").order_by("orden")
+		Q(activo = True)).order_by("-categoria").order_by("-orden")
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -39,7 +39,7 @@ def publicacion(request, ide):
 	otrasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now), 
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).exclude(pk=ide).order_by("-categoria")[:4]
+		Q(activo = True)).exclude(pk=ide).order_by("-categoria").order_by("-orden")[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
 	searchform = BusquedaForm()
@@ -60,7 +60,7 @@ def publicaciones(request):
 	todasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now), 
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-categoria")
+		Q(activo = True)).order_by("-categoria").order_by("-orden")
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -94,7 +94,7 @@ def busqueda(request):
 					Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 					Q(activo = True),
 					Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
-					).order_by("-categoria")
+					).order_by("-categoria").order_by("-orden")
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
 				searchform = BusquedaForm()

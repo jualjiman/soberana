@@ -16,7 +16,7 @@ class SliderAdmin(admin.ModelAdmin):
 
 @admin.register(Publicacion)
 class PublicacionAdmin(admin.ModelAdmin):
-	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria')
+	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','orden')
 	search_fields = ('titulo','descripcion',)
 
 	def img_publicacion(self,model_instance):
