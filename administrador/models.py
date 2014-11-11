@@ -6,7 +6,6 @@ from datetime import datetime
 # Create your models here.
 
 categorias = (
-	(2, u'Muy importante'),
 	(1, u'Importante'),
 	(0, u'Normal'),
 )
