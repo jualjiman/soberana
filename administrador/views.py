@@ -14,7 +14,7 @@ def home(request):
 	todasPublicaciones = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now),
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-categoria")
+		Q(activo = True)).order_by("-categoria").order_by("orden")
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
