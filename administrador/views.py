@@ -60,15 +60,15 @@ def publicaciones(request):
 
 	cache_key = "publicaciones_cacheadas"
 	cache_time = 1200
-	publicaciones = cache.get(cache_key)
+	todasPublicaciones = cache.get(cache_key)
 
-	if not publicaciones:
+	if not todasPublicaciones:
 		now = datetime.now()
 		todasPublicaciones = Publicacion.objects.filter(
 			Q(fecha_inicio__lte=now), 
 			Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 			Q(activo = True)).order_by("-categoria").order_by("-orden")
-		cache.set(cache_key, publicaciones, cache_time)
+		cache.set(cache_key, todasPublicaciones, cache_time)
 	else:
 		titulo = "cacheado"
 
