@@ -48,7 +48,7 @@
 				{% for publicacion in otrasPublicaciones%}
 					<div class="other-news-content border-bottom-g">
 						<a  href="/publicacion/{{ publicacion.id }}"><h4>{{ publicacion.titulo }}</h4></a>
-						{{ publicacion.resumen|slice:":150" }}
+						<p>{{ publicacion.resumen|slice:":150" }}</p>
 					</div>
 				{% endfor %}
 
