@@ -92,7 +92,7 @@ def busqueda(request):
 					Q(fecha_inicio__lte=now), 
 					Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 					Q(activo = True),
-					Q(titulo__contains=pista) | Q(resumen__contains=pista) | Q(texto__contains=pista)
+					Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
 					).order_by("-categoria")
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
