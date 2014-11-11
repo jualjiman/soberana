@@ -113,6 +113,26 @@ def busqueda(request):
 
 ################################################################################################
 
+def residencias_profesionales(request):
+	titulo = "Residencias profesionales - "
+	return render(
+		request,
+		"residencias-profesionales.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+def formatos(request):
+	titulo = "Formatos - "
+	return render(
+		request,
+		"formatos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
 def documentos_rectores_de_planeacion(request):
 	titulo = "Documentos rectores de planeación - "
 	return render(
