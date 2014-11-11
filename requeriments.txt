@@ -2,7 +2,7 @@ Django==1.7.1
 MySQL-python==1.2.5
 Pillow==2.6.1
 argparse==1.2.1
-django-admin-bootstrapped==0.9
+git+https://github.com/darrylcousins/django-admin-bootstrapped3.git
 django-bootstrap3==4.11.0
 gunicorn==19.1.1
 setproctitle==1.1.8
