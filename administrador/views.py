@@ -113,6 +113,16 @@ def busqueda(request):
 
 ################################################################################################
 
+def documentos_rectores_de_planeacion(request):
+	titulo = "Documentos rectores de planeación - "
+	return render(
+		request,
+		"documentos-rectores-de-planeacion.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
 def directorio(request):
 	titulo = "Directorio - "
 	return render(

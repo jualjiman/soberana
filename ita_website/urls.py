@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^publicacion/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
     url(r'^publicaciones/$', 'administrador.views.publicaciones', name='publicaciones'),
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
+
+    url(r'^documentos-rectores-de-planeacion/$', 'administrador.views.documentos_rectores_de_planeacion', name='documentos_rectores_de-planeacion'),
     url(r'^historia/$', 'administrador.views.historia', name='historia'),
     url(r'^licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
     url(r'^mision-vision/$', 'administrador.views.mision_vision', name='mision_vision'),

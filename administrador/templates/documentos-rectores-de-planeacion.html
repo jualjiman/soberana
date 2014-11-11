@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h3 class="text-red">Documentos rectores de planeación</h3>
+			
+			<ul>
+				<li><a href="{% static "docs/INFORMES_RENDICION_CUENTAS_ITACAPULCO2013.pdf" %}">Informe de Rendición de Cuentas 2013</a></li>
+				<li><a href="{% static "docs/PIID2007-2012_IT_Acapulco_final.pdf" %}">Programa de Innovación y Desarrollo 2007-2012</a></li>
+				<li><a href="{% static "docs/AGENDA_ESTRATEGICA2012-2013INST_TEC_ACAPULCO.pdf" %}">Agenta Estratégica 2013</a></li>
+				<li><a href="{% static "docs/PTA 2014.pdf" %}">PTA 2014</a></li>
+			</ul>
+
+		</div>
+	</section>
+
+{% endblock %}
