@@ -6,9 +6,9 @@ from datetime import datetime
 # Create your models here.
 
 categorias = (
-	('MI', u'Muy importante'),
-	('IM', u'Importante'),
-	('NO', u'Normal'),
+	('2', u'Muy importante'),
+	('1', u'Importante'),
+	('0', u'Normal'),
 )
 
 class Slider(models.Model):
@@ -43,7 +43,7 @@ class Publicacion(models.Model):
 	fecha_inicio = models.DateTimeField(default=datetime.now(), help_text='Fecha y hora de inicio de la publicacion')
 	fecha_fin = models.DateTimeField(blank=True,null=True, help_text='Fecha y hora en que dejara de ser mostrada la publicacion. Si se deja en blanco sera permanente')
 
-	categoria = models.CharField(max_length=2, choices=categorias, help_text='Define la prioridad de la publicacion')
+	categoria = models.IntegerField(choices=categorias, help_text='Define la prioridad de la publicacion')
 
 	def __str__(self):
 		return self.titulo
