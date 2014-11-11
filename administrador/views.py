@@ -106,6 +106,7 @@ def busqueda(request):
 						Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
 						).order_by("-categoria").order_by("-orden")
 					cache.set(cache_key, publicaciones, cache_time)
+				else:
 					textoBusqueda = textoBusqueda + " (cacheado)"
 
 				searchform = BusquedaForm()
