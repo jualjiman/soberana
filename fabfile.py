@@ -1,7 +1,5 @@
 from fabric.api import  *
 from fabric.colors import green,red
-from fabvenv import virtualenv
-import cuisine
 
 env.webapps_dir = '/webapps/'
 env.app_dir = '/webapps/ITA/site'
