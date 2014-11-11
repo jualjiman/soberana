@@ -53,7 +53,28 @@
 
 		<article id="recent-news" class="container-fluid enfasis">
 			<div class="container">
-				<h3 class="text-center">Publicaciones</h3>
+				<div class="row">
+					<div class="col-sm-6">
+						<h3>Publicaciones</h3>
+					</div>
+					<div class="col-sm-6">
+						
+						<form role="search" class="seach-field" action="/busqueda/" method="GET">
+						  <div class="input-group">
+						      {# <input type="text" placeholder="¿Qué noticia esta buscando?" class="form-control"> #}
+						      {{ searchform.pista.errors }}
+		                        {{ searchform.pista }}
+						      <span class="input-group-btn">
+						        <button id="btnSearch" type="submit" class="btn btn-success" type="button">BUSCAR</button>
+						      </span>
+						    </div><!-- /input-group -->
+						</form>
+					</div>
+					<div class="col-xs-12">
+						<h4>{{ textoBusqueda }}</h4>
+					</div>
+				</div>
+				
 				<div class="row">
 					
 					{% for publicacion in publicacionesPermanentes %}
@@ -99,7 +120,7 @@
 					{% endfor%}
 
 				</div>
-				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">Más publicaciones</a></p>
+				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">MÁS PUBLICACIONES</a></p>
 			</div>
 		</article>
 	</section>

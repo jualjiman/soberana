@@ -19,7 +19,7 @@ def home(request):
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
 
-
+	searchform = BusquedaForm()
 	return render(
 			request,
 			"home.html",
@@ -27,7 +27,8 @@ def home(request):
 				"sliders": sliders,
 				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
-				"titulo" : titulo
+				"titulo" : titulo,
+				"searchform" : searchform
 			}
 		)
 
