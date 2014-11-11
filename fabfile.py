@@ -62,7 +62,6 @@ def git_push(branch="master"):
     print red("---GIT PUSH---")
     with cd(env.app_dir):
         print green("actualizando...")
-        run("pip freeze > requeriments.txt")
         run("git status")
         run("git add -A")
         run("git commit -m 'subiendo cambios server'")
@@ -128,5 +127,25 @@ def pip_install(package="master"):
     with cd(env.env_dir):
         print green("installing...")
         run("source bin/activate && pip install %s" % package)
+
+        print green("Listo")
+
+#######################################LOCALES############################################
+env.webapps_dir_local = '/home/alberto/git/'
+env.app_dir_local = '/webapps/ITA/site'
+env.env_dir_local = '/webapps/ITA/ita-env'
+
+@task
+def git_push_local(description="subiendo localmente"):
+    """
+        subir los avances del sitio localmente
+    """
+    print red("---GIT PUSH LOCAL---")
+    with cd(env.app_dir_local):
+        print green("actualizando...")
+        local("git status")
+        local("git add -A")
+        local("git commit -m 'subiendo cambios server'")
+        local("git push origin %s" % branch)
 
         print green("Listo")
