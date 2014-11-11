@@ -57,11 +57,20 @@ def publicacion(request, ide):
 
 def publicaciones(request):
 	titulo = "Publicaciones - "
-	now = datetime.now()
-	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now), 
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-categoria").order_by("-orden")
+
+	cache_key = "publicaciones_cacheadas"
+	cache_time = 1200
+	publicaciones = cache.get(cache_key)
+
+	if not publicaciones:
+		now = datetime.now()
+		todasPublicaciones = Publicacion.objects.filter(
+			Q(fecha_inicio__lte=now), 
+			Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+			Q(activo = True)).order_by("-categoria").order_by("-orden")
+		cache.set(cache_key, publicaciones, cache_time)
+	else:
+		titulo = "cacheado"
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -91,8 +100,7 @@ def busqueda(request):
 			if pista != u'':
 
 				cache_key = "pista_%s" % (pista,)
-				cache_time = 1800
-
+				cache_time = 1200
 				publicaciones = cache.get(cache_key)
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
@@ -106,8 +114,6 @@ def busqueda(request):
 						Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
 						).order_by("-categoria").order_by("-orden")
 					cache.set(cache_key, publicaciones, cache_time)
-				else:
-					textoBusqueda = textoBusqueda + " (cacheado)"
 
 				searchform = BusquedaForm()
 
