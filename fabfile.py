@@ -145,7 +145,7 @@ def git_push_local(description="subiendo localmente"):
         print green("actualizando...")
         local("git status")
         local("git add -A")
-        local("git commit -m 'subiendo cambios server'")
-        local("git push origin %s" % branch)
+        local("git commit -m '%s'" % description)
+        local("git push origin master")
 
         print green("Listo")
