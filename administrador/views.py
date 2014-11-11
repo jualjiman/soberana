@@ -9,6 +9,9 @@ from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
+cache_time = 2 #minutos
+
+@cache_page(60 * cache_time)
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
@@ -34,6 +37,7 @@ def home(request):
 			}
 		)
 
+@cache_page(60 * cache_time)
 def publicacion(request, ide):
 	publicacion = get_object_or_404(Publicacion,activo = True, id=ide)
 
@@ -56,6 +60,7 @@ def publicacion(request, ide):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def publicaciones(request):
 	titulo = "Publicaciones - "
 	now = datetime.now()
@@ -80,7 +85,7 @@ def publicaciones(request):
 		}
 	)
 
-@cache_page(60 * 2)
+@cache_page(60 * cache_time)
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
         # ContactForm BusquedaForm was defined in the previous section
