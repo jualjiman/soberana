@@ -20,6 +20,8 @@ class Slider(models.Model):
 		return self.titulo
 
 class Publicacion(models.Model):
+	activo = models.BooleanField(default=True, help_text="Debera ser mostrado?")
+	
 	imagen = ImageField(upload_to = "publicaciones")
 	
 	titulo = models.CharField(max_length=60, help_text='Titulo de la publicacion')
@@ -42,7 +44,6 @@ class Publicacion(models.Model):
 
 	categoria = models.CharField(max_length=2, choices=categorias, help_text='Define la prioridad de la publicacion')
 	orden = models.IntegerField(default=100, help_text='Numeros mayores van primero')
-	activo = models.BooleanField(default=True, help_text="Debera ser mostrado?")
 
 	def __str__(self):
 		return self.titulo
