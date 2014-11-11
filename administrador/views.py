@@ -4,7 +4,8 @@ from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from .models import *
 from .forms import *
-from django.core.cache import cache
+
+from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
@@ -57,20 +58,11 @@ def publicacion(request, ide):
 
 def publicaciones(request):
 	titulo = "Publicaciones - "
-
-	cache_key = "publicaciones_cacheadas"
-	cache_time = 1200
-	todasPublicaciones = cache.get(cache_key)
-
-	if not todasPublicaciones:
-		now = datetime.now()
-		todasPublicaciones = Publicacion.objects.filter(
-			Q(fecha_inicio__lte=now), 
-			Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-			Q(activo = True)).order_by("-categoria").order_by("-orden")
-		cache.set(cache_key, todasPublicaciones, cache_time)
-	else:
-		titulo = "cacheado"
+	now = datetime.now()
+	todasPublicaciones = Publicacion.objects.filter(
+		Q(fecha_inicio__lte=now), 
+		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+		Q(activo = True)).order_by("-categoria").order_by("-orden")
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -88,6 +80,7 @@ def publicaciones(request):
 		}
 	)
 
+@cache_page(60 * 2)
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
         # ContactForm BusquedaForm was defined in the previous section
@@ -98,23 +91,15 @@ def busqueda(request):
 	        # ...
 			pista = searchform.cleaned_data['pista']
 			if pista != u'':
-
-				cache_key = "pista_%s" % (pista,)
-				cache_time = 1200
-				publicaciones = cache.get(cache_key)
+				now = datetime.now()
+				publicaciones = Publicacion.objects.filter(
+					Q(fecha_inicio__lte=now), 
+					Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+					Q(activo = True),
+					Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
+					).order_by("-categoria").order_by("-orden")
 
 				textoBusqueda = 'Resultados para "' + pista + '"'
-
-				if not publicaciones:
-					now = datetime.now()
-					publicaciones = Publicacion.objects.filter(
-						Q(fecha_inicio__lte=now), 
-						Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-						Q(activo = True),
-						Q(titulo__icontains= pista) | Q(resumen__icontains=pista) | Q(texto__icontains=pista)
-						).order_by("-categoria").order_by("-orden")
-					cache.set(cache_key, publicaciones, cache_time)
-
 				searchform = BusquedaForm()
 
 				return render(request, 'busqueda.html', {
