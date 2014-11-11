@@ -39,7 +39,13 @@ def home(request):
 
 @cache_page(60 * cache_time)
 def publicacion(request, ide):
-	publicacion = get_object_or_404(Publicacion,activo = True, id=ide)
+
+	queryset = Publicacion.objects.filter(
+		Q(fecha_inicio__lte=now),
+		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+		Q(activo = True))
+
+	publicacion = get_object_or_404(queryset, id=ide)
 
 	now = datetime.now()
 	otrasPublicaciones = Publicacion.objects.filter(
