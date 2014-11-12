@@ -37,7 +37,7 @@ $(function(){
 
 	        // Get elements from request
 	        var $elems = $(data);
-	        $gallery.append( $elems.hide().fadeIn(800) );	        
+	        $gallery.append( $elems.hide().fadeIn(500) );	        
 	     },
 	     error: function (jqXHR, textStatus) {
 	        console.log(textStatus);
