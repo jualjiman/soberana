@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import *
 from .forms import *
@@ -10,16 +12,17 @@ from django.views.decorators.cache import cache_page
 # Create your views here.
 
 cache_time = 2 #minutos
+queryset = Publicacion.objects.filter(
+		Q(fecha_inicio__lte=now),
+		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+		Q(activo = True)).order_by("-fecha","-categoria","-pk")
 
 @cache_page(60 * cache_time)
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
 	now = datetime.now()
-	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now),
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+	todasPublicaciones = queryset
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -41,17 +44,10 @@ def home(request):
 def publicacion(request, ide):
 
 	now = datetime.now()
-	queryset = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now),
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True))
 
 	publicacion = get_object_or_404(queryset, id=ide)
 
-	otrasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now), 
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).exclude(pk=ide).order_by("-fecha","-categoria","-pk")[:4]
+	otrasPublicaciones = queryset.exclude(pk=ide)[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
 	searchform = BusquedaForm()
@@ -70,10 +66,7 @@ def publicacion(request, ide):
 def publicaciones(request):
 	titulo = "Publicaciones - "
 	now = datetime.now()
-	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now), 
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+	todasPublicaciones = queryset
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -226,3 +219,15 @@ def postgrados(request):
 				"titulo" : titulo,
 			}
 		)
+
+@csrf_exempt
+def mas(request):
+	if request.is_ajax():
+	    pagina = int(request.POST['num'])
+	    pagina *= 4
+
+	    otros = masPublicaciones.objects.filter(activo = True).order_by("prioridad")[pagina:(pagina+8)]
+
+	    return render(request,"mas.html",{"otros": otros})
+	else:
+		return HttpResponseRedirect("/")
