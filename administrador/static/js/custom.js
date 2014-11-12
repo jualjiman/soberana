@@ -26,7 +26,6 @@ $(function(){
 	  var $gallery = $("#loadmore-container");
 	  
 	  var pag = parseInt($counter.val());
-
 	  $.ajax({
 	     type: "POST",
 	     url: '/mas/',
@@ -37,9 +36,8 @@ $(function(){
 	        $counter.val(pag + 1);
 
 	        // Get elements from request
-	        var $elems = data;
-	        $gallery.append( $elems );
-	        
+	        var $elems = $(data);
+	        $gallery.append( $elems.hide().fadeIn(800) );	        
 	     },
 	     complete: function () {
 	        console.log("done");

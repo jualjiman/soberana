@@ -11,7 +11,7 @@ from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
-cache_time = 5 #minutos
+cache_time = 3 #minutos
 def queryset():
 	now = datetime.now()
 	query = Publicacion.objects.filter(
@@ -228,10 +228,11 @@ def postgrados(request):
 def mas(request):
 	if request.is_ajax():
 	    pagina = int(request.POST['num'])
-	    pagina *= 4
+	    elemsPorPagina = 4
+	    pagina *= elemsPorPagina
 
 	    query = queryset()
-	    masPublicaciones = query[pagina:(pagina+8)]
+	    masPublicaciones = query[pagina:(pagina+elemsPorPagina)]
 
 	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
 	else:
