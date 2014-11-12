@@ -39,9 +39,6 @@ $(function(){
 	        var $elems = $(data);
 	        $gallery.append( $elems.hide().fadeIn(800) );	        
 	     },
-	     complete: function () {
-	        console.log("done");
-	     },
 	     error: function (jqXHR, textStatus) {
 	        console.log(textStatus);
 	     }
