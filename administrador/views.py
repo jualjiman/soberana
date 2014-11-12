@@ -137,6 +137,16 @@ def residencias_profesionales(request):
 		}
 	)
 
+def titulacion(request):
+	titulo = "Titulación - "
+	return render(
+		request,
+		"titulacion.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
 def formatos(request):
 	titulo = "Formatos - "
 	return render(
