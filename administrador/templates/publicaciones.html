@@ -53,7 +53,7 @@
 		<article class="container">
 			<div id="recent-news" class="container-fluid margin-top-med">
 			
-				<div class="row">
+				<div class="row" id="loadmore-container">
 					
 					{% for publicacion in publicaciones %}
 						<div class="col-sm-6 col-md-3">
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<p class="text-center">
-				<a href="/publicaciones/" class="btn btn-primary" role="button">CARGAR MÁS</a>
+				<button id="btn-loadmore" class="btn btn-primary" role="button">CARGAR MÁS</button>
 			</p>
 		</article>
 

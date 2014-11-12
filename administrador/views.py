@@ -11,7 +11,7 @@ from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
-cache_time = 2 #minutos
+cache_time = 5 #minutos
 def queryset():
 	now = datetime.now()
 	query = Publicacion.objects.filter(
@@ -230,8 +230,9 @@ def mas(request):
 	    pagina = int(request.POST['num'])
 	    pagina *= 4
 
-	    otros = masPublicaciones.objects.filter(activo = True).order_by("prioridad")[pagina:(pagina+8)]
+	    query = queryset()
+	    masPublicaciones = query[pagina:(pagina+8)]
 
-	    return render(request,"mas.html",{"otros": otros})
+	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
 	else:
 		return HttpResponseRedirect("/")

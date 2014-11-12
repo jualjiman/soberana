@@ -25,6 +25,8 @@ urlpatterns = patterns('',
     url(r'^plano/$', 'administrador.views.plano', name='plano'),
     url(r'^postgrados/$', 'administrador.views.postgrados', name='postgrados'),
 
+    url(r'^mas/$', 'administrador.views.mas', name='mas'),
+
     #url(r'^contacto/$', 'administrador.views.contacto', name='contacto'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
