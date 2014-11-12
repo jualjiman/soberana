@@ -12,17 +12,21 @@ from django.views.decorators.cache import cache_page
 # Create your views here.
 
 cache_time = 2 #minutos
-queryset = Publicacion.objects.filter(
+def queryset():
+	now = datetime.now()
+	query = ublicacion.objects.filter(
 		Q(fecha_inicio__lte=now),
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+	return query
 
 @cache_page(60 * cache_time)
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
-	now = datetime.now()
-	todasPublicaciones = queryset
+
+	query = queryset()
+	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -43,11 +47,11 @@ def home(request):
 @cache_page(60 * cache_time)
 def publicacion(request, ide):
 
-	now = datetime.now()
+	query = queryset()
 
-	publicacion = get_object_or_404(queryset, id=ide)
+	publicacion = get_object_or_404(query, id=ide)
 
-	otrasPublicaciones = queryset.exclude(pk=ide)[:4]
+	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
 	searchform = BusquedaForm()
@@ -65,8 +69,8 @@ def publicacion(request, ide):
 @cache_page(60 * cache_time)
 def publicaciones(request):
 	titulo = "Publicaciones - "
-	now = datetime.now()
-	todasPublicaciones = queryset
+	query = queryset()
+	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
