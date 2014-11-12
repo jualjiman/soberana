@@ -123,6 +123,13 @@ def busqueda(request):
 		return HttpResponseRedirect("/")
 
 ################################################################################################
+def e404(request):
+	return render(request,"404.html",{})
+
+def e500(request):
+	return render(request,"500.html",{})
+
+################################################################################################
 
 def residencias_profesionales(request):
 	titulo = "Residencias profesionales - "

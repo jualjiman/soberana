@@ -29,14 +29,14 @@ class Publicacion(models.Model):
 
 	texto = models.TextField(help_text='Texto correspondiente a la publicacion')
 	
-	link = models.URLField(blank=True, help_text='Link asociado con la publicacion')
 	descripcionLink = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del link.")
+	link = models.URLField(blank=True, help_text='Link asociado con la publicacion')
 
-	claveYoutube = models.CharField(max_length=20, blank=True, help_text='Clave de video de youtube asociado con la publicacion')
 	descripcionVideoYoutube = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del video de youtube.")
+	claveYoutube = models.CharField(max_length=20, blank=True, help_text='Clave de video de youtube asociado con la publicacion')
 
-	pdf = models.FileField(upload_to = "pdfpublicacion", blank=True, help_text='Archivo pdf asociado con la publicacion')
 	descripcionPdf = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del PDF.")
+	pdf = models.FileField(upload_to = "pdfpublicacion", blank=True, help_text='Archivo pdf asociado con la publicacion')
 
 	fecha = models.DateField(default=datetime.now(),help_text='Fecha a partir de la cual sera mostrada la publicacion')
 	fecha_inicio = models.DateTimeField(default=datetime.now(), help_text='Fecha y hora de inicio de la publicacion')
