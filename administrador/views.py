@@ -14,7 +14,7 @@ from django.views.decorators.cache import cache_page
 cache_time = 2 #minutos
 def queryset():
 	now = datetime.now()
-	query = ublicacion.objects.filter(
+	query = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now),
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
 		Q(activo = True)).order_by("-fecha","-categoria","-pk")
