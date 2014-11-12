@@ -22,37 +22,32 @@ $(function(){
 	  e.preventDefault();
 	  //var $this = $(this).hide();
 	  //var $spinner = $(this).siblings('.loading-spinner').show();
-	  //var pag = parseInt($("#num-pag").val());
-
+	  var $counter = $("#num-pag");
 	  var $gallery = $("#loadmore-container");
-	  console.log($gallery);
-	  alert("ya");
-	  // $.ajax({
-	  //    type: "POST",
-	  //    url: '/mas/',
-	  //    data: {
-	  //       num: pag
-	  //    },
-	  //    success: function (data) {
-	  //       $("#num-pag").val(pag + 1);
-	  //       // Get elements from request
-	  //       var $elems = $('<div>'+data+'</div>').find('.gl-item');
-	  //       // append elements to container
-	  //       $gallery.append( $elems );
-	  //          // add and lay out newly appended elements
-	  //          refresh_items_order_data();
-	  //       $gallery.isotope( 'appended', $elems );
-	           
-	  //       process_images_load();
+	  
+	  var pag = parseInt($counter.val());
+
+	  $.ajax({
+	     type: "POST",
+	     url: '/mas/',
+	     data: {
+	        num: pag
+	     },
+	     success: function (data) {
+	        $counter.val(pag + 1);
+
+	        // Get elements from request
+	        var $elems = data;
+	        $gallery.append( $elems );
 	        
-	  //    },
-	  //    complete: function () {
-	  //       $spinner.hide();
-	  //    },
-	  //    error: function (jqXHR, textStatus) {
-	  //       console.log(textStatus);
-	  //    }
-	  // });
+	     },
+	     complete: function () {
+	        console.log("done");
+	     },
+	     error: function (jqXHR, textStatus) {
+	        console.log(textStatus);
+	     }
+	  });
 
 	});
 });
