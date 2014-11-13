@@ -10,21 +10,30 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'administrador.views.home', name='home'),
-    url(r'^directorio/$', 'administrador.views.directorio', name='directorio'),
-    url(r'^publicacion/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
+    
+    url(r'^publicaciones/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
     url(r'^publicaciones/$', 'administrador.views.publicaciones', name='publicaciones'),
-    url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
 
-    url(r'^documentos-rectores-de-planeacion/$', 'administrador.views.documentos_rectores_de_planeacion', name='documentos_rectores_de-planeacion'),
-    url(r'^residencias-profesionales/$', 'administrador.views.residencias_profesionales', name='residencias_profesionales'),
-    url(r'^historia/$', 'administrador.views.historia', name='historia'),
-    url(r'^formatos/$', 'administrador.views.formatos', name='formatos'),
-    url(r'^titulacion/$', 'administrador.views.titulacion', name='titulacion'),
-    url(r'^licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
-    url(r'^mision-vision/$', 'administrador.views.mision_vision', name='mision_vision'),
-    url(r'^plano/$', 'administrador.views.plano', name='plano'),
     url(r'^postgrados/$', 'administrador.views.postgrados', name='postgrados'),
-
+    
+    #ESTUDIANTES
+    url(r'^estudiantes/residencias-profesionales/$', 'administrador.views.residencias_profesionales', name='residencias_profesionales'),
+    url(r'^estudiantes/titulacion/$', 'administrador.views.titulacion', name='titulacion'),
+    url(r'^estudiantes/formatos/$', 'administrador.views.formatos', name='formatos'),
+    
+    #OFERTA EDUCATIVA
+    url(r'^oferta-educativa/licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
+    
+    #NUESTRO INSTITUTO
+    url(r'^nuestro-instituto/mision-vision/$', 'administrador.views.mision_vision', name='mision_vision'),
+    url(r'^nuestro-instituto/plano/$', 'administrador.views.plano', name='plano'),
+    url(r'^nuestro-instituto/historia/$', 'administrador.views.historia', name='historia'),
+    url(r'^nuestro-instituto/directorio/$', 'administrador.views.directorio', name='directorio'),
+    
+    #SITIOS ITA
+    url(r'^sitios-ita/documentos-rectores-de-planeacion/$', 'administrador.views.documentos_rectores_de_planeacion', name='documentos_rectores_de-planeacion'),
+    
+    url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
     url(r'^mas/$', 'administrador.views.mas', name='mas'),
 
     #url(r'^contacto/$', 'administrador.views.contacto', name='contacto'),
