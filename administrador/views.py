@@ -7,11 +7,11 @@ from datetime import datetime
 from .models import *
 from .forms import *
 
-#from django.views.decorators.cache import cache_page
+from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
-cache_time = 0 #minutos
+cache_time = 2 #minutos
 def queryset():
 	now = datetime.now()
 	query = Publicacion.objects.filter(
@@ -20,7 +20,7 @@ def queryset():
 		Q(activo = True)).order_by("-fecha","-categoria","-pk")
 	return query
 
-#@cache_page(60 * cache_time)
+@cache_page(60 * cache_time)
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
@@ -44,7 +44,7 @@ def home(request):
 			}
 		)
 
-#@cache_page(60 * cache_time)
+@cache_page(60 * cache_time)
 def publicacion(request, ide):
 
 	query = queryset()
@@ -66,7 +66,7 @@ def publicacion(request, ide):
 		}
 	)
 
-#@cache_page(60 * cache_time)
+@cache_page(60 * cache_time)
 def publicaciones(request):
 	titulo = "Publicaciones - "
 	query = queryset()
@@ -88,7 +88,7 @@ def publicaciones(request):
 		}
 	)
 
-#@cache_page(60 * cache_time)
+@cache_page(60 * cache_time)
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
         # ContactForm BusquedaForm was defined in the previous section
