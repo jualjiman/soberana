@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     
     #OFERTA EDUCATIVA
     url(r'^oferta-educativa/licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
-    url(r'^oferta-educativa/postgrado/$', 'administrador.views.postgrado', name='postgrado'),
+    url(r'^oferta-educativa/posgrado/$', 'administrador.views.posgrado', name='posgrado'),
     url(r'^oferta-educativa/cuerpos-academico/$', 'administrador.views.cuerpos_academico', name='cuerpos_academico'),
     
     #NUESTRO INSTITUTO

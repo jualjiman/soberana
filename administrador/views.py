@@ -231,11 +231,11 @@ def plano(request):
 			}
 		)
 
-def postgrado(request):
-	titulo = "Postgrado - "
+def posgrado(request):
+	titulo = "Posgrado - "
 	return render(
 			request,
-			"postgrado.html",
+			"posgrado.html",
 			{
 				"titulo" : titulo,
 			}
