@@ -141,11 +141,11 @@ def residencias_profesionales(request):
 		}
 	)
 
-def cuerpos_academico(request):
-	titulo = "Cuerpos académico - "
+def cuerpos_academicos(request):
+	titulo = "Cuerpos académicos - "
 	return render(
 		request,
-		"cuerpos-academico.html",
+		"cuerpos-academicos.html",
 		{
 			"titulo" : titulo,
 		}
