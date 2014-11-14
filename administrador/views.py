@@ -141,6 +141,16 @@ def residencias_profesionales(request):
 		}
 	)
 
+def cuerpos_academico(request):
+	titulo = "Cuerpos académico - "
+	return render(
+		request,
+		"cuerpos-academico.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
 def titulacion(request):
 	titulo = "Titulación - "
 	return render(
@@ -221,11 +231,11 @@ def plano(request):
 			}
 		)
 
-def postgrados(request):
-	titulo = "Postgrados - "
+def postgrado(request):
+	titulo = "Postgrado - "
 	return render(
 			request,
-			"postgrados.html",
+			"postgrado.html",
 			{
 				"titulo" : titulo,
 			}

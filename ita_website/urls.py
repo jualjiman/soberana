@@ -14,7 +14,6 @@ urlpatterns = patterns('',
     url(r'^publicaciones/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
     url(r'^publicaciones/$', 'administrador.views.publicaciones', name='publicaciones'),
 
-    url(r'^postgrados/$', 'administrador.views.postgrados', name='postgrados'),
     
     #ESTUDIANTES
     url(r'^estudiantes/residencias-profesionales/$', 'administrador.views.residencias_profesionales', name='residencias_profesionales'),
@@ -23,6 +22,8 @@ urlpatterns = patterns('',
     
     #OFERTA EDUCATIVA
     url(r'^oferta-educativa/licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
+    url(r'^oferta-educativa/postgrado/$', 'administrador.views.postgrado', name='postgrado'),
+    url(r'^oferta-educativa/cuerpos-academico/$', 'administrador.views.cuerpos_academico', name='cuerpos_academico'),
     
     #NUESTRO INSTITUTO
     url(r'^nuestro-instituto/mision-vision/$', 'administrador.views.mision_vision', name='mision_vision'),
