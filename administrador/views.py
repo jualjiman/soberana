@@ -151,6 +151,39 @@ def cuerpos_academicos(request):
 		}
 	)
 
+#NORMATIVIDAD
+def normatividad_academica(request):
+	titulo = "Normatividad académica - "
+	return render(
+		request,
+		"normatividad-academica.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+def normatividad_lineamientos_academicos(request):
+	titulo = "Lineamientos académicos - "
+	return render(
+		request,
+		"normatividad-lineamientos-academicos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+def normatividad_manuales_academicos(request):
+	titulo = "Manuales académicos - "
+	return render(
+		request,
+		"normatividad-manuales-academicos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+
+###
 def titulacion(request):
 	titulo = "Titulación - "
 	return render(

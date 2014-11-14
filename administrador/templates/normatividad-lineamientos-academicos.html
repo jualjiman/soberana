@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Normatividad Academica</h2>
+			<ul>
+				<li><a href="/normatividad/academica/lineamientos-academicos">Lineamientos Académicos – Administrativos 2010</a></li>
+				<li><a href="/normatividad/academica/manuales-academicos">Manuales Académicos – Administrativos 2007</a></li>
+				<li><a href="{% static "docs/normatividad/academica/REGLAMENTO_ALUMNOSSNEST.pdf" %}">Reglamento estudiantil</a></li>
+			</ul>
+		</div>
+	</section>
+{% endblock %}

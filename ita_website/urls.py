@@ -38,6 +38,11 @@ urlpatterns = patterns('',
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
     url(r'^mas/$', 'administrador.views.mas', name='mas'),
 
+    #NORMATIVIDAD
+    url(r'^normatividad/academica/$', 'administrador.views.normatividad_academica', name='normatividad_academica'),
+    url(r'^normatividad/academica/lineamientos-academicos/$', 'administrador.views.normatividad_lineamientos_academicos', name='normatividad_lineamientos_academicos'),
+    url(r'^normatividad/academica/manuales-academicos/$', 'administrador.views.normatividad_manuales_academicos', name='normatividad_manuales_academicos'),
+
     #url(r'^contacto/$', 'administrador.views.contacto', name='contacto'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
