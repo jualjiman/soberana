@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^oferta-educativa/posgrado/$', 'administrador.views.posgrado', name='posgrado'),
     url(r'^oferta-educativa/cuerpos-academico/$', 'administrador.views.cuerpos_academico', name='cuerpos_academico'),
     
+    
     #NUESTRO INSTITUTO
     url(r'^nuestro-instituto/mision-vision/$', 'administrador.views.mision_vision', name='mision_vision'),
     url(r'^nuestro-instituto/plano/$', 'administrador.views.plano', name='plano'),

@@ -240,6 +240,7 @@ def posgrado(request):
 				"titulo" : titulo,
 			}
 		)
+	
 
 @csrf_exempt
 def mas(request):
