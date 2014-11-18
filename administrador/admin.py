@@ -25,7 +25,7 @@ class PublicacionAdmin(admin.ModelAdmin):
 
 		return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)
 
-	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria',)
+	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','activo')
 	search_fields = ('titulo','descripcion',)
 
 	def img_publicacion(self,model_instance):
