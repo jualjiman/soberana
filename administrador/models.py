@@ -37,7 +37,7 @@ class Publicacion(models.Model):
 	fecha_fin = models.DateTimeField(blank=True,null=True, help_text='Fecha y hora en que dejara de ser mostrada la publicacion. Si se deja en blanco sera permanente')
 	categoria = models.IntegerField(choices=categorias, help_text='Define la prioridad de la publicacion')
 
-	creator = models.ForeignKey(User, related_name='CreadorPublicacion')
+	creator = models.ForeignKey(User, related_name='CreadorPublicacion', null=True, blank=True)
 	
 	def __str__(self):
 		return self.titulo
