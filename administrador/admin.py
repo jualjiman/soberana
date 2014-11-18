@@ -29,6 +29,6 @@ class PublicacionAdmin(admin.ModelAdmin):
 	search_fields = ('titulo','descripcion',)
 
 	def img_publicacion(self,model_instance):
-		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'250x100',crop='center').url,)
+		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x100',crop='center').url,)
 	
 	img_publicacion.allow_tags = True		
