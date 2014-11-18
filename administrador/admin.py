@@ -19,7 +19,7 @@ class SliderAdmin(admin.ModelAdmin):
 class PublicacionAdmin(admin.ModelAdmin):
 
 	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','activo','creador','ultima_modificacion')
-	search_fields = ('titulo','descripcion',)
+	search_fields = ('titulo','texto','resumen',)
 
 	def img_publicacion(self,model_instance):
 		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
