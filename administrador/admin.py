@@ -16,6 +16,15 @@ class SliderAdmin(admin.ModelAdmin):
 
 @admin.register(Publicacion)
 class PublicacionAdmin(admin.ModelAdmin):
+
+	def get_form(self, request, obj=None, **kwargs):
+		if request.user.groups.filter(name='Capturista').exists():
+			self.exclude = ['activo']
+		else:
+			self.exclude = []
+
+		return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)
+
 	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria',)
 	search_fields = ('titulo','descripcion',)
 
