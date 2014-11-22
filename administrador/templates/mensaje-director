@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Mensaje del director</h2>
+			<div class="text-justify margin-top-low">
+
+				<p>El Instituto Tecnológico de Acapulco, fundado en el año de 1975, asume su liderazgo como la mejor opción en la región Centro y de la Costa de Guerrero para los jóvenes que desean cursar una Carrera Superior.</p>
+
+				<img src="http://placehold.it/800x350" class="autoWidth" alt="">
+				<p>Actualmente nuestra matrícula consta de 4,350 estudiantes en las Carreras de Arquitectura, Ingeniería Bioquímica, Ingeniería Electromecánica, Ingeniería en Sistemas Computacionales, Ingeniería en Gestión Empresarial, Licenciatura en Administración y en Contaduría Pública.</p>
+
+				<p>A sus 40 años de su fundación, el Tecnológico de Acapulco es una Institución de reconocido prestigio académico por la calidad de su enseñanza, con programas educativos de vanguardia, acordes a las demandas del sector productivo y que exige la globalización, fomentando la competitividad profesional.</p>
+
+				<p>Los valores que se practican, fortalecen a nuestros egresados asumiendo la ética como premisa, el espíritu de servicio y el trabajo en equipo, la responsabilidad y el compromiso social en beneficio de ellos mismos, de sus familias y de la sociedad que ha depositado en nosotros la educación sus hijos.</p>
+
+				<p>Nuestra planta docente está permanentemente capacitada tanto en lo profesional como en la docencia y actualmente se encuentran en proceso de certificación basada en competencias profesionales, lo que permite garantizar un aprendizaje significativo, con una actitud altruista a favor de sus estudiantes.</p>
+
+				<p>Estamos en una mejora continua de acuerdo a las certificaciones en la Norma de Calidad ISO 9001-2008, de Gestión Ambiental 14001-2004 y de Equidad de Género MEG 2003, lo que nos ha permitido controlar más eficientemente nuestros procesos, así como la mitigación de los impactos en el medio ambiente que nos atañen en un ambiente laboral digno.</p>
+
+				<p>Deseamos que en estos 40 años de servicio, tanto docentes, personal de apoyo y asistencia a la educación, estudiantes y aspirantes a nuevo ingreso, hagamos de nuestro plantel educativo una Institución de Alto Desempeño que nos motive a una superación permanente.</p>
+
+				ATENTAMENTE
+				ING. ELIOT JOFFRE VÁZQUEZ
+				DIRECTOR
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
