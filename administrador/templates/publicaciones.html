@@ -5,9 +5,8 @@
 
 	<section id="mainContent">
 
-		<article id="recent-news" class="container-fluid enfasis">
+		<article id="recent-news" class="container-fluid">
 			<div class="container">
-				
 				<div class="row">
 					<div class="col-sm-6">
 						<h3>Publicaciones</h3>
@@ -25,19 +24,27 @@
 						    </div><!-- /input-group -->
 						</form>
 					</div>
+					<div class="col-xs-12">
+						<h4>{{ textoBusqueda }}</h4>
+					</div>
 				</div>
+			</div>
+		</article>
+
+		<article id="recent-news" class="container-fluid enfasis">
+			<div class="container">
 
 				<div class="row">
 
 					{% for publicacion in publicacionesPermanentes %}
 						<div class="col-sm-6 col-md-3">
-						    <a class="thumbnail" href="/publicacion/{{ publicacion.id }}">
+						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
-						        	<h4>{{ publicacion.titulo }}</h4>
+						        	<h4 class="text-red">{{ publicacion.titulo }}</h4>
 						         	<div class="new-content">
 						        	{{ publicacion.resumen|slice:":150" }}
 						        </div>
@@ -49,20 +56,21 @@
 				</div>
 			</div>
 		</article>
-
-		<article id="recent-news" class="container-fluid margin-top-med">
-			<div class="container">
-				<div class="row">
+		
+		<article class="container">
+			<div id="recent-news" class="container-fluid margin-top-med">
+			
+				<div class="row" id="loadmore-container">
 					
 					{% for publicacion in publicaciones %}
 						<div class="col-sm-6 col-md-3">
-						    <a class="thumbnail" href="/publicacion/{{ publicacion.id }}">
+						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
-						        	<h4>{{ publicacion.titulo }}</h4>
+						        	<h4 class="text-red">{{ publicacion.titulo }}</h4>
 						         	<div class="new-content">
 						        	{{ publicacion.resumen|slice:":150" }}
 						        </div>
@@ -72,8 +80,11 @@
 					{% endfor%}
 
 				</div>
-				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">CARGAR MÁS</a></p>
 			</div>
+			<p class="text-center">
+				<input id="num-pag" type="hidden" value="2" />
+				<button id="btn-loadmore" class="btn btn-primary" role="button">CARGAR MÁS</button>
+			</p>
 		</article>
 
 	</section>

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
 from sorl.thumbnail.shortcuts import get_thumbnail
+from django.contrib.auth.models import User
 
 # Register your models here.
 
@@ -16,10 +17,33 @@ class SliderAdmin(admin.ModelAdmin):
 
 @admin.register(Publicacion)
 class PublicacionAdmin(admin.ModelAdmin):
-	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria',)
-	search_fields = ('titulo','descripcion',)
+
+	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','activo','creador','ultima_modificacion')
+	search_fields = ('titulo','texto','resumen',)
 
 	def img_publicacion(self,model_instance):
-		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'250x100',crop='center').url,)
+		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
+
+	def creador(self,model_instance):
+		return model_instance.creator
+
+	def ultima_modificacion(self,model_instance):
+		return model_instance.editer
 	
 	img_publicacion.allow_tags = True		
+
+	def save_model(self, request, publication, form, change):
+		if change:
+			publication.editer = request.user
+		else:
+			publication.creator = request.user
+		
+		publication.save()
+
+	def get_form(self, request, obj=None, **kwargs):
+		if request.user.groups.filter(name='Capturista').exists():
+			self.exclude = ['activo','creator','editer']
+		else:
+			self.exclude = ['creator','editer']
+
+		return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)

@@ -131,13 +131,13 @@ def pip_install(package="master"):
         print green("Listo")
 
 #######################################LOCALES############################################
-# env.webapps_dir_local = '/home/alberto/git/'
-# env.app_dir_local = '/webapps/ITA/site'
-# env.env_dir_local = '/webapps/ITA/ita-env'
-
 env.webapps_dir_local = '/home/alberto/git/'
-env.app_dir_local = '/home/alberto/git/django/ita/ita/ita-website/'
+env.app_dir_local = '/webapps/ITA/site'
 env.env_dir_local = '/webapps/ITA/ita-env'
+
+# env.webapps_dir_local = '/home/alberto/git/'
+# env.app_dir_local = '/home/alberto/git/django/ita/ita/ita-website/'
+# env.env_dir_local = '/webapps/ITA/ita-env'
 
 @task
 def git_push_local(description="subiendo localmente"):

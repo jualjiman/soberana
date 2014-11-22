@@ -2,9 +2,9 @@
 @import "bootstrap.css"
 
 permitedBackground = #fafafa
-enfasis = darken(permitedBackground,3%)
+enfasis = darken(permitedBackground,4%)
 
-lighterGray = #EEEEEE
+lighterGray = #ddd
 lightGray = #AEADB3
 darkGray = #98979C
 
@@ -21,13 +21,13 @@ h5
 	font-family: 'soberanaTitularRegular'
 
 .text-red
-	color redC
+	color redC !important
 
 .text-white
 	color permitedBackground
 
 .text-green
-	color greenC
+	color greenC !important
 
 a.text-green
 	&:hover
@@ -101,12 +101,14 @@ hr.doubleLine
 
 .enfasis
 	background enfasis
+	padding-top 20px
+	border solid 1px lighterGray
 
 #recent-news
 	h3
 		color redC
 	h4
-		color redC
+		color greenC
 
 .seach-field
 	margin 20px 0 10px 0
@@ -171,6 +173,10 @@ header
 
 .link
 	text-decoration underline
+
+.huge
+	font-size 10em
+
 
 ///////////////////////////////MEDIA QUERIES////////////////////////////////
 @media (min-width: 768px)

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import *
 from .forms import *
@@ -10,16 +12,21 @@ from django.views.decorators.cache import cache_page
 # Create your views here.
 
 cache_time = 2 #minutos
+def queryset():
+	now = datetime.now()
+	query = Publicacion.objects.filter(
+		Q(fecha_inicio__lte=now),
+		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
+		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+	return query
 
 @cache_page(60 * cache_time)
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
-	now = datetime.now()
-	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now),
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+
+	query = queryset()
+	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -40,18 +47,11 @@ def home(request):
 @cache_page(60 * cache_time)
 def publicacion(request, ide):
 
-	now = datetime.now()
-	queryset = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now),
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True))
+	query = queryset()
 
-	publicacion = get_object_or_404(queryset, id=ide)
+	publicacion = get_object_or_404(query, id=ide)
 
-	otrasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now), 
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).exclude(pk=ide).order_by("-fecha","-categoria","-pk")[:4]
+	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
 	searchform = BusquedaForm()
@@ -69,11 +69,8 @@ def publicacion(request, ide):
 @cache_page(60 * cache_time)
 def publicaciones(request):
 	titulo = "Publicaciones - "
-	now = datetime.now()
-	todasPublicaciones = Publicacion.objects.filter(
-		Q(fecha_inicio__lte=now), 
-		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
-		Q(activo = True)).order_by("-fecha","-categoria","-pk")
+	query = queryset()
+	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]
@@ -126,6 +123,13 @@ def busqueda(request):
 		return HttpResponseRedirect("/")
 
 ################################################################################################
+def e404(request):
+	return render(request,"404.html",{})
+
+def e500(request):
+	return render(request,"500.html",{})
+
+################################################################################################
 
 def residencias_profesionales(request):
 	titulo = "Residencias profesionales - "
@@ -137,6 +141,49 @@ def residencias_profesionales(request):
 		}
 	)
 
+def cuerpos_academicos(request):
+	titulo = "Cuerpos académicos - "
+	return render(
+		request,
+		"cuerpos-academicos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+#NORMATIVIDAD
+def normatividad_academica(request):
+	titulo = "Normatividad académica - "
+	return render(
+		request,
+		"normatividad-academica.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+def normatividad_lineamientos_academicos(request):
+	titulo = "Lineamientos académicos - "
+	return render(
+		request,
+		"normatividad-lineamientos-academicos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+def normatividad_manuales_academicos(request):
+	titulo = "Manuales académicos - "
+	return render(
+		request,
+		"normatividad-manuales-academicos.html",
+		{
+			"titulo" : titulo,
+		}
+	)
+
+
+###
 def titulacion(request):
 	titulo = "Titulación - "
 	return render(
@@ -217,12 +264,27 @@ def plano(request):
 			}
 		)
 
-def postgrados(request):
-	titulo = "Postgrados - "
+def posgrado(request):
+	titulo = "Posgrado - "
 	return render(
 			request,
-			"postgrados.html",
+			"posgrado.html",
 			{
 				"titulo" : titulo,
 			}
 		)
+	
+
+@csrf_exempt
+def mas(request):
+	if request.is_ajax():
+	    pagina = int(request.POST['num'])
+	    elemsPorPagina = 4
+	    pagina *= elemsPorPagina
+
+	    query = queryset()
+	    masPublicaciones = query[pagina:(pagina+elemsPorPagina)]
+
+	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
+	else:
+		return HttpResponseRedirect("/")

@@ -50,8 +50,7 @@
 			  </a>
 			</div>
 		</div>
-
-		<article id="recent-news" class="container-fluid enfasis">
+		<article id="recent-news" class="container-fluid">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
@@ -74,18 +73,23 @@
 						<h4>{{ textoBusqueda }}</h4>
 					</div>
 				</div>
+			</div>
+		</article>
+
+		<article id="recent-news" class="container-fluid enfasis">
+			<div class="container">
 				
 				<div class="row">
 					
 					{% for publicacion in publicacionesPermanentes %}
 						<div class="col-sm-6 col-md-3">
-						    <a class="thumbnail" href="/publicacion/{{ publicacion.id }}">
+						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
-						        	<h4>{{ publicacion.titulo }}</h4>
+						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
 						         	<div class="new-content">
 						        	{{ publicacion.resumen|slice:":150" }}
 						        </div>
@@ -104,13 +108,13 @@
 					
 					{% for publicacion in publicaciones %}
 						<div class="col-sm-6 col-md-3">
-						    <a class="thumbnail" href="/publicacion/{{ publicacion.id }}">
+						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
-						        	<h4>{{ publicacion.titulo }}</h4>
+						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
 						         	<div class="new-content">
 						        	{{ publicacion.resumen|slice:":150" }}
 						        </div>

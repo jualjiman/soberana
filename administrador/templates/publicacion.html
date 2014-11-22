@@ -31,7 +31,7 @@
 					{% endif %}		
 				</div>
 			</div>
-			<div class="col-md-3">
+			<aside class="col-md-3">
 				
 				<form role="search" class="margin-top-low" action="/busqueda/" method="GET">
 				  <div class="input-group">
@@ -47,12 +47,12 @@
 				<h3 class="text-green border-top-g">Otras publicaciones</h3>
 				{% for publicacion in otrasPublicaciones%}
 					<div class="other-news-content border-bottom-g">
-						<a  class="text-green link" href="/publicacion/{{ publicacion.id }}"><h4>{{ publicacion.titulo }}</h4></a>
+						<a  class="text-green link" href="/publicaciones/{{ publicacion.id }}"><h4>{{ publicacion.titulo }}</h4></a>
 						<p>{{ publicacion.resumen|slice:":150" }}</p>
 					</div>
 				{% endfor %}
 
-			</div>
+			</aside>
 		</article>	
 	</section>
 

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Maestría en planificación de empresas y desarrollo regional</h2>
+
+			<p>El Instituto Tecnológico de Acapulco a través de la División de Estudios de Posgrado e Investigación invita a los profesionales con estudios de licenciatura a cursar su Maestría en Planificación de Empresas y Desarrollo Regional.</p>
+
+			<img src="{% static "img/ita/posgrado.jpg" %}" class="autoWidth" alt="Maestría en planificación de empresas y desarrollo regional">
+
+			<h4 class="text-green">Objetivo</h4>
+
+			<p>Actualizar y especializar a profesionales en el campo del desarrollo empresarial y regional, con excelencia académica, a través de la adquisición de conocimientos, habilidades y técnicas que generen procesos de innovación para ser aplicados en su entorno laboral; con un compromiso de desarrollo sustentable de su región, localidad y comunidad.</p>
+
+			<h4 class="text-green">Perfil del egresado</h4>
+
+			<p>El egresado del Programa de la Maestría en Planificación de Empresas y Desarrollo Regional será un profesional altamente capacitado para participar en la:</p>
+
+			<ul>
+				<li>Planificación y gestión del desarrollo regional y local</li>
+				<li>Creación, organización y operación de empresas</li>
+				<li>Realización de proyectos de trabajo innovadores que sean aplicados a la solución de problemas de su campo laboral.</li>
+			</ul>
+
+			<h4 class="text-green">Plan de estudios y línea de trabajo</h4>
+
+			<p>El plan de estudios del programa de Maestría en Planificación de Empresas y Desarrollo Regional consta de una línea de trabajo denominada Desarrollo Regional y Empresarial, cuyos objetivos son:</p>
+			
+			<ul>
+				<li>Promover un mayor equilibrio en el Desarrollo Regional</li>
+				<li>Detectar, diseñar y fomentar las políticas públicas que incidan en el desarrollo regional capaces de crear empleos, mediante la creación de empresas competitivas, en los sectores privado, público y social.</li>
+				<li>Generar estudios que faciliten la planificación de un desarrollo económico regional sostenible.</li>
+				<li>Promover el aprovechamiento sostenible de los recursos naturales, así como la preservación del ambiente de las regiones.</li>
+				<li>Promover una mayor integración y planificación del bienestar de las regiones.</li>
+				<li>El plan de estudios del programa de Maestría en Planificación de Empresas y Desarrollo Regional consta de un total de 100 créditos.</li>
+			</ul>
+
+			<a class="text-green link" href="{% static "docs/OfertaEducativa/posgrado/TripticoMaestria2013.pdf" %}"  target="_blank">Descargar tríptico</a>
+		</div>
+	</section>
+{% endblock %}
