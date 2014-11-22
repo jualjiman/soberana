@@ -39,7 +39,7 @@ def supervisor_status():
 
 ############################################################################################
 
-# fab deploy:<branch> -R hitman
+# fab git_pull:<branch> -R hitman
 @task
 def git_pull(branch="master"):
     """
