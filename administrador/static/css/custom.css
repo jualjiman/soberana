@@ -173,6 +173,9 @@ header .col-xs-6 h1 {
   }
 }
 @media (max-width: 768px) {
+  .margin-img-float {
+    width: 100%;
+  }
   .carousel-caption {
     background: rgba(207,36,42,0.3);
   }
