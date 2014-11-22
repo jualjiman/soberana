@@ -104,6 +104,9 @@ hr.doubleLine {
 .margin-top-med {
   margin-top: 15px;
 }
+.margin-img-float {
+  padding: 7px;
+}
 .column-left {
   border-right: solid 1px #ddd;
 }
