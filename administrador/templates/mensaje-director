@@ -10,7 +10,8 @@
 
 				<p>El Instituto Tecnológico de Acapulco, fundado en el año de 1975, asume su liderazgo como la mejor opción en la región Centro y de la Costa de Guerrero para los jóvenes que desean cursar una Carrera Superior.</p>
 
-				<img src="http://placehold.it/800x350" class="autoWidth" alt="">
+				<img src="{% static "img/director.jpg" %}" class="pull-right" alt="Director - ITA" />
+
 				<p>Actualmente nuestra matrícula consta de 4,350 estudiantes en las Carreras de Arquitectura, Ingeniería Bioquímica, Ingeniería Electromecánica, Ingeniería en Sistemas Computacionales, Ingeniería en Gestión Empresarial, Licenciatura en Administración y en Contaduría Pública.</p>
 
 				<p>A sus 40 años de su fundación, el Tecnológico de Acapulco es una Institución de reconocido prestigio académico por la calidad de su enseñanza, con programas educativos de vanguardia, acordes a las demandas del sector productivo y que exige la globalización, fomentando la competitividad profesional.</p>

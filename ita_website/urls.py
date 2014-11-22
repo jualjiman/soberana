@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^nuestro-instituto/plano/$', 'administrador.views.plano', name='plano'),
     url(r'^nuestro-instituto/historia/$', 'administrador.views.historia', name='historia'),
     url(r'^nuestro-instituto/directorio/$', 'administrador.views.directorio', name='directorio'),
+    url(r'^nuestro-instituto/mensaje-director/$', 'administrador.views.mensaje_director', name='mensaje_director'),
     
     #SITIOS ITA
     url(r'^sitios-ita/documentos-rectores-de-planeacion/$', 'administrador.views.documentos_rectores_de_planeacion', name='documentos_rectores_de-planeacion'),

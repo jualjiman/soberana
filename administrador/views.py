@@ -123,13 +123,16 @@ def busqueda(request):
 		return HttpResponseRedirect("/")
 
 ################################################################################################
-def e404(request):
-	return render(request,"404.html",{})
 
-def e500(request):
-	return render(request,"500.html",{})
-
-################################################################################################
+def mensaje_director(request):
+	titulo = "Mensaje del director - "
+	return render(
+		request,
+		"mensaje-director.html",
+		{
+			"titulo" : titulo,
+		}
+	)
 
 def residencias_profesionales(request):
 	titulo = "Residencias profesionales - "
@@ -273,7 +276,15 @@ def posgrado(request):
 				"titulo" : titulo,
 			}
 		)
-	
+
+################################################################################################
+def e404(request):
+	return render(request,"404.html",{})
+
+def e500(request):
+	return render(request,"500.html",{})
+
+################################################################################################	
 
 @csrf_exempt
 def mas(request):
