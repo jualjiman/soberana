@@ -197,11 +197,11 @@ def titulacion(request):
 		}
 	)
 
-def formatos(request):
-	titulo = "Formatos - "
+def tramites(request):
+	titulo = "Tramites - "
 	return render(
 		request,
-		"formatos.html",
+		"tramites.html",
 		{
 			"titulo" : titulo,
 		}

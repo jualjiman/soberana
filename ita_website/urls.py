@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     #ESTUDIANTES
     url(r'^estudiantes/residencias-profesionales/$', 'administrador.views.residencias_profesionales', name='residencias_profesionales'),
     url(r'^estudiantes/titulacion/$', 'administrador.views.titulacion', name='titulacion'),
-    url(r'^estudiantes/formatos/$', 'administrador.views.formatos', name='formatos'),
+    url(r'^estudiantes/tramites/$', 'administrador.views.tramites', name='tramites'),
     
     #OFERTA EDUCATIVA
     url(r'^oferta-educativa/licenciaturas-ingenierias/$', 'administrador.views.licenciaturas_ingenierias', name='licenciaturas_ingenierias'),
