@@ -123,7 +123,7 @@ def busqueda(request):
 		return HttpResponseRedirect("/")
 
 ################################################################################################
-
+@cache_page(60 * cache_time)
 def mensaje_director(request):
 	titulo = "Mensaje del director - "
 	return render(
@@ -133,7 +133,7 @@ def mensaje_director(request):
 			"titulo" : titulo,
 		}
 	)
-
+@cache_page(60 * cache_time)
 def residencias_profesionales(request):
 	titulo = "Residencias profesionales - "
 	return render(
@@ -143,7 +143,7 @@ def residencias_profesionales(request):
 			"titulo" : titulo,
 		}
 	)
-
+@cache_page(60 * cache_time)
 def cuerpos_academicos(request):
 	titulo = "Cuerpos académicos - "
 	return render(
@@ -155,6 +155,7 @@ def cuerpos_academicos(request):
 	)
 
 #NORMATIVIDAD
+@cache_page(60 * cache_time)
 def normatividad_academica(request):
 	titulo = "Normatividad académica - "
 	return render(
@@ -164,7 +165,7 @@ def normatividad_academica(request):
 			"titulo" : titulo,
 		}
 	)
-
+@cache_page(60 * cache_time)
 def normatividad_lineamientos_academicos(request):
 	titulo = "Lineamientos académicos - "
 	return render(
@@ -175,6 +176,7 @@ def normatividad_lineamientos_academicos(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def normatividad_manuales_academicos(request):
 	titulo = "Manuales académicos - "
 	return render(
@@ -185,8 +187,7 @@ def normatividad_manuales_academicos(request):
 		}
 	)
 
-
-###
+@cache_page(60 * cache_time)
 def titulacion(request):
 	titulo = "Titulación - "
 	return render(
@@ -197,6 +198,7 @@ def titulacion(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def tramites(request):
 	titulo = "Tramites - "
 	return render(
@@ -207,6 +209,7 @@ def tramites(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def documentos_rectores_de_planeacion(request):
 	titulo = "Documentos rectores de planeación - "
 	return render(
@@ -217,6 +220,7 @@ def documentos_rectores_de_planeacion(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def directorio(request):
 	titulo = "Directorio - "
 	return render(
@@ -227,6 +231,7 @@ def directorio(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def historia(request):
 	titulo = "Historia - "
 	return render(
@@ -237,6 +242,7 @@ def historia(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def licenciaturas_ingenierias(request):
 	titulo = "Licenciaturas - Ingenierias - "
 	return render(
@@ -247,6 +253,7 @@ def licenciaturas_ingenierias(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def mision_vision(request):
 	titulo = "Misión - Visión - "
 	return render(
@@ -257,6 +264,7 @@ def mision_vision(request):
 		}
 	)
 
+@cache_page(60 * cache_time)
 def plano(request):
 	titulo = "Plano - "
 	return render(
@@ -267,6 +275,7 @@ def plano(request):
 			}
 		)
 
+@cache_page(60 * cache_time)
 def posgrado(request):
 	titulo = "Posgrado - "
 	return render(
