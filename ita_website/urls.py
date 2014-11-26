@@ -41,9 +41,9 @@ urlpatterns = patterns('',
     url(r'^normatividad/academica/manuales-academicos/$', 'administrador.views.normatividad_manuales_academicos', name='normatividad_manuales_academicos'),
 
     # SERVICIOS
-    url(r'^/servicios/actividades-extraescolares/$', 'administrador.views.actividades_extraescolares', name='actividades_extraescolares'),
-    url(r'^/servicios/centro-de-computo/$', 'administrador.views.centro_de_computo', name='centro_de_computo'),
-    url(r'^/servicios/centro-de-informacion/$', 'administrador.views.centro_de_informacion', name='centro_de_informacion'),
+    url(r'^servicios/actividades-extraescolares/$', 'administrador.views.actividades_extraescolares', name='actividades_extraescolares'),
+    url(r'^servicios/centro-de-computo/$', 'administrador.views.centro_de_computo', name='centro_de_computo'),
+    url(r'^servicios/centro-de-informacion/$', 'administrador.views.centro_de_informacion', name='centro_de_informacion'),
 
 
     #OTROS
