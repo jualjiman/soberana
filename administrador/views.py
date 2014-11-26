@@ -288,7 +288,7 @@ def posgrado(request):
 
 @cache_page(60 * cache_time)
 def centro_de_informacion(request):
-	titulo = "Centro de información- "
+	titulo = "Centro de información - "
 	return render(
 			request,
 			"centro-de-informacion.html",
@@ -299,10 +299,21 @@ def centro_de_informacion(request):
 
 @cache_page(60 * cache_time)
 def centro_de_computo(request):
-	titulo = "Centro de cómputo- "
+	titulo = "Centro de cómputo - "
 	return render(
 			request,
 			"centro-de-computo.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
+def servicio_social(request):
+	titulo = "Servicio social - "
+	return render(
+			request,
+			"servicio-social.html",
 			{
 				"titulo" : titulo,
 			}

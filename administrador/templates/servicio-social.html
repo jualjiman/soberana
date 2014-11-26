@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Servicio social</h2>
+
+			<img src="{% static "img/servicio-social.jpg"%}" class="autoWidth" alt="Servicio social - ITA">
+
+			<p>El servicio social es una actividad eminentemente formativa y de servicio, es decir, por un lado afirma y amplía la información académica del estudiante y además permite fomentar en él una conciencia de solidaridad con la sociedad.</p>
+
+			<p>El Servicio Social es una estrategia educativa en su más amplio sentido, es una práctica integral comprometida con la sociedad que permite consolidar la formación y es también es un factor estratégico en la tarea de impulsar el desarrollo municipal, estatal, regional y nacional; así como para mejorar los mecanismos que conducen a disminuir las desigualdades sociales propiciando mayores oportunidades para un desarrollo individual y comunitario.</p>
+
+			<h3>¿Para qué hacer el servicio social?</h3>
+			<ul>
+				<li>Ayudas a los más necesitados.</li>
+
+				<li>Practicas lo aprendido en el aula.</li>
+
+				<li>Contribuyes a que la Universidad se vincule con la sociedad.</li>
+
+				<li>Te realizas como ser humano.</li>
+
+				<li>¡Aprendes más, para Servir Mejor!</li>
+
+				<li>Fomentas la conciencia de solidaridad, compromiso y reciprocidad social.</li>
+
+				<li>Promueves actitudes reflexivas, críticas y constructivas ante la problemática social, ampliando y evaluando los conocimientos</li>
+			</ul>
+
+
+			<h3>Recuerda</h3>
+
+			<p><strong>El servicio social en el Instituto Tecnológico de Acapulco es más que un requisito</strong>, Es un compromiso solidario que une al Instituto y a ti con tu comunidad, donde con tu práctica directa de tus conocimientos, prestas un servicio que repercute en un bien común social y en donde te involucras directamente al ejercicio profesional en el que te estás formando.</p>
+
+			<h3>Para darte de alta en línea</h3>
+			
+			<ul>
+				<li><a href="{% static "docs/servicio_social/Manual_Servicio_Social_competencias_2013.pdf"%}" class="text-green link" target="_blank"></a></li>
+				<li>Enlace <a href="http://www.gtyv-itacapulco.com.mx/" class="text-green link" target="_blank">http://www.gtyv-itacapulco.com.mx/</a></li>
+			</ul>
+			<h3>Requisitos para solicitar duplicado de certificado</h3>
+			
+			<h3>Formatos, lineamientos y requisitos</h3>
+			<ul>
+				<li><a href="{% static "docs/servicio_social/Manual_Servicio_Social_competencias_2013.pdf"%}" class="text-green link" target="_blank">Manual del Servicio Social por competencias 2013 </a></li>
+
+				<li><a href="{% static "docs/servicio_social/Manual_Serv_social_Sept_13-Mar_14.pdf" %}" class="text-green link" target="_blank">Manual del Servicio Social Septiembre/2013-Marzo/2014 </a></li>
+
+				<li><a href="{% static "docs/servicio_social/Manual_Servicio_Social_Feb_2013.pdf" %}" class="text-green link" target="_blank">Manual del Servicio Social Febrero-Agosto/2013 </a></li>
+
+				<li><a href="{% static "docs/servicio_social/Paquete_Serv_Soc Sep_2012-Mar_2013.zip" %}" class="text-green link" target="_blank">Formatos Servicio Social 2012-2013 (incluye Manual) </a></li>
+
+				<li><a href="{% static "docs/servicio_social/Reglamento_Servicio_Social_ITA- Acapulco.pdf" %}" class="text-green link" target="_blank">Reglamento del Servicio Social </a></li>
+
+				<li><a href="{% static "docs/servicio_social/Lineamientos_operacion_del_Serv_Social.pdf" %}" class="text-green link" target="_blank">Lineamiento para la operación y acreditación del Servicio Social versión 1.0, planes de estudio 2009-2010 </a></li>
+			</ul>
+		</div>
+	</section>
+
+{% endblock %}
