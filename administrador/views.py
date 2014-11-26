@@ -286,6 +286,28 @@ def posgrado(request):
 			}
 		)
 
+@cache_page(60 * cache_time)
+def centro_de_informacion(request):
+	titulo = "Centro de información- "
+	return render(
+			request,
+			"centro-de-informacion.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
+def centro_de_computo(request):
+	titulo = "Centro de cómputo- "
+	return render(
+			request,
+			"centro-de-computo.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
 ################################################################################################
 def e404(request):
 	return render(request,"404.html",{})

@@ -40,10 +40,11 @@ urlpatterns = patterns('',
     url(r'^normatividad/academica/lineamientos-academicos/$', 'administrador.views.normatividad_lineamientos_academicos', name='normatividad_lineamientos_academicos'),
     url(r'^normatividad/academica/manuales-academicos/$', 'administrador.views.normatividad_manuales_academicos', name='normatividad_manuales_academicos'),
 
-    # #CAPTURISTA ADMIN
-    # url(r'^capturista/admin$', 'administrador.views.capturista_admin', name='capturista_admin'),
-    # url(r'^capturista/admin/all$', 'administrador.views.capturista_admin_lista', name='capturista_admin_lista'),
-    # url(r'^capturista/admin/$', 'administrador.views.capturista_admin_lista', name='capturista_admin_lista'),
+    # SERVICIOS
+    url(r'^/servicios/actividades-extraescolares/$', 'administrador.views.actividades_extraescolares', name='actividades_extraescolares'),
+    url(r'^/servicios/centro-de-computo/$', 'administrador.views.centro_de_computo', name='centro_de_computo'),
+    url(r'^/servicios/centro-de-informacion/$', 'administrador.views.centro_de_informacion', name='centro_de_informacion'),
+
 
     #OTROS
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
