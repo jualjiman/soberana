@@ -44,13 +44,17 @@
 	transition: all 0.3s ease;
 }
 
+.icon-youtube:hover{background: #CC181E !important}
+.icon-facebook:hover{background: #43609C !important}
+.icon-twitter:hover{background: #32C1C1 !important}
+
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icons/icomoon/icomoon.eot?-l2hujn');
-	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix-l2hujn') format('embedded-opentype'),
-		url('../fonts/icons/icomoon/icomoon.woff?-l2hujn') format('woff'),
-		url('../fonts/icons/icomoon/icomoon.ttf?-l2hujn') format('truetype'),
-		url('../fonts/icons/icomoon/icomoon.svg?-l2hujn#icomoon') format('svg');
+	src:url('../fonts/icons/icomoon/icomoon.eot?4o4s1u');
+	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix4o4s1u') format('embedded-opentype'),
+		url('../fonts/icons/icomoon/icomoon.woff?4o4s1u') format('woff'),
+		url('../fonts/icons/icomoon/icomoon.ttf?4o4s1u') format('truetype'),
+		url('../fonts/icons/icomoon/icomoon.svg?4o4s1u#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -69,10 +73,6 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-youtube:hover{background: #CC181E !important}
-.icon-facebook:hover{background: #43609C !important}
-.icon-twitter:hover{background: #32C1C1 !important}
-
 .icon-youtube:before {
 	content: "\e600";
 }
@@ -90,6 +90,9 @@
 }
 .icon-file-pdf:before {
 	content: "\e607";
+}
+.icon-file:before {
+	content: "\e608";
 }
 .icon-arrow-left:before {
 	content: "\e603";
