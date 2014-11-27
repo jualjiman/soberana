@@ -91,7 +91,7 @@
 						      	<div class="caption">
 						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
 						         	<div class="new-content">
-						        	{{ publicacion.resumen|slice:":150" }}
+						        	<p>{{ publicacion.resumen|slice:":150" }}</p>
 						        </div>
 						      </div>
 						    </a>
@@ -116,7 +116,7 @@
 						      	<div class="caption">
 						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
 						         	<div class="new-content">
-						        	{{ publicacion.resumen|slice:":150" }}
+						        	<p>{{ publicacion.resumen|slice:":150" }}</p>
 						        </div>
 						      </div>
 						    </a>
@@ -124,7 +124,7 @@
 					{% endfor%}
 
 				</div>
-				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">MÁS PUBLICACIONES</a></p>
+				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">TODAS LAS PUBLICACIONES</a></p>
 			</div>
 		</article>
 	</section>
