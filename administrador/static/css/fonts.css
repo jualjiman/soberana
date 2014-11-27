@@ -50,11 +50,11 @@
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icons/icomoon/icomoon.eot?fjbwky');
-	src:url('../fonts/icons/icomoon/icomoon.eot?#iefixfjbwky') format('embedded-opentype'),
-		url('../fonts/icons/icomoon/icomoon.woff?fjbwky') format('woff'),
-		url('../fonts/icons/icomoon/icomoon.ttf?fjbwky') format('truetype'),
-		url('../fonts/icons/icomoon/icomoon.svg?fjbwky#icomoon') format('svg');
+	src:url('../fonts/icons/icomoon/icomoon.eot?-geudvy');
+	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix-geudvy') format('embedded-opentype'),
+		url('../fonts/icons/icomoon/icomoon.woff?-geudvy') format('woff'),
+		url('../fonts/icons/icomoon/icomoon.ttf?-geudvy') format('truetype'),
+		url('../fonts/icons/icomoon/icomoon.svg?-geudvy#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -73,8 +73,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cloud-download:before {
+.icon-download:before {
 	content: "\e608";
+}
+.icon-youtube:before {
+	content: "\e600";
 }
 .icon-facebook:before {
 	content: "\e601";
@@ -90,9 +93,6 @@
 }
 .icon-file-pdf:before {
 	content: "\e607";
-}
-.icon-youtube:before {
-	content: "\e600";
 }
 .icon-arrow-left:before {
 	content: "\e603";
