@@ -39,6 +39,7 @@ urlpatterns = patterns('',
     
     #NORMATIVIDAD
     url(r'^normatividad/academica/$', 'administrador.views.normatividad_academica', name='normatividad_academica'),
+    url(r'^normatividad/planeacion/$', 'administrador.views.normatividad_planeacion', name='normatividad_planeacion'),
     url(r'^normatividad/academica/lineamientos-academicos/$', 'administrador.views.normatividad_lineamientos_academicos', name='normatividad_lineamientos_academicos'),
     url(r'^normatividad/academica/manuales-academicos/$', 'administrador.views.normatividad_manuales_academicos', name='normatividad_manuales_academicos'),
 

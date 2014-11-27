@@ -296,7 +296,7 @@ def centro_de_informacion(request):
 				"titulo" : titulo,
 			}
 		)
-
+#############aun no sirve nada
 @cache_page(60 * cache_time)
 def centro_de_computo(request):
 	titulo = "Centro de cómputo - "
@@ -314,6 +314,17 @@ def servicio_social(request):
 	return render(
 			request,
 			"servicio-social.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
+def normatividad_planeacion(request):
+	titulo = "Normatividad de planeación - "
+	return render(
+			request,
+			"normatividad-planeacion.html",
 			{
 				"titulo" : titulo,
 			}
