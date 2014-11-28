@@ -69,6 +69,16 @@ def git_push(branch="master"):
 
         print green("Listo")
 
+@task
+def memcached_flush():
+    """
+    Flush memcached on live
+    """
+    print red("Flushing memcached live")
+    run('echo "flush_all" | nc 127.0.0.1 11211')
+    print green("Listo")
+
+
 ############################################################################################
 
 #fab create -R hitman
