@@ -12,8 +12,8 @@ from django.views.decorators.cache import cache_page
 # Create your views here.
 
 cache_time = 2 #minutos
-def queryset():
-	now = datetime.now()
+
+def queryset(now):
 	query = Publicacion.objects.filter(
 		Q(fecha_inicio__lte=now),
 		Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True), 
@@ -24,8 +24,8 @@ def queryset():
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	titulo = "Home - "
-
-	query = queryset()
+	
+	query = queryset(datetime.now())
 	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
@@ -47,7 +47,7 @@ def home(request):
 @cache_page(60 * cache_time)
 def publicacion(request, ide):
 
-	query = queryset()
+	query = queryset(datetime.now())
 
 	publicacion = get_object_or_404(query, id=ide)
 
@@ -69,7 +69,7 @@ def publicacion(request, ide):
 @cache_page(60 * cache_time)
 def publicaciones(request):
 	titulo = "Publicaciones - "
-	query = queryset()
+	query = queryset(datetime.now())
 	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:4]
@@ -346,7 +346,7 @@ def mas(request):
 	    elemsPorPagina = 4
 	    pagina *= elemsPorPagina
 
-	    query = queryset()
+	    query = queryset(datetime.now())
 	    masPublicaciones = query[pagina:(pagina+elemsPorPagina)]
 
 	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
