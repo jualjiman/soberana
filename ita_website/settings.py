@@ -30,12 +30,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ["ita.jualjiman.com"]
 
-
 # Application definition
-
 INSTALLED_APPS = (
-    #'django_admin_bootstrapped.bootstrap3',
-    'django_admin_bootstrapped',
+    #'django_admin_bootstrapped',
+    'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,10 +42,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party
     'sorl.thumbnail',
-    'bootstrap3',
     #custom
     'administrador',
 )
+
+# For Sidebar Menu (List of apps and models) (RECOMMENDED)
+from django.conf import global_settings
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+)
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -103,7 +107,7 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'administrador/static')
 # STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'

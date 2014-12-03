@@ -21,6 +21,8 @@ class Slider(models.Model):
 		return self.titulo
 
 class Publicacion(models.Model):
+	class Meta:
+		verbose_name_plural = "Publicaciones"
 	activo = models.BooleanField(default=False, help_text="Debera ser mostrado?")
 	imagen = ImageField(upload_to = "publicaciones")
 	titulo = models.CharField(max_length=60, help_text='Titulo de la publicacion')
