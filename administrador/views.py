@@ -27,8 +27,8 @@ def home(request):
 	query = queryset(datetime.now())
 	todasPublicaciones = query
 
-	publicacionesPermanentes = todasPublicaciones[:4]
-	publicaciones = todasPublicaciones[4:8]
+	publicacionesPermanentes = todasPublicaciones[:3]
+	publicaciones = todasPublicaciones[3:7]
 
 	searchform = BusquedaForm()
 	return render(
