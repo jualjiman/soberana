@@ -87,7 +87,7 @@
 						{% else %}
 						<div class="col-sm-6 col-md-3">
 						{% endif %}
-						    <a class="thumbnail recent" href="/publicaciones/{{ publicacion.id }}">
+						    <a class="thumbnail recent home" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
