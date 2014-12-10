@@ -7,7 +7,7 @@
 		<article class="row">
 			<div class="col-md-9 column-left" id="news-body">
 				<h2 class="text-red">{{ publicacion.titulo }}</h2>
-				{% thumbnail publicacion.imagen "800x350" crop="center" as im %}
+				{% thumbnail publicacion.imagen "800x400" crop="center" as im %}
 					<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
 				{% endthumbnail %}
 				<div class="text-justify margin-top-low">
