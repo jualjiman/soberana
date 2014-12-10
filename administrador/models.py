@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from sorl.thumbnail import ImageField
 from datetime import datetime
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -27,7 +28,8 @@ class Publicacion(models.Model):
 	imagen = ImageField(upload_to = "publicaciones")
 	titulo = models.CharField(max_length=60, help_text='Titulo de la publicacion')
 	resumen = models.CharField(max_length=150, help_text='Reseña de la publicacion que sera mostrada (150 caracteres)')
-	texto = models.TextField(help_text='Texto correspondiente a la publicacion')
+	#texto = models.TextField(help_text='Texto correspondiente a la publicacion')
+	texto = RichTextField()
 	descripcionLink = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del link.")
 	link = models.URLField(blank=True, help_text='Link asociado con la publicacion')
 	descripcionVideoYoutube = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del video de youtube.")

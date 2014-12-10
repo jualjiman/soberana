@@ -11,7 +11,7 @@
 					<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
 				{% endthumbnail %}
 				<div class="text-justify margin-top-low">
-					{{ publicacion.texto|linebreaks }}
+					{{ publicacion.texto|safe }}
 
 					{% if publicacion.link|length > 0 %}
 						<a target="_blank" class="text-green link" href="{{ publicacion.link }}"><span class="icon-link"></span> {{ publicacion.descripcionLink }}</a>		

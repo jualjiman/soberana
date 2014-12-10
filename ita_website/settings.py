@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party
     'sorl.thumbnail',
+    'ckeditor',
     #custom
     'administrador',
 )
@@ -97,7 +98,41 @@ USE_L10N = True
 
 USE_TZ = True
 
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
+"""
+[
+    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+    { name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+    '/',
+    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+    '/',
+    { name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+    { name: 'colors',      items : [ 'TextColor','BGColor' ] },
+    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About' ] }
+];
+"""
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat','-','Table','HorizontalRule' ],
+            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote'],
+            [ 'Format','FontSize'],
+            ['Cut','Copy','Paste','-','Undo','Redo','Preview'],
+            ['Source'],
+        ],
+        'skin' : 'bootstrapck',
+        'width' : 'auto',
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 

@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'administrador.views.home', name='home'),
+    url(r'^ckeditor/', include('ckeditor.urls')),
     
     #PUBLICACIONES
     url(r'^publicaciones/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
