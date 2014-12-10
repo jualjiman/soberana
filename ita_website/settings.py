@@ -123,7 +123,7 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': [
-            [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat','-','Table','HorizontalRule' ],
+            [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat','-','Table','HorizontalRule','Link','Unlink' ],
             [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote'],
             [ 'Format','FontSize'],
             ['Cut','Copy','Paste','-','Undo','Redo','Preview'],
