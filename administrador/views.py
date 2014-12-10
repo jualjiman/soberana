@@ -53,6 +53,7 @@ def publicacion(request, ide):
 	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
+	description = publicacion.resumen
 	searchform = BusquedaForm()
 	return render(
 		request,
@@ -61,7 +62,8 @@ def publicacion(request, ide):
 			"publicacion" : publicacion,
 			"titulo" : titulo,
 			"otrasPublicaciones" : otrasPublicaciones,
-			"searchform" : searchform
+			"searchform" : searchform,
+			"description" : description,
 		}
 	)
 
