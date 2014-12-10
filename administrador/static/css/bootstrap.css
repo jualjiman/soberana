@@ -290,13 +290,13 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #7E7E7E;
+  color: #207146;
   transition: all 0.3s ease;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover,
 a:focus {
-  color: #7E7E7E;
+  color: #207146;
 }
 
 a.link:hover,
@@ -2122,12 +2122,12 @@ select[multiple].input-lg {
   font-size: 14px;
   line-height: 1.42857143;
   z-index: 2;
-  /*border-radius: 4px;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   transition: all 0.4s ease;
+  text-decoration: none;
 }
 
 .btn:focus,
@@ -2565,6 +2565,7 @@ tbody.collapse.in {
   white-space: nowrap;
   font-size: 13px;
   transition: all 0.4s ease;
+  text-decoration: none;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
@@ -3989,6 +3990,7 @@ a.list-group-item.active > .badge,
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 .thumbnail > img,
 .thumbnail a > img {
