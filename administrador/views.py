@@ -50,6 +50,11 @@ def publicacion(request, ide):
 
 	publicacion = get_object_or_404(query, id=ide)
 
+	if(publicacion != None):
+		enlaces = EnlacePublicacion.objects.filter(publicacion = publicacion.id)
+		videos = VideoPublicacion.objects.filter(publicacion = publicacion.id)
+		archivos = ArchivoPublicacion.objects.filter(publicacion = publicacion.id)
+
 	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
 	titulo = "%s - " % (publicacion.titulo,)
@@ -60,6 +65,9 @@ def publicacion(request, ide):
 		"publicacion.html",
 		{
 			"publicacion" : publicacion,
+			"enlaces" : enlaces,
+			"videos" : videos,
+			"archivos" : archivos,
 			"titulo" : titulo,
 			"otrasPublicaciones" : otrasPublicaciones,
 			"searchform" : searchform,

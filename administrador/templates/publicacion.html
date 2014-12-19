@@ -13,22 +13,37 @@
 				<div class="text-justify margin-top-low">
 					{{ publicacion.texto|safe }}
 
-					{% if publicacion.link|length > 0 %}
-						<a target="_blank" class="text-green link" href="{{ publicacion.link }}"><span class="icon-link"></span> {{ publicacion.descripcionLink }}</a>		
-					{% endif %}
-
-					{% if publicacion.pdf.url|length > 0 %}
-						<hr>
-						<a target="_blank" class="text-green link" href="{{ publicacion.pdf.url }}"><span class="icon-file-pdf"></span> {{ publicacion.descripcionPdf }}</a>		
-					{% endif %}		
-
-					{% if publicacion.claveYoutube|length > 0 %}
-						<hr>
-						<p><span class="icon-youtube"></span>{{ publicacion.descripcionVideoYoutube }}</p>
+					{% for video in videos %}
+						{% if forloop.first %}
+							<hr>
+						{% endif %}
+						<p><span class="icon-youtube"></span>{{ video.descripcionVideoYoutube }}</p>
 						<div class="embed-responsive embed-responsive-16by9">
-						  <iframe class="embed-responsive-item"  src="//www.youtube.com/embed/{{ publicacion.claveYoutube }}" ></iframe>
+						  <iframe class="embed-responsive-item"  src="//www.youtube.com/embed/{{ video.claveYoutube }}" ></iframe>
 						</div>		
-					{% endif %}		
+					{% endfor %}
+
+					{% for enlace in enlaces %}
+						{% if forloop.first %}
+							<hr>
+						{% endif %}
+						<div class="margin-top-low">
+							<a target="_blank" class="text-green link" href="{{ enlace.link }}">
+								<span class="icon-link"></span> {{ enlace.descripcionLink }}
+							</a>
+						</div>
+					{% endfor %}
+
+					{% for archivo in archivos %}
+						{% if forloop.first %}
+							<hr>
+						{% endif %}
+						<div class="margin-top-low">
+							<a target="_blank" class="text-green link" href="{{ archivo.archivo.url }}">
+								<span class="icon-file-pdf"></span> {{ archivo.descripcionArchivo }} bla bla
+							</a>
+						</div>
+					{% endfor %}	
 				</div>
 			</div>
 			<aside class="col-md-3">

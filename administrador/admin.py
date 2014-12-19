@@ -5,6 +5,18 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 
+class EnlaceInline(admin.StackedInline):
+	model = EnlacePublicacion
+	extra = 0
+
+class VideoInline(admin.StackedInline):
+	model = VideoPublicacion
+	extra = 0
+
+class ArchivoInline(admin.StackedInline):
+	model = ArchivoPublicacion
+	extra = 0
+
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
 	list_display = ('img_slider','titulo','activo',)
@@ -20,6 +32,7 @@ class PublicacionAdmin(admin.ModelAdmin):
 
 	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','activo','creador','ultima_modificacion')
 	search_fields = ('titulo','texto','resumen',)
+	inlines = [EnlaceInline, VideoInline, ArchivoInline, ]
 
 	def img_publicacion(self,model_instance):
 		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
