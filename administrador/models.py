@@ -30,15 +30,20 @@ class Publicacion(models.Model):
 	resumen = models.CharField(max_length=150, help_text='Reseña de la publicacion que sera mostrada (150 caracteres)')
 	#texto = models.TextField(help_text='Texto correspondiente a la publicacion')
 	texto = RichTextField()
-	descripcionLink = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del link.")
-	link = models.URLField(blank=True, help_text='Link asociado con la publicacion')
-	descripcionVideoYoutube = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del video de youtube.")
-	claveYoutube = models.CharField(max_length=20, blank=True, help_text='Clave de video de youtube asociado con la publicacion')
-	descripcionPdf = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del PDF.")
-	pdf = models.FileField(upload_to = "pdfpublicacion", blank=True, help_text='Archivo pdf asociado con la publicacion')
+	
+	# descripcionLink = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del link.")
+	# link = models.URLField(blank=True, help_text='Link asociado con la publicacion')
+	
+	# descripcionVideoYoutube = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del video de youtube.")
+	# claveYoutube = models.CharField(max_length=20, blank=True, help_text='Clave de video de youtube asociado con la publicacion')
+	
+	# descripcionPdf = models.CharField(max_length=60, blank=True, help_text="Texto descriptivo del PDF.")
+	# pdf = models.FileField(upload_to = "pdfpublicacion", blank=True, help_text='Archivo pdf asociado con la publicacion')
+	
 	fecha = models.DateField(default=datetime.now(),help_text='Fecha a partir de la cual sera mostrada la publicacion')
 	fecha_inicio = models.DateTimeField(default=datetime.now(), help_text='Fecha y hora de inicio de la publicacion')
 	fecha_fin = models.DateTimeField(blank=True,null=True, help_text='Fecha y hora en que dejara de ser mostrada la publicacion. Si se deja en blanco sera permanente')
+	
 	categoria = models.IntegerField(choices=categorias, help_text='Define la prioridad de la publicacion')
 
 	editer = models.ForeignKey(User, related_name='ModificoPublicacion', null=True, blank=True)
@@ -46,3 +51,25 @@ class Publicacion(models.Model):
 	
 	def __str__(self):
 		return self.titulo
+
+class EnlacePublicacion(models.Model):
+	class Meta:
+		verbose_name_plural = "Enlaces de publicación"
+	descripcionLink = models.CharField(max_length=60, help_text="Texto descriptivo del link.")
+	link = models.URLField(help_text='Link asociado con la publicacion')
+	publicacion = models.ForeignKey(Publicacion)
+
+
+class VideoPublicacion(models.Model):
+	class Meta:
+		verbose_name_plural = "Videos de publicacion"
+	descripcionVideoYoutube = models.CharField(max_length=60, help_text="Texto descriptivo del video de youtube.")
+	claveYoutube = models.CharField(max_length=20, help_text='Clave de video de youtube asociado con la publicacion')
+	publicacion = models.ForeignKey(Publicacion)
+
+class ArchivoPublicacion(models.Model):
+	class Meta:
+		verbose_name_plural = "Archivo de publicación"
+	descripcionArchivo = models.CharField(max_length=60, help_text="Texto descriptivo del archivo.")
+	archivo = models.FileField(upload_to = "pdfpublicacion", help_text='Archivo asociado con la publicacion')
+	publicacion = models.ForeignKey(Publicacion)
