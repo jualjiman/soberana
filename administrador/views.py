@@ -331,7 +331,7 @@ def aspirantes_resultados(request):
 	titulo = "Aspirantes Resultados - "
 	return render(
 			request,
-			"aspirantes-requisitos-de-ingreso.html",
+			"aspirantes-resultados.html",
 			{
 				"titulo" : titulo,
 			}
