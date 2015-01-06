@@ -303,13 +303,13 @@ def centro_de_informacion(request):
 				"titulo" : titulo,
 			}
 		)
-#############aun no sirve nada
+
 @cache_page(60 * cache_time)
-def centro_de_computo(request):
-	titulo = "Centro de cómputo - "
+def aspirantes_convocatoria(request):
+	titulo = "Convocatoria aspirantes - "
 	return render(
 			request,
-			"centro-de-computo.html",
+			"aspirantes-convocatoria.html",
 			{
 				"titulo" : titulo,
 			}

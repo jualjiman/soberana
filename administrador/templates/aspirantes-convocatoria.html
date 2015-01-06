@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Convocatoria para aspirantes a nuevo ingreso al instituto tecnológico de Acapulco</h2>
+
+			<p>Jóvenes que han concluido o están por concluir su educación media superior en cualesquiera de las Instituciones Públicas o Privadas del Municipio de Acapulco, del Estado de Guerrero o del País, el Instituto Tecnológico de Acapulco, abre su oferta educativa en las siguientes carreras.</p>
+
+			<ul>
+				<li>Arquitectura</li>
+				<li>Ingeniería Bioquímica</li>
+				<li>Ingeniería en Electromecánica</li>
+				<li>Ingeniería en Sistemas Computacionales</li>
+				<li>Ingeniería en Gestión Empresarial</li>
+				<li>Licenciatura en Administración</li>
+				<li>Licenciatura en Contaduría</li>
+			</ul>
+
+			<p>El proceso de selección se abre en dos periodos, para agosto – diciembre y para febrero – junio y de acuerdo al periodo se establece la convocatoria correspondiente.</p>
+
+			<p>Deseamos que la gestión de ingreso sea clara y transparente y no duden en consultar sus observaciones o dudas para hacer las aclaraciones correspondientes a través de los Departamentos de:</p>
+
+			<table class="table">
+			    <tbody>
+			        <tr>
+			    	    <td>Conmutador</td>
+			            <td>01 (744) 442 9011</td>
+			        </tr>
+			        <tr>
+			    	    <td>Departamento de Desarrollo Académico (responsable del proceso)</td>
+			            <td>Ext 122</td>
+			        </tr>
+			        <tr>
+			    	    <td>Departamento de Servicios Escolares</td>
+			            <td>Ext 128</td>
+			        </tr>
+			        <tr>
+			    	    <td>División de Estudios Profesionales</td>
+			            <td>Ext 125</td>
+			        </tr>
+			        <tr>
+			    	    <td>Departamento de Comunicación y Difusión</td>
+			            <td>Ext 121</td>
+			        </tr>
+			    </tbody>
+			</table>
+
+
+			<a class="text-green link" href="{% static "docs/Convocatoria ene-julio-2015.pdf" %}"  target="_blank">Descargar convocatoria<span class="icon-download"></span></a>
+
+			<img src="{% static "img/convocatoria-nuevo-ingreso.jpg" %}" class="autoWidth" alt="Maestría en planificación de empresas y desarrollo regional">
+		</div>
+	</section>
+{% endblock %}
