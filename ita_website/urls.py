@@ -50,7 +50,7 @@ urlpatterns = patterns('',
     url(r'^servicios/centro-de-informacion/$', 'administrador.views.centro_de_informacion', name='centro_de_informacion'),
 
     # ASPIRANTES
-    url(r'^aspirantes/convovatoria/$', 'administrador.views.aspirantes_convocatoria', name='aspirantes_convocatoria'),
+    url(r'^aspirantes/convocatoria/$', 'administrador.views.aspirantes_convocatoria', name='aspirantes_convocatoria'),
 
     #OTROS
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
