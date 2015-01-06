@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Requisitos para el ingreso al Instituto Tecnológico de Acapulco</h2>
+
+			<h3>Requisitos para la obtención de ficha</h3>
+
+			<ul>
+				<li>Las fichas se entregarán en el Departamento de Servicios Escolares</li>
+				<li>El aspirante deberá cubrir la cuota por concepto de ficha, debe pagar primero en el banco y posteriormente debe canjear la ficha de depósito que el banco emite, en el departamento de recursos financieros del Instituto Tecnológico de Acapulco, por el recibo de pago oficial.</li>
+				<li>Entregar en el Departamento de Servicios Escolares la siguiente documentación
+					<ul >
+						<ol>Certificado de bachillerato</ol>
+						<ol>Acta de nacimiento (formato nuevo)</ol>
+						<ol>Identificación oficial o credencial de la Institución educativa de procedencia.</ol>
+						<ol>Dos fotografías en blanco y negro tamaño infantil</ol>
+						<ol>CURP (ampliada al 200%)</ol>
+						<ol>Recibo de pago oficial de la Institución por concepto de ficha</ol>
+					</ul>
+				</li>
+			</ul>
+			<b>Observaciones:</b>
+			<p>La carrera seleccionada en la ficha del I.T.A. deberá coincidir con la seleccionada en el pase de CENEVAL. Ver en la convocatoria correspondiente (punto número dos de la pestaña de aspirantes) la fecha de aplicación del examen de admisión, la hora y el lugar.</p>
+
+			<ul>
+				<li><a class="text-green link" href="{% static "docs/requisitos/procedimiento-como-sacar-ficha.pdf" %}"  target="_blank">Descargar el instructivo para capturar sus datos e imprimir la solicitud de ficha<span class="icon-download"></span></a></li>
+				<li><a class="text-green link" href="{% static "docs/requisitos/guia-EXANI-II-2014.pdf" %}"  target="_blank">Descargar guía de estudios para examen EXANI II<span class="icon-download"></span></a></li>
+			</ul>
+			
+			<h3>Requisitos para presentarse al examen de selección</h3>
+
+			<p><b>Institución que aplica el examen de admisión:</b> CENEVAL (Centro Nacional de Evaluación para la Educación Superior)</p>
+
+			<p><b>Sede de la aplicación:</b> Instituto Tecnológico de Acapulco.</p>
+
+			<p>Consultar día de aplicación y horario en la convocatoria correspondiente (punto número dos de la pestaña de aspirantes),Presentarse con:</p>
+
+			<ul>
+				<li>Identificación Oficial o credencial de la Institución de Procedencia</li>
+				<li>Recibo de pago de la ficha de admisión canjeado por el Departamento de Recursos Financieros.</li>
+				<li>Pase CENEVAL</li>
+				<li>Lápiz mirado del No. 2</li>
+				<li>Borrador.</li>
+			</ul>
+
+			<h3>Requisitos para el curso de homogenización una vez aceptado el aspirante</h3>
+			<h4>(solo para el periodo agosto – diciembre)</h4>
+			<ol>
+				<li>Hacer el pago correspondiente al número de cuenta y banco especificado.</li>
+				<li>Canjear el baucher del banco ante el Departamento de Recursos Financieros por el recibo oficial de la Institución.</li>
+				<li>Presentar el recibo de pago ante el coordinador de Cursos de Homogenización para recibir la carga académica correspondiente, aula y horarios.</li>
+				<li>Acudir diariamente en forma obligatoria durante las semanas que dura el curso de homogenización.</li>
+				<li>La evaluación obtenida en los cursos de homogenización será tomada en cuenta en los trámites posteriores para su inscripción definitiva.</li>
+			</ol>
+
+			<h3>Requisitos paa la inscripción una vez cumplido los tres apartados anteriores</h3>
+
+			<ul>
+				<li>Solicitud de inscripción (deberá llenarla e imprimir la solicitud de inscripción en el centro de información del Instituto Tecnológico de Acapulco <a class="text-green link" href="{% static "docs/requisitos/instructivo-solicitud-inscripcion.pdf" %}"  target="_blank">Descargar manual<span class="icon-download"></span></a></li>
+				<li>Certificado de Bachillerato en original y copia tamaño carta (la copia fotostática por ambos lados si fura necesario).</li>
+				<li>Los egresados del CONALEP deberán presentar el certificado equivalente al Bachillerato (La copia fotostática por ambos lados)</li>
+				<li>Dos copias de la CURP impresa al 200%. </li>
+				<li>Comprobante de cuota por concepto de inscripción (recibo oficial de la institución con sello).</li>
+				<li>Dos fotografías tamaño infantil reciente.</li>
+				<li>Acta de nacimiento reciente en original y copia formato café.</li>
+				<li>Los alumnos con doble nacionalidad deberán referirse y verificar la ley sobre doble nacionalidad, diario oficial 20 de marzo de 1998 para el requerimiento de su acta de nacimiento en el registro civil mexicano.</li>
+				<li>Los extranjeros, deberán presentar el acta de nacimiento debidamente legalizada por el servicio consular mexicano o apostillado por el gobierno del país de origen, anexando copia certificada ante notario público de su situación migratoria, que compruebe su legal estancia como estudiante en el país.</li>
+				<li>Certificado médico (expedido por una dependencia del Gobierno IMSS, ISSSTE, Cruz Roja, D.I.F., S.S.A., no consultorios particulares). </li>
+				<li>Contrato firmado por el alumno, en dos tantos <a class="text-green link" href="{% static "docs/requisitos/Contrato-alumno.pdf" %}"  target="_blank">Descargar contrato del alumno<span class="icon-download"></span></a></li>
+				<li>Copia del comprobante de domicilio.</li>
+				<li>Folder tamaño oficio color beige (nuevo). </li>
+			</ul>
+
+			<h3>Notas</h3>
+
+			<ul>
+				<li>Las copias fotostáticas deberán estar totalmente legibles (por ambos lados si el documento lo requiere, sin manchas o partes borrosas). </li>
+				<li>Debe presentarse media hora antes de la atención para capturar e imprimir su solicitud de inscripción. </li>
+				<li>La solicitud de inscripción deberá contener todos los datos, ya que de estar incorrectos no se aceptara. </li>
+				<li>Se cotejará la CURP, el domicilio, código postal, dirección y nombre con la solicitud de inscripción. </li>
+				<li>Si no desea el servicio médico por parte del tecnológico deberá elaborar un oficio indicando los motivos por los cuales no requiere del servicio, deberá ser firmado por el estudiante, así como del padre o tutor agregando ambos copia de su credencial del IFE.</li>
+				<li>En caso de faltar algún documento tiene que elaborar la carta compromiso.
+				<a class="text-green link" href="{% static "docs/requisitos/Carta-compromiso-alumno.pdf" %}"  target="_blank">Descargar carta compromiso<span class="icon-download"></span></a></li>
+				<li>En caso de faltar el certificado de bachillerato entregar una constancia con calificaciones hasta el sexto semestre sin materias reprobadas, sellada y firmada por la institución de procedencia y elaborar la carta compromiso </li>
+				<li>El canje de la ficha de depósito por el recibo oficial lo realizará en el Departamento de Servicios Escolares.</li>
+			</ul>
+
+			<img src="{% static "img/aspirantes-requisitos.jpg" %}" class="autoWidth" alt="Requisitos para el ingreso al Instituto Tecnológico de Acapulco">
+		</div>
+	</section>
+{% endblock %}

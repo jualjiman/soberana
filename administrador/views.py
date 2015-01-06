@@ -316,6 +316,17 @@ def aspirantes_convocatoria(request):
 		)
 
 @cache_page(60 * cache_time)
+def requisitos_ingreso(request):
+	titulo = "Requisitos de ingreso - "
+	return render(
+			request,
+			"aspirantes-requisitos-de-ingreso.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
 def servicio_social(request):
 	titulo = "Servicio social - "
 	return render(
