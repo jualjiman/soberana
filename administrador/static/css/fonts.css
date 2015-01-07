@@ -50,11 +50,11 @@
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icons/icomoon/icomoon.eot?-geudvy');
-	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix-geudvy') format('embedded-opentype'),
-		url('../fonts/icons/icomoon/icomoon.woff?-geudvy') format('woff'),
-		url('../fonts/icons/icomoon/icomoon.ttf?-geudvy') format('truetype'),
-		url('../fonts/icons/icomoon/icomoon.svg?-geudvy#icomoon') format('svg');
+	src:url('../fonts/icons/icomoon/icomoon.eot?-1wfo2b');
+	src:url('../fonts/icons/icomoon/icomoon.eot?#iefix-1wfo2b') format('embedded-opentype'),
+		url('../fonts/icons/icomoon/icomoon.woff?-1wfo2b') format('woff'),
+		url('../fonts/icons/icomoon/icomoon.ttf?-1wfo2b') format('truetype'),
+		url('../fonts/icons/icomoon/icomoon.svg?-1wfo2b#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -76,27 +76,47 @@
 .icon-download:before {
 	content: "\e608";
 }
+
 .icon-youtube:before {
 	content: "\e600";
 }
+
 .icon-facebook:before {
 	content: "\e601";
 }
+
 .icon-twitter:before {
 	content: "\e602";
 }
+
 .icon-calendar:before {
 	content: "\e605";
 }
+
 .icon-link:before {
 	content: "\e606";
 }
+
 .icon-file-pdf:before {
 	content: "\e607";
 }
+
+.icon-book:before {
+	content: "\e91f";
+}
+
+.icon-phone:before {
+	content: "\e942";
+}
+
+.icon-location:before {
+	content: "\e947";
+}
+
 .icon-arrow-left:before {
 	content: "\e603";
 }
+
 .icon-arrow-right:before {
 	content: "\e604";
 }
