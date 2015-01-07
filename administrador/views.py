@@ -283,6 +283,17 @@ def plano(request):
 		)
 
 @cache_page(60 * cache_time)
+def ubicacion_contacto(request):
+	titulo = "Ubicación y contacto - "
+	return render(
+			request,
+			"ubicacion-contacto.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
 def posgrado(request):
 	titulo = "Posgrado - "
 	return render(
