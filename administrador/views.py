@@ -285,11 +285,13 @@ def plano(request):
 @cache_page(60 * cache_time)
 def ubicacion_contacto(request):
 	titulo = "Ubicación y contacto - "
+	form = ContactoForm()
 	return render(
 			request,
 			"ubicacion-contacto.html",
 			{
 				"titulo" : titulo,
+				"form" : form
 			}
 		)
 

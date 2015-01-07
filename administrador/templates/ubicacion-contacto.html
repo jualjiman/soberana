@@ -10,7 +10,6 @@
 		<article id="map-content"></article>
 		<div class="container-fluid asking-block">
 			<div class="container">
-				<h3 class="cwhite">Ordena tus muebles hoy mismo</h3>
 				<div class="row">
 					<div class="col-sm-4">
 						<h4 class="cwhite"><span class="icon-location"></span>Avenida Instituto Tecnológico S/N, Crucero del Cayaco C.P. 39905</h4>
@@ -28,6 +27,36 @@
 
 			</div>
 		</div>
+		<div class="container addBottomMediumMargin">
+			<h3 class="mainOrange"><span class="icon-contact title-ic"></span>Envianos un mensaje, estamos para servirte</h3>
+	    	<form role="form">
+	    		{% csrf_token %}
+	    		<div class="alert alert-info" role="alert"></div>
+	    		<div class="alert alert-warning" role="alert"></div>
+	    		<div class="alert alert-danger" role="alert">
+	    			{{ form.non_field_errors}}
+	    		</div> 
+	    		<div class="row">
+			  		<div class="col-sm-6 form-group">
+			    		<label for="id_nombre">Nombre</label>
+			    		{{ form.nombre.errors }}
+                        {{ form.nombre }}
+			  		</div>
+			  		<div class="col-sm-6 form-group">
+			    		<label for="id_email">Email</label>
+			    		{{ form.email.errors }}
+                        {{ form.email }}
+			  		</div>
+			  		<div class="col-xs-12 addBottomMediumMargin">
+			  			{{ form.mensaje.errors }}
+                        {{ form.mensaje }}
+			  		</div>
+			  		<div class="col-md-12">
+			  			<button id="btnSend" type="submit" class="btn btn-primary pull-right">Enviar</button>
+			  		</div>
+			  	</div>
+			</form>
+	    </div>
 	</section>
 
 {% endblock %}
