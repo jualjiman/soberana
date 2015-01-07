@@ -338,6 +338,17 @@ def aspirantes_resultados(request):
 		)
 
 @cache_page(60 * cache_time)
+def aspirantes_cursos(request):
+	titulo = "Curso de inducción - "
+	return render(
+			request,
+			"aspirantes-curso.html",
+			{
+				"titulo" : titulo,
+			}
+		)
+
+@cache_page(60 * cache_time)
 def servicio_social(request):
 	titulo = "Servicio social - "
 	return render(

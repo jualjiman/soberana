@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+			<h2 class="text-red">Curso de inducción</h2>
+
+			<p>El curso tiene por objeto, introducir al alumno a los procesos, normatividad, ambiente de trabajo, obligaciones y compromisos adquiridos tanto en lo personal como por parte del personal que labora en el Instituto Tecnológico de Acapulco. Para tomar el curso descarga el manual correspondiente.</p>
+
+			<a class="text-green link" href="{% static "docs/aspirantes/curso/manual-curso-induccion.pdf" %}"  target="_blank">Descargar Manual del curso de Inducción<span class="icon-download"></span></a> <br/><br/>
+			
+			<h3>Mensaje</h3>
+
+			<p>Jóvenes alumnos que se integran al Instituto Tecnológico de Acapulco, tengan la seguridad de que se incorporan a una Institución con una amplia experiencia académica y con una oferta educativa que por 40 años ha tenido generaciones de egresados que se integran a la vida laboral y que contribuyen en diversos sectores productivos con sus talentos y habilidades.</p>
+			<p>El compromiso del Tecnológico Nacional de México a través de este Instituto Tecnológico de Acapulco es lograr un “México con Educación de Calidad”, en este sentido, esta Institución se encuentra en constante cambio, con el propósito de incorporar los procesos académicos que coadyuven a su formación profesional a través de la acreditación de las carreras.</p>
+			<p>Esta Institución se fortalece con el espíritu de superación de cada uno de Ustedes y los límites están marcados sólo por sus propias aspiraciones; sean críticos empezando con sus propios proyectos de vida y no existirá meta que no puedan lograr tomando las decisiones correctas, contribuyendo así con su formación académica.</p>
+			<p>Más que nunca esta sociedad requiere de profesionales que contribuyan a cambiar su entorno a través de la innovación de proyectos emprendedores que generen las nuevas empresas que permitan el crecimiento de este hermoso puerto de Acapulco, del Estado de Guerrero y de México.</p>
+			<p>Formas parte de una nueva generación de exitosos profesionistas que seguirán poniendo en alto el nombre del Instituto Tecnológico de Acapulco.</p>
+			<p>Enhorabuena.</p>
+
+			<br>
+			<strong>ATENTAMENTE</strong>
+			<strong>LA ADMINISTRACIÓN</strong>
+
+			<img src="{% static "img/aspirantes-curso-induccion.jpg" %}" class="autoWidth" alt="Curso de inducción">
+		</div>
+	</section>
+{% endblock %}

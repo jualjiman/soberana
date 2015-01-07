@@ -53,6 +53,7 @@ urlpatterns = patterns('',
     url(r'^aspirantes/convocatoria/$', 'administrador.views.aspirantes_convocatoria', name='aspirantes_convocatoria'),
     url(r'^aspirantes/requisitos-ingreso/$', 'administrador.views.aspirantes_requisitos_ingreso', name='aspirantes_requisitos_ingreso'),
     url(r'^aspirantes/resultados/$', 'administrador.views.aspirantes_resultados', name='aspirantes_resultados'),
+    url(r'^aspirantes/curso-induccion/$', 'administrador.views.aspirantes_cursos', name='aspirantes_cursos'),
 
     #OTROS
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
