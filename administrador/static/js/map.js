@@ -1,7 +1,3 @@
-$(function(){
-	initialize();
-});
-
 //contact map
 function initialize() {
 	var ubicacion = new google.maps.LatLng(16.859502, -99.811303);
