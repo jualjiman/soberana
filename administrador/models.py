@@ -17,6 +17,7 @@ class Slider(models.Model):
 	titulo = models.CharField(max_length=60,blank=True, help_text='Titulo que aparecera en el recuadro rojo')
 	orden = models.IntegerField(default=100, help_text="Numeros mayores van primero")
 	activo = models.BooleanField(default=True, help_text="Debera ser mostrado?")
+	link = models.CharField(max_length=300, blank=True, help_text="Link al que enviara el slide")
 
 	def __str__(self):
 		return self.titulo
