@@ -27,7 +27,11 @@
 			    	{% endif %}
 			    		
 			    		{% thumbnail slider.imagen "2000x800" crop="center" as im %}
-			      			<img src="{{ im.url }}" alt="{{ slider.titulo }}">
+			      			{% if slider.link %}
+							<a href="{{ slider.link }}"><img src="{{ im.url }}" alt="{{ slider.titulo }}"></a>
+						{% else %}
+							<img src="{{ im.url }}" alt="{{ slider.titulo }}">
+						{% endif %}
 			      		{% endthumbnail %}
 
 			      	{% if slider.titulo|length > 0 %}

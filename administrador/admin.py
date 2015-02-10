@@ -19,7 +19,7 @@ class ArchivoInline(admin.StackedInline):
 
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
-	list_display = ('img_slider','titulo','activo',)
+	list_display = ('img_slider','titulo','link','activo',)
 	search_fields = ('titulo',)
 
 	def img_slider(self,model_instance):
