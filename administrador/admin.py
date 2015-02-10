@@ -28,7 +28,7 @@ class MyUserAdmin(UserAdmin):
 	def get_form(self, request, obj=None, **kwargs):
 	    self.exclude = ("user_permissions",)
 	    ## Dynamically overriding
-	    self.fieldsets[2][1]["fields"] = ('is_superuser','groups',)
+	    self.fieldsets[2][1]["fields"] = ('groups',)
 	    
 	    form = super(MyUserAdmin,self).get_form(request, obj, **kwargs)
 	    return form
