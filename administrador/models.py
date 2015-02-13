@@ -32,11 +32,11 @@ class Publicacion(models.Model):
 
 	texto = RichTextField()
 	
-	fecha = models.DateField(default=datetime.now(),help_text='Fecha a partir de la cual sera mostrada la publicacion')
-	fecha_inicio = models.DateTimeField(default=datetime.now(), help_text='Fecha y hora de inicio de la publicacion')
-	fecha_fin = models.DateTimeField(blank=True,null=True, help_text='Fecha y hora en que dejara de ser mostrada la publicacion. Si se deja en blanco sera permanente')
+	fecha = models.DateField(default=datetime.now(),help_text='Fecha que sera mostrada en la publicación')
+	fecha_inicio = models.DateTimeField(default=datetime.now(), help_text='Fecha y hora de inicio de la publicación')
+	fecha_fin = models.DateTimeField(blank=True,null=True, help_text='Fecha y hora en que dejara de ser mostrada la publicación. Si se deja en blanco sera permanente')
 	
-	categoria = models.IntegerField(choices=categorias, help_text='Define la prioridad de la publicacion')
+	categoria = models.IntegerField(choices=categorias, help_text='Define la prioridad de la publicación')
 
 	editer = models.ForeignKey(User, related_name='ModificoPublicacion', null=True, blank=True)
 	creator = models.ForeignKey(User, related_name='CreadorPublicacion', null=True, blank=True)

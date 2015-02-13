@@ -10,7 +10,6 @@ from django.contrib.auth.models import Group
 
 #UserAdmin.list_display = ('username', 'email', 'first_name', 'last_name','get_group_permissions')
 
-
 class CustomUserAdmin(UserAdmin):
 	list_display = ('username', 'email', 'first_name', 'last_name', 'grupos')
 
