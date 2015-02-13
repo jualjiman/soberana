@@ -12,8 +12,8 @@
 				{% thumbnail publicacion.imagen "800x400" crop="center" as im %}
 					<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
 				{% endthumbnail %}
-				<p class="text-left">{{ publicacion.fecha }}</p>
 				<div class="text-justify margin-top-low">
+				<p class="text-right">{{ publicacion.fecha }}</p>
 					{{ publicacion.texto|safe }}
 
 					{% for video in videos %}
