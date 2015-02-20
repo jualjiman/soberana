@@ -65,3 +65,9 @@ class ArchivoPublicacion(models.Model):
 	descripcionArchivo = models.CharField(max_length=60, help_text="Texto descriptivo del archivo.")
 	archivo = models.FileField(upload_to = "pdfpublicacion", help_text='Archivo asociado con la publicacion')
 	publicacion = models.ForeignKey(Publicacion)
+
+class Evento(models.Model):
+	titulo = models.CharField(max_length=100, help_text="Titulo del evento")
+	descripcion = models.TextField(blank=True, help_text="Descripcion del evento")
+	fechaHora = models.DateTimeField(default=datetime.now(), help_text="Fecha y hora del evento")
+	link = models.CharField(max_length=300, blank=True, help_text="Link al que enviara el evento")
