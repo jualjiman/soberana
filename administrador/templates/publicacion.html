@@ -2,6 +2,23 @@
 {% load thumbnail %}
 
 {% block mainContent %}
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '1612804425607316',
+	      xfbml      : true,
+	      version    : 'v2.2'
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
 	
 	<section id="mainContent" class="container">
 		<article class="row">
@@ -13,7 +30,18 @@
 					<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
 				{% endthumbnail %}
 				<div class="text-justify margin-top-low">
-				<p class="text-right">{{ publicacion.fecha }}</p>
+					<div class="row">
+						<div class="col-md-6">{{ publicacion.fecha }}</div>
+						<div class="col-md-6">
+							<div
+							  class="fb-like"
+							  data-share="true"
+							  data-width="450"
+							  data-show-faces="true">
+							</div>
+						</div>
+					</div>
+					
 					{{ publicacion.texto|safe }}
 
 					{% for video in videos %}
