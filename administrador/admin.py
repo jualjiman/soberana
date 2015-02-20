@@ -97,7 +97,11 @@ class PublicacionAdmin(admin.ModelAdmin):
 
 		return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)
 
+@admin.register(Evento)
+class EventoAdmin(admin.ModelAdmin):
+	list_display = ('titulo','fechaHora',)
+	search_fields = ('titulo',)
+
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
 admin.site.unregister(Group)
-admin.site.register(Evento)

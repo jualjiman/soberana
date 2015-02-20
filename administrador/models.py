@@ -71,3 +71,7 @@ class Evento(models.Model):
 	descripcion = models.TextField(blank=True, help_text="Descripcion del evento")
 	fechaHora = models.DateTimeField(default=datetime.now(), help_text="Fecha y hora del evento")
 	link = models.CharField(max_length=300, blank=True, help_text="Link al que enviara el evento")
+	activo = models.BooleanField(default=False, help_text="Debera ser mostrado?")
+
+	def __str__(self):
+		return self.titulo

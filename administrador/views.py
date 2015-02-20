@@ -22,6 +22,8 @@ def queryset(now):
 
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
+	evento = Evento.objects.filter(activo = True)[:1]
+
 	titulo = "Home - "
 
 	query = queryset(datetime.now())
@@ -36,6 +38,7 @@ def home(request):
 			"home.html",
 			{
 				"sliders": sliders,
+				"evento": evento,
 				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
