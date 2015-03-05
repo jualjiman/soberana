@@ -3987,7 +3987,7 @@ a.list-group-item.active > .badge,
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fafafa;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #DDD;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
