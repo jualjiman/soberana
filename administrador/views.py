@@ -11,7 +11,7 @@ from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
-cache_time = 2 #minutos
+cache_time = 3 #minutos
 
 def queryset(now):
 	query = Publicacion.objects.filter(
@@ -22,9 +22,9 @@ def queryset(now):
 
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
-	evento = Evento.objects.filter(activo = True)[:1]
+	eventos = Evento.objects.filter(activo = True).order_by("-fechaHora")[:5]
 
-	titulo = "Home - "
+	titulo = "Home"
 
 	query = queryset(datetime.now())
 	todasPublicaciones = query
@@ -38,7 +38,7 @@ def home(request):
 			"home.html",
 			{
 				"sliders": sliders,
-				"evento": evento,
+				"eventos": eventos,
 				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
@@ -60,7 +60,7 @@ def publicacion(request, ide):
 
 	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
-	titulo = "%s - " % (publicacion.titulo,)
+	titulo = "%s" % (publicacion.titulo,)
 	description = publicacion.resumen
 	searchform = BusquedaForm()
 	return render(
@@ -79,7 +79,7 @@ def publicacion(request, ide):
 	)
 
 def publicaciones(request):
-	titulo = "Publicaciones - "
+	titulo = "Publicaciones"
 	query = queryset(datetime.now())
 	todasPublicaciones = query
 
@@ -132,259 +132,6 @@ def busqueda(request):
 	else:
 		return HttpResponseRedirect("/")
 
-################################################################################################
-@cache_page(60 * cache_time)
-def mensaje_director(request):
-	titulo = "Mensaje del director - "
-	return render(
-		request,
-		"mensaje-director.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-@cache_page(60 * cache_time)
-def residencias_profesionales(request):
-	titulo = "Residencias profesionales - "
-	return render(
-		request,
-		"residencias-profesionales.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-@cache_page(60 * cache_time)
-def cuerpos_academicos(request):
-	titulo = "Cuerpos académicos - "
-	return render(
-		request,
-		"cuerpos-academicos.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-#NORMATIVIDAD
-@cache_page(60 * cache_time)
-def normatividad_academica(request):
-	titulo = "Normatividad académica - "
-	return render(
-		request,
-		"normatividad-academica.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-@cache_page(60 * cache_time)
-def normatividad_lineamientos_academicos(request):
-	titulo = "Lineamientos académicos - "
-	return render(
-		request,
-		"normatividad-lineamientos-academicos.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def normatividad_manuales_academicos(request):
-	titulo = "Manuales académicos - "
-	return render(
-		request,
-		"normatividad-manuales-academicos.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def titulacion(request):
-	titulo = "Titulación - "
-	return render(
-		request,
-		"titulacion.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def tramites(request):
-	titulo = "Tramites - "
-	return render(
-		request,
-		"tramites.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def documentos_rectores_de_planeacion(request):
-	titulo = "Documentos rectores de planeación - "
-	return render(
-		request,
-		"documentos-rectores-de-planeacion.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def directorio(request):
-	titulo = "Directorio - "
-	return render(
-		request,
-		"directorio.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def historia(request):
-	titulo = "Historia - "
-	return render(
-		request,
-		"historia.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def licenciaturas_ingenierias(request):
-	titulo = "Licenciaturas - Ingenierias - "
-	return render(
-		request,
-		"licenciaturas-ingenierias.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def mision_vision(request):
-	titulo = "Misión - Visión - "
-	return render(
-		request,
-		"mision-vision.html",
-		{
-			"titulo" : titulo,
-		}
-	)
-
-@cache_page(60 * cache_time)
-def plano(request):
-	titulo = "Plano - "
-	return render(
-			request,
-			"plano.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def ubicacion_contacto(request):
-	titulo = "Ubicación y contacto - "
-	form = ContactoForm()
-	return render(
-			request,
-			"ubicacion-contacto.html",
-			{
-				"titulo" : titulo,
-				"form" : form
-			}
-		)
-
-@cache_page(60 * cache_time)
-def posgrado(request):
-	titulo = "Posgrado - "
-	return render(
-			request,
-			"posgrado.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def centro_de_informacion(request):
-	titulo = "Centro de información - "
-	return render(
-			request,
-			"centro-de-informacion.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def aspirantes_convocatoria(request):
-	titulo = "Convocatoria aspirantes - "
-	return render(
-			request,
-			"aspirantes-convocatoria.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def aspirantes_requisitos_ingreso(request):
-	titulo = "Requisitos de ingreso - "
-	return render(
-			request,
-			"aspirantes-requisitos-de-ingreso.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def aspirantes_resultados(request):
-	titulo = "Aspirantes Resultados - "
-	return render(
-			request,
-			"aspirantes-resultados.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def aspirantes_cursos(request):
-	titulo = "Curso de inducción - "
-	return render(
-			request,
-			"aspirantes-curso.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def servicio_social(request):
-	titulo = "Servicio social - "
-	return render(
-			request,
-			"servicio-social.html",
-			{
-				"titulo" : titulo,
-			}
-		)
-
-@cache_page(60 * cache_time)
-def normatividad_planeacion(request):
-	titulo = "Normatividad de planeación - "
-	return render(
-			request,
-			"normatividad-planeacion.html",
-			{
-				"titulo" : titulo,
-			}
-		)
 
 ################################################################################################
 def e404(request):
