@@ -40,7 +40,7 @@
 						<div class="col-sm-6 col-md-3">
 						    <a class="thumbnail recent" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
-						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
+						      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
