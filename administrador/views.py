@@ -11,7 +11,7 @@ from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
-cache_time = 3 #minutos
+cache_time = 2 #minutos
 
 def queryset(now):
 	query = Publicacion.objects.filter(
@@ -24,7 +24,7 @@ def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	eventos = Evento.objects.filter(activo = True).order_by("-fechaHora")[:5]
 
-	titulo = "Home"
+	titulo = "Home - "
 
 	query = queryset(datetime.now())
 	todasPublicaciones = query
@@ -60,7 +60,7 @@ def publicacion(request, ide):
 
 	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
-	titulo = "%s" % (publicacion.titulo,)
+	titulo = "%s - " % (publicacion.titulo,)
 	description = publicacion.resumen
 	searchform = BusquedaForm()
 	return render(
@@ -79,7 +79,7 @@ def publicacion(request, ide):
 	)
 
 def publicaciones(request):
-	titulo = "Publicaciones"
+	titulo = "Publicaciones - "
 	query = queryset(datetime.now())
 	todasPublicaciones = query
 
@@ -131,7 +131,6 @@ def busqueda(request):
 				return HttpResponseRedirect("/")
 	else:
 		return HttpResponseRedirect("/")
-
 
 ################################################################################################
 def e404(request):

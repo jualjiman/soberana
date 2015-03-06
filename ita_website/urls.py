@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from administrador.views import TemplateView
+from django.views.generic import TemplateView
 admin.autodiscover()
 
 urlpatterns = patterns('',
