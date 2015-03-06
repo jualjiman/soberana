@@ -2201,15 +2201,12 @@ fieldset[disabled] .btn-default.active {
   background-color: #333333;
 }
 .btn-primary {
-  /*background-color: #428bca;
-  border-color: #357ebd;*/
   color: #ffffff;
   background: #cf242a;
   border: 1px solid rgba(255, 255, 255, 0.45);
   -webkit-box-shadow: 0px 0px 0px 2px #cf242a;
   -moz-box-shadow: 0px 0px 0px 2px #cf242a;
   box-shadow: 0px 0px 0px 2px #cf242a;
-  border-radius: none;
 }
 .btn-primary:hover,
 .btn-primary:focus,
