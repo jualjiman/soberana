@@ -25,7 +25,7 @@ SECRET_KEY = '@rl6*d053eh8d@t2ub^@w9^#np+*@vhb5r18lgjzgeqp8+2-s*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['.ita.jualjiman.com','.ita.jualjiman.com.']

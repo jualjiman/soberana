@@ -27,7 +27,7 @@ urlpatterns = patterns('',
 
     
     #OFERTA EDUCATIVA
-    url(r'^oferta-educativa/licenciaturas-ingenierias/$', TemplateView.as_view(template_name="licenciaturas-ingenierias.html"), { 'titulo' : "Licenciaturas - Ingenierias" }, name='licenciaturas_ingenierias'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/$', TemplateView.as_view(template_name="licenciaturas-ingenierias.html"), { 'titulo' : "Licenciaturas/Ingenierias" }, name='licenciaturas_ingenierias'),
     url(r'^oferta-educativa/posgrado/$', TemplateView.as_view(template_name="posgrado.html"), { 'titulo' : "Posgrado" }, name='posgrado'),
     url(r'^oferta-educativa/cuerpos-academicos/$', TemplateView.as_view(template_name="cuerpos-academicos.html"), { 'titulo' : "Cuerpos académicos" }, name='cuerpos_academicos'),
     
