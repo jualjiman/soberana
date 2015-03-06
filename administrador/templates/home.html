@@ -146,17 +146,15 @@
 					<div class="col-sm-6 col-md-3">
 					    <a class="thumbnail" href="#" style="background: #5A8E72;">
 					      	<div class="caption">
-					        	<h4 style="color: white;">Proximo evento</h4> 
-					         	<div class="new-content">
-						        	<p class="text-center" style="font-size: 82px;color: white; line-height: 1; margin-top: 35px;">27</p>
-						        	<p class="text-center" style="color: white;font-size: 25px; margin-top: 0px;">mayo de 2015</p>
-					        	</div>
+					        	<h4 style="color: white;">Proximos evento</h4>
 					         	<div class="new-content">
 					         		<ul style="color: white;">
-					         			<li>Actividad numero 1</li>
-					         			<li>Actividad numero 2</li>
-					         			<li>Actividad numero 3</li>
-
+					         			{% for evento in eventos %}
+					         				<li>
+					         					<strong>{{ evento.titulo }}</strong>
+					         					<i>{{ evento.fechaHora }}</i>
+					         				</li>
+					         			{% endfor %}
 					         		</ul>
 					        	</div>
 					      	</div>
