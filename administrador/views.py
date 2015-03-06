@@ -22,7 +22,7 @@ def queryset(now):
 
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
-	eventos = Evento.objects.filter(activo = True).order_by("-fechaHora")[:5]
+	eventos = Evento.objects.filter(activo = True).order_by("-fechaHora")[:4]
 
 	titulo = "Home - "
 

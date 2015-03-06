@@ -26,7 +26,7 @@
 			    		<div class="item">
 			    	{% endif %}
 			    		
-			    		{% thumbnail slider.imagen "2500x1000" crop="center" as im %}
+			    		{% thumbnail slider.imagen "2250x900" crop="center" as im %}
 			      			{% if slider.link %}
 							<a href="{{ slider.link }}"><img src="{{ im.url }}" alt="{{ slider.titulo }}"></a>
 						{% else %}
@@ -100,14 +100,19 @@
 					{% for publicacion in publicacionesPermanentes %}
 						{% if forloop.first %}
 						<div class="col-sm-12 col-md-6">
-						{% else %}
-						<div class="col-sm-6 col-md-3">
-						{% endif %}
-						    <a class="thumbnail recent home" href="/publicaciones/{{ publicacion.id }}">
+							<a class="thumbnail recent home" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
+						{% else %}
+						<div class="col-sm-6 col-md-3">
+						    <a class="thumbnail recent home" href="/publicaciones/{{ publicacion.id }}">
+						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
+						      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
+				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
+				      			{% endthumbnail %}
+						{% endif %}
 						      	<div class="caption">
 						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
 						         	<div class="new-content">
@@ -130,7 +135,7 @@
 						<div class="col-sm-6 col-md-3">
 						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
-						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
+						      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
 				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 				      			{% endthumbnail %}
 						      	<div class="caption">
