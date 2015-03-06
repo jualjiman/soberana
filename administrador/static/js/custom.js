@@ -8,13 +8,19 @@ scripts.sliderOnResize = function (){
 	}
 };
 
+scripts.boxAutoHeight = function(){
+	$selector = $(".boxAutoHeight");
+	$selector.height("initial").height( $selector.height() );
+}
 
 
 $( window ).resize(function() {
+	scripts.boxAutoHeight();
 	scripts.sliderOnResize();
 });
 
 $(function(){
+	scripts.boxAutoHeight();
 	scripts.sliderOnResize();
 
 	// Load more
