@@ -145,3 +145,9 @@ def mas(request):
 	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
 	else:
 		return HttpResponseRedirect("/")
+
+def e404(request):
+	return render(request,"404.html",{})
+
+def e500(request):
+	return render(request,"500.html",{})
