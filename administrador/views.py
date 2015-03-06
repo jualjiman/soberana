@@ -132,15 +132,6 @@ def busqueda(request):
 	else:
 		return HttpResponseRedirect("/")
 
-################################################################################################
-def e404(request):
-	return render(request,"404.html",{})
-
-def e500(request):
-	return render(request,"500.html",{})
-
-################################################################################################	
-
 @csrf_exempt
 def mas(request):
 	if request.is_ajax():
