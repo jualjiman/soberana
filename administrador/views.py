@@ -99,6 +99,19 @@ def publicaciones(request):
 		}
 	)
 
+def eventos(request):
+	titulo = "Eventos"
+	eventos = Evento.objects.filter(activo=True)
+
+	return render(
+		request,
+		"eventos.html",
+		{
+			"titulo" : titulo,
+			"eventos" : eventos
+		}
+	)
+
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
         # ContactForm BusquedaForm was defined in the previous section

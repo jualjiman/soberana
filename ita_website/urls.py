@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     #PUBLICACIONES
     url(r'^publicaciones/(\d+)/$', 'administrador.views.publicacion', name='publicacion'),
     url(r'^publicaciones/$', 'administrador.views.publicaciones', name='publicaciones'),
+    url(r'^eventos/$', 'administrador.views.eventos', name='eventos'),
+
     
     #ESTUDIANTES
     url(r'^estudiantes/residencias-profesionales/$', TemplateView.as_view(template_name="residencias-profesionales.html"), { 'titulo' : "Residencias profesionales" }, name='residencias_profesionales'),
