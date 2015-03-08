@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load staticfiles %}
 
 {% block mainContent %}
 	<div id="fb-root"></div>
@@ -32,7 +33,7 @@
 	      				<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
 	      			{% endthumbnail %}
 	      		{% else %}
-	      			<img src="{% static "/img/placeholder.jpg" %}" /> 
+	      			<img src="{% static "img/placeholder-post.jpg" %}" /> 
 	      		{% endif %}
 				<div class="text-justify margin-top-low">
 					<div class="row margin-bottom">

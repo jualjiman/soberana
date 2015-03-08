@@ -74,7 +74,7 @@ class PublicacionAdmin(admin.ModelAdmin):
 		if model_instance.imagen:
 			return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
 		else:
-			return "<img src='/static/img/placeholder.jpg' />"
+			return "<img src='/static/img/placeholder-thumb.jpg' />" 
 
 	def creador(self,model_instance):
 		return model_instance.creator

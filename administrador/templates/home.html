@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load staticfiles %}
 
 {% block mainContent %}
 
@@ -107,7 +108,7 @@
 					      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
 					      			{% endthumbnail %}
 					      		{% else %}
-					      			<img src="{% static "/img/placeholder.jpg" %}" /> 
+					      			<img src="{% static "img/placeholder.jpg" %}" /> 
 					      		{% endif %}
 						{% else %}
 						<div class="col-sm-6 col-md-3">
@@ -118,7 +119,7 @@
 					      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}" />
 					      			{% endthumbnail %}
 					      		{% else %}
-					      			<img src="{% static "/img/placeholder.jpg" %}" /> 
+					      			<img src="{% static "img/placeholder.jpg" %}" /> 
 					      		{% endif %}
 						{% endif %}
 						      	<div class="caption">
@@ -148,7 +149,7 @@
 					      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}" />
 					      			{% endthumbnail %}
 					      		{% else %}
-					      			<img src="{% static "/img/placeholder.jpg" %}" /> 
+					      			<img src="{% static "img/placeholder.jpg" %}" /> 
 					      		{% endif %}
 						      	<div class="caption">
 						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
