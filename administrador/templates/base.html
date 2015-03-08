@@ -63,15 +63,15 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nuestro instituto <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/nuestro-instituto/mensaje-director">Mensaje del director</a></li>
-	            <li><a href="/nuestro-instituto/mision-vision">Misión, Visión</a></li>
-	            <li><a href="/nuestro-instituto/plano">Plano</a></li>
-	            <li><a href="/nuestro-instituto/historia">Historia</a></li>
+	            <li><a href="{% url 'mensaje_director' %}">Mensaje del director</a></li>
+	            <li><a href="{% url 'mision_vision' %}">Misión, Visión</a></li>
+	            <li><a href="{% url 'plano' %}">Plano</a></li>
+	            <li><a href="{% url 'historia' %}">Historia</a></li>
 	            <li><a target="_blank" href="{% static "docs/Organigrama-2014.pdf" %}">Organigrama</a></li>
-	            <li><a href="/nuestro-instituto/directorio">Directorio</a></li>
+	            <li><a href="{% url 'directorio' %}">Directorio</a></li>
 		    <li><a href="{% url 'publicaciones' %}">Publicaciones</a></li>
-		    <li><a href="/eventos">Eventos</a></li>
-	            <li><a href="/nuestro-instituto/ubicacion-contacto">Ubicación y contacto</a></li>
+		    <li><a href="{% url 'eventos' %}">Eventos</a></li>
+	            <li><a href="{% url 'ubicacion_contacto' %}">Ubicación y contacto</a></li>
 	          </ul>
 	        </li>
 
@@ -79,9 +79,9 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Oferta educativa <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/oferta-educativa/ciencias-basicas">Ciencias básicas</a></li>
-	            <li><a href="/oferta-educativa/licenciaturas-ingenierias">Licenciaturas - Ingenierías</a></li>
-	            <li><a href="/oferta-educativa/posgrado">Posgrado</a></li>
-	            <li><a href="/oferta-educativa/cuerpos-academicos">Cuerpos académicos</a></li>
+	            <li><a href="{% url 'licenciaturas_ingenierias' %}">Licenciaturas/Ingenierías</a></li>
+	            <li><a href="{% url 'posgrado' %}">Posgrado</a></li>
+	            <li><a href="{% url 'cuerpos_academicos' %}">Cuerpos académicos</a></li>
 
 	          </ul>
 	        </li>
@@ -89,10 +89,10 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aspirantes<span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/aspirantes/requisitos-ingreso">Requisitos de ingreso</a></li>
-	            <li><a href="/aspirantes/convocatoria">Convocatoria</a></li>
-	            <li><a href="/aspirantes/resultados">Resultados</a></li>
-	            <li><a href="/aspirantes/curso-induccion">Curso de inducción</a></li>
+	            <li><a href="{% url 'aspirantes_requisitos_ingreso' %}">Requisitos de ingreso</a></li>
+	            <li><a href="{% url 'aspirantes_convocatoria' %}">Convocatoria</a></li>
+	            <li><a href="{% url 'aspirantes_resultados' %}">Resultados</a></li>
+	            <li><a href="{% url 'aspirantes_curso_induccion' %}">Curso de inducción</a></li>
 	          </ul>
 	        </li>
 
@@ -103,21 +103,21 @@
 	          	<li><a target="_blank" href="http://www.it-acapulco.edu.mx/intratec/contacto/formcontac.phttp://www.tecnm.mx/sgahp">Búzon de quejas y sugerencias</a></li>
 	            <li><a href="/estudiantes/reinscripciones">Reinscripciones</a></li>
 	            <li><a target="_blank" href="{% static "docs/pestañaEstudiantes/ActvidadesComplementarias.zip" %}">Créditos complementarios</a></li>
-	            <li><a href="/estudiantes/servicio-social">Servicio social</a></li>
-	            <li><a href="/estudiantes/residencias-profesionales">Residencias Profesionales</a></li>
+	            <li><a href="{% url 'servicio_social' %}">Servicio social</a></li>
+	            <li><a href="{% url 'residencias_profesionales' %}">Residencias Profesionales</a></li>
 	            <li><a href="/estudiantes/becas">Becas</a></li>
-	            <li><a href="/estudiantes/titulacion">Titulación</a></li>
+	            <li><a href="{% url 'titulacion' %}">Titulación</a></li>
 	            <li><a href="/estudiantes/encuesta-evaluacion-docente">Encuesta Evaluación Docente</a></li>
 	            <li><a href="/estudiantes/auditoria-de-servicio">Auditoría de Servicio</a></li>
-	            <li><a href="/estudiantes/tramites">Trámites</a></li>
+	            <li><a href="{% url 'tramites' %}">Trámites</a></li>
 	          </ul>
 	        </li>
 
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Normatividad <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/normatividad/academica">Académica</a></li>
-	            <li><a href="/normatividad/planeacion">Planeación</a></li>
+	            <li><a href="{% url 'normatividad_academica' %}">Académica</a></li>
+	            <li><a href="{% url 'normatividad_planeacion' %}">Planeación</a></li>
 	            <li><a href="/normatividad/administracion-de-los-recursos">Administración de los recursos</a></li>
 	          </ul>
 	        </li>
@@ -125,12 +125,12 @@
 			<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sitios ITA <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="">Sistema de gestión de calidad</a></li>
+	            <li><a href="#">Sistema de gestión de calidad</a></li>
 	            <li><a target="_blank" href="http://www.tecnm.mx/sga">Sistema de gestión ambiental</a></li>
 	            <li><a target="_blank" href="http://www.tecnm.mx/sgeg">Sistema de gestión de equidad de género</a></li>
-	            <li><a href="/sitios-ita/documentos-rectores-de-planeacion">Documentos rectores de planeación</a></li>
+	            <li><a href="{% url 'documentos_rectores_de_planeacion' %}">Documentos rectores de planeación</a></li>
 	            <li><a target="_blank" href="http://itacapulco.trabajando.com.mx/">Bolsa de trabajo</a></li>
-	            <li><a href="/sitios-ita/">Licitaciones</a></li>
+	            <li><a href="/sitios-ita/licitaciones">Licitaciones</a></li>
 	          </ul>
 	        </li>
 
@@ -138,7 +138,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/servicios/servicios-escolares">Servicios escolares</a></li>
-	            <li><a href="/servicios/centro-de-informacion">Centro de información</a></li>
+	            <li><a href="{% url 'centro_de_informacion' %}">Centro de información</a></li>
 	            <li><a href="/servicios/centro-de-computo">Centro de cómputo</a></li>
 	            <li><a href="/servicios/desarollo-academico">Desarrollo académico</a></li>
 	            <li><a href="/servicios/gestion-tec-vinc">Gestion de tec. y vinc.</a></li>
