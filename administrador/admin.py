@@ -71,7 +71,10 @@ class PublicacionAdmin(admin.ModelAdmin):
 	inlines = [EnlaceInline, VideoInline, ArchivoInline, ]
 
 	def img_publicacion(self,model_instance):
-		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
+		if model_instance.imagen:
+			return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
+		else:
+			return "<img src='/static/img/placeholder.jpg' />"
 
 	def creador(self,model_instance):
 		return model_instance.creator
