@@ -160,7 +160,8 @@
 						    </a>
 						</div>
 					{% endfor%}
-
+					
+					{% if eventos.count > 0 %}
 					<div class="col-sm-6 col-md-3 dispTable">
 					    <a class="thumbnail eventos boxAutoHeight" href="/eventos/">
 					      	<div class="caption">
@@ -181,6 +182,7 @@
 					      	</div>
 					    </a>
 					</div>
+					{% endif %}
 
 				</div>
 				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">TODAS LAS PUBLICACIONES</a></p>

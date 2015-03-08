@@ -22,7 +22,7 @@ def queryset(now):
 
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
-	eventos = Evento.objects.filter(activo = True).order_by("fechaHora")[:4]
+	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")[:4]
 
 	titulo = "Home"
 
@@ -30,8 +30,11 @@ def home(request):
 	todasPublicaciones = query
 
 	publicacionesPermanentes = todasPublicaciones[:3]
-	publicaciones = todasPublicaciones[3:7]
-
+	publicaciones = todasPublicaciones[3:6]
+	
+	if len(eventos) == 0:
+		publicaciones = todasPublicaciones[3:7]
+	
 	searchform = BusquedaForm()
 	return render(
 			request,
@@ -101,7 +104,7 @@ def publicaciones(request):
 
 def eventos(request):
 	titulo = "Eventos"
-	eventos = Evento.objects.filter(activo=True)
+	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
 
 	return render(
 		request,

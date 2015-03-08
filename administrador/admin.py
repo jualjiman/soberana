@@ -102,7 +102,7 @@ class PublicacionAdmin(admin.ModelAdmin):
 
 @admin.register(Evento)
 class EventoAdmin(admin.ModelAdmin):
-	list_display = ('titulo','fechaHora','activo')
+	list_display = ('titulo','fechaHora','fechaHoraFin','activo')
 	search_fields = ('titulo','descripcion')
 
 admin.site.unregister(User)
