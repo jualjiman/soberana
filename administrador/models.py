@@ -26,7 +26,7 @@ class Publicacion(models.Model):
 	class Meta:
 		verbose_name_plural = "Publicaciones"
 	activo = models.BooleanField(default=False, help_text="Debera ser mostrado?")
-	imagen = ImageField(upload_to = "publicaciones")
+	imagen = ImageField(blank=True, upload_to = "publicaciones")
 	titulo = models.CharField(max_length=60, help_text='Titulo de la publicacion')
 	resumen = models.CharField(max_length=150, help_text='Reseña de la publicacion que sera mostrada (150 caracteres)')
 
