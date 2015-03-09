@@ -4,7 +4,7 @@
 {% block mainContent %}
 
 	<section id="mainContent">
-		<div class="container">
+		<div class="container" ng-app="eventos" ng-controller="eventos_controller">
 			<div class="row">
 				<div class="col-sm-6">
 					<h2 class="text-red">Eventos</h2>
@@ -13,7 +13,7 @@
 					
 					<form role="search" class="seach-field" action="/busqueda/" method="GET">
 					  <div class="input-group">
-					      <input type="text" placeholder="¿Qué noticia esta buscando?" class="form-control">
+					      <input type="text" placeholder="¿Qué evento esta buscando?" class="form-control">
 					      <span class="input-group-btn">
 					        <button id="btnSearch" type="submit" class="btn btn-success" type="button">BUSCAR</button>
 					      </span>
@@ -77,5 +77,6 @@
 			{% endif %}
 		</div>
 	</section>
+	<script src="{% static "js/angular.min.js" %}"></script>
 
 {% endblock %}
