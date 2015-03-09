@@ -7,10 +7,10 @@
 
 		<article id="recent-news" class="container-fluid">
 			<div class="container">
-				<h2 class="text-red">Busqueda</h2>
+				
 				<div class="row">
 					<div class="col-sm-6">
-						<h3>Publicaciones</h3>
+						<h2 class="text-red">Busqueda</h2>
 					</div>
 					<div class="col-sm-6">
 						
@@ -29,16 +29,20 @@
 						<h4 class="text-green">{{ textoBusqueda }}</h4>
 					</div>
 				</div>
-				
+				<h3>Publicaciones</h3>
 				<div class="row">
 					
 					{% for publicacion in publicaciones %}
 						<div class="col-sm-6 col-md-3">
 						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
-						      	{% thumbnail publicacion.imagen "750x400" crop="center" as im %}
-				      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}">
-				      			{% endthumbnail %}
+						      	{% if publicacion.imagen %}
+							      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
+					      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}" />
+					      			{% endthumbnail %}
+					      		{% else %}
+					      			<img src="{% static "img/placeholder.jpg" %}" /> 
+					      		{% endif %}
 						      	<div class="caption">
 						        	<h4 class="text-red">{{ publicacion.titulo }}</h4>
 						         	<div class="new-content">

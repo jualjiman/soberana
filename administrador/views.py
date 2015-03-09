@@ -83,8 +83,7 @@ def publicacion(request, ide):
 
 def publicaciones(request):
 	titulo = "Publicaciones"
-	query = queryset(datetime.now())
-	todasPublicaciones = query
+	todasPublicaciones = queryset(datetime.now())
 
 	publicacionesPermanentes = todasPublicaciones[:4]
 	publicaciones = todasPublicaciones[4:8]

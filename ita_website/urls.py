@@ -56,9 +56,6 @@ urlpatterns = patterns('',
     
     # SERVICIOS
     url(r'^servicios/centro-de-informacion/$', TemplateView.as_view(template_name="centro-de-informacion.html"), { 'titulo' : "Centro de información" }, name='centro_de_informacion'),
-    #url(r'^servicios/actividades-extraescolares/$', 'administrador.views.actividades_extraescolares', name='actividades_extraescolares'),
-    #url(r'^servicios/centro-de-computo/$', 'administrador.views.centro_de_computo', name='centro_de_computo'),
-
 
     #OTROS
     url(r'^busqueda/$', 'administrador.views.busqueda', name='busqueda'),
