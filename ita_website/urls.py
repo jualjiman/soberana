@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
+from administrador import views
 
 admin.autodiscover()
 
@@ -63,6 +64,7 @@ urlpatterns = patterns('',
 
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
+    url(r'^eventos-json/$', views.eventos_json, name="eventos_json"),
 )
 
 handler404 = "administrador.views.e404"#TemplateView.as_view(template_name="404.html")

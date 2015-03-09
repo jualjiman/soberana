@@ -6,8 +6,9 @@ from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import *
 from .forms import *
-
 from django.views.decorators.cache import cache_page
+from django.http import HttpResponse
+import json
 
 # Create your views here.
 
@@ -113,6 +114,21 @@ def eventos(request):
 			"eventos" : eventos
 		}
 	)
+
+def eventos_json(request):
+    eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
+    # result = []
+    # for i in data:
+    #     if i.extension:
+    #         data = {}
+    #         data['name'] = i.nombre
+    #         data['email'] = i.mail
+    #         data['phone'] = i.telefono
+    #         data['ext'] = i.extension
+    #         data['depto'] = str(i.depto)
+    #         result.append(data)
+            
+    return HttpResponse(json.dumps(eventos), content_type = "application/json")
 
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
