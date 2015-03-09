@@ -138,7 +138,8 @@ def busqueda(request):
 				return render(request, 'busqueda.html', {
 					"publicaciones": publicaciones,
 					"textoBusqueda":textoBusqueda,
-					"searchform" : searchform
+					"searchform" : searchform,
+					"titulo" : textoBusqueda
 					})
 			else:
 				return HttpResponseRedirect("/")
