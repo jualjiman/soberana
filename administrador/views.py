@@ -116,19 +116,20 @@ def eventos(request):
 	)
 
 def eventos_json(request):
-    eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
-    # result = []
-    # for i in data:
-    #     if i.extension:
-    #         data = {}
-    #         data['name'] = i.nombre
-    #         data['email'] = i.mail
-    #         data['phone'] = i.telefono
-    #         data['ext'] = i.extension
-    #         data['depto'] = str(i.depto)
-    #         result.append(data)
+	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
+	result = []
+	for i in eventos:
+		data = {}
+		data['titulo'] = i.titulo
+		data['descripcion'] = i.descripcion
+		data['fechaHora'] = str(i.fechaHora)
+		data['fechaHoraFin'] = str(i.fechaHoraFin)
+
+		data['textoLink'] = i.textoLink
+		data['link'] = i.link
+		result.append(data)
             
-    return HttpResponse(json.dumps(eventos), content_type = "application/json")
+	return HttpResponse(json.dumps(result), content_type = "application/json")
 
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
