@@ -14,6 +14,7 @@ angular
 		$http.get('/eventos-json/').
 		success(function(data, status, headers, config) {
 			$scope.eventos = data;
+			console.log(data);
 		}).
 		error(function(data, status, headers, config) {
 
