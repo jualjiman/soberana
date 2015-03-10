@@ -1,21 +1,24 @@
-angular.module('eventos',['ngMd5'])
-.config(function($locationProvider, $interpolateProvider) {
-	$locationProvider.html5Mode(true).hashPrefix('!');
-	$interpolateProvider.startSymbol('{[{');
-	$interpolateProvider.endSymbol('}]}');
+angular
+	.module(
+		'eventos',
+		[]
+	)
+	.config(function ($interpolateProvider) {
+		$interpolateProvider.startSymbol('{[{');
+		$interpolateProvider.endSymbol('}]}');
 
-})
-.controller('eventos_controller', function($scope, $http, md5){
+	})
+	.controller('eventos_controller', ['$scope','$http', function($scope, $http){
 
-	$http.get('/eventos-json/').
-	success(function(data, status, headers, config) {
-		//$scope.data = data;
-		console.log("probando..");
-		console.log(data);
-		//$scope.categorias = _(data).chain().uniq('depto').value();
-	}).
-	error(function(data, status, headers, config) {
+		$scope.search = '';
+		$http.get('/eventos-json/').
+		success(function(data, status, headers, config) {
+			$scope.eventos = data;
+		}).
+		error(function(data, status, headers, config) {
 
-	});
+		});
+	}]);
 
-});
+// mail checar recuperacion de contraseña con envio de mail
+
