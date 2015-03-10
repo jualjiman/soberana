@@ -7,28 +7,15 @@ angular.module('eventos',['ngMd5'])
 })
 .controller('eventos_controller', function($scope, $http, md5){
 
-	$http.get('/eventos/').
+	$http.get('/eventos-json/').
 	success(function(data, status, headers, config) {
-		$scope.data = data;
-		$scope.categorias = _(data).chain().uniq('depto').value();
+		//$scope.data = data;
+		console.log("probando..");
+		console.log(data);
+		//$scope.categorias = _(data).chain().uniq('depto').value();
 	}).
 	error(function(data, status, headers, config) {
 
 	});
-	$scope.dep = '';
-	$scope.filtroDep = function(dep){
-		if (dep) {
-			$scope.dep = dep.depto;	
-		}else{
-			$scope.dep = '';
-		};
-		
-	}
-
-	$scope.email = function  (email) {
-		return md5.createHash(email);
-	}
-
-
 
 });
