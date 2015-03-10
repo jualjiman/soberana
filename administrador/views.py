@@ -9,7 +9,9 @@ from .forms import *
 from django.views.decorators.cache import cache_page
 from django.http import HttpResponse
 import json
+import locale
 
+locale.setlocale(locale.LC_ALL, 'es_MX.utf8') 
 # Create your views here.
 
 cache_time = 2 #minutos
@@ -122,9 +124,11 @@ def eventos_json(request):
 		data = {}
 		data['titulo'] = i.titulo
 		data['descripcion'] = i.descripcion
-		data['fechaHora'] = str(i.fechaHora)
-		data['fechaHoraFin'] = str(i.fechaHoraFin)
-
+		data['fechaHora'] = i.fechaHora.strftime("%d de %B del %Y a las %I:%M %p")
+		data['fechaHoraFin'] = ""
+		if i.fechaHoraFin:
+			data['fechaHoraFin'] = i.fechaHoraFin.strftime("%d de %B del %Y a las %I:%M %p")
+	
 		data['textoLink'] = i.textoLink
 		data['link'] = i.link
 		result.append(data)
