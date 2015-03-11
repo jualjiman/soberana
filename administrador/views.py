@@ -30,11 +30,10 @@ def home(request):
 	query = queryset(datetime.now())
 	todasPublicaciones = query
 
-	publicacionesPermanentes = todasPublicaciones[:3]
-	publicaciones = todasPublicaciones[3:6]
+	publicaciones = todasPublicaciones[:6]
 	
 	if len(eventos) == 0:
-		publicaciones = todasPublicaciones[3:7]
+		publicaciones = todasPublicaciones[:7]
 	
 	searchform = BusquedaForm()
 	return render(
@@ -43,7 +42,6 @@ def home(request):
 			{
 				"sliders": sliders,
 				"eventos": eventos,
-				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
 				"searchform" : searchform

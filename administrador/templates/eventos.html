@@ -29,7 +29,7 @@
 			{% if eventos.count > 0 %}
 				<ul class="timeline">
 
-					<li ng-class-even="'timeline-inverted'" ng-class-odd="''" ng-repeat="evento in eventos | filter: search" ng-cloak>
+					<li ng-repeat="evento in eventos | filter: search" ng-class-even="'timeline-inverted'" ng-class-odd="''" ng-cloak>
 						<div ng-class-even="'timeline-badge danger'" ng-class-odd="'timeline-badge success'">
 							<i class="glyphicon glyphicon-hand-left"></i>
 						</div>
