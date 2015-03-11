@@ -9,9 +9,7 @@ from .forms import *
 from django.views.decorators.cache import cache_page
 from django.http import HttpResponse
 import json
-import locale
 
-locale.setlocale(locale.LC_ALL, 'es_MX.utf8') 
 # Create your views here.
 
 cache_time = 2 #minutos
@@ -32,10 +30,11 @@ def home(request):
 	query = queryset(datetime.now())
 	todasPublicaciones = query
 
-	publicaciones = todasPublicaciones[:6]
+	publicacionesPermanentes = todasPublicaciones[:3]
+	publicaciones = todasPublicaciones[3:6]
 	
 	if len(eventos) == 0:
-		publicaciones = todasPublicaciones[:7]
+		publicaciones = todasPublicaciones[3:7]
 	
 	searchform = BusquedaForm()
 	return render(
@@ -44,6 +43,7 @@ def home(request):
 			{
 				"sliders": sliders,
 				"eventos": eventos,
+				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
 				"searchform" : searchform
@@ -118,16 +118,13 @@ def eventos(request):
 def eventos_json(request):
 	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
 	result = []
-	format = "%A %d de %B del %Y a las %H:%M"
 	for i in eventos:
 		data = {}
 		data['titulo'] = i.titulo
 		data['descripcion'] = i.descripcion
-		data['fechaHora'] = i.fechaHora.strftime(format)
-		data['fechaHoraFin'] = ""
-		if i.fechaHoraFin:
-			data['fechaHoraFin'] = i.fechaHoraFin.strftime(format)
-	
+		data['fechaHora'] = str(i.fechaHora)
+		data['fechaHoraFin'] = str(i.fechaHoraFin)
+
 		data['textoLink'] = i.textoLink
 		data['link'] = i.link
 		result.append(data)

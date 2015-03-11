@@ -98,7 +98,7 @@
 				
 				<div class="row">
 					
-					{% for publicacion in publicaciones %}
+					{% for publicacion in publicacionesPermanentes %}
 						{% if forloop.first %}
 						<div class="col-sm-12 col-md-6">
 							<a class="thumbnail recent home" href="{% url 'publicacion' publicacion.id %}">
@@ -132,35 +132,62 @@
 						</div>
 					{% endfor%}
 
-					{% if eventos.count > 0 %}
-						<div class="col-sm-6 col-md-3 dispTable">
-						    <a class="thumbnail eventos boxAutoHeight" href="{% url 'eventos' %}">
+				</div>
+			</div>
+		</article>
+
+		<article class="container-fluid margin-top-med">
+			<div class="container">
+				<div class="row">
+					
+					{% for publicacion in publicaciones %}
+						<div class="col-sm-6 col-md-3">
+						    <a class="thumbnail" href="{% url 'publicacion' publicacion.id %}">
+						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
+						      	{% if publicacion.imagen %}
+							      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
+					      				<img src="{{ im.url }}" alt="{{ publicacion.titulo }}" />
+					      			{% endthumbnail %}
+					      		{% else %}
+					      			<img src="{% static "img/placeholder.jpg" %}" /> 
+					      		{% endif %}
 						      	<div class="caption">
-						        	<h4>
-									<span class="icon-calendar"></span>
-									Eventos próximos
-								</h4>
-						         	<div>
-						         		<ul>
-						         			{% for evento in eventos %}
-						         				<li>
-						         					<strong>{{ evento.titulo }}</strong>
-						         					<i>{{ evento.fechaHora }}</i>
-						         				</li>
-						         			{% endfor %}
-						         		</ul>
-						        	</div>
-						      	</div>
+						        	<h4 class="text-red">{{ publicacion.titulo }}</h4> 
+						         	<div class="new-content">
+						        	<p>{{ publicacion.resumen|slice:":150" }}</p>
+						        </div>
+						      </div>
 						    </a>
 						</div>
+					{% endfor%}
+					
+					{% if eventos.count > 0 %}
+					<div class="col-sm-6 col-md-3 dispTable">
+					    <a class="thumbnail eventos boxAutoHeight" href="{% url 'eventos' %}">
+					      	<div class="caption">
+					        	<h4>
+								<span class="icon-calendar"></span>
+								Eventos próximos
+							</h4>
+					         	<div>
+					         		<ul>
+					         			{% for evento in eventos %}
+					         				<li>
+					         					<strong>{{ evento.titulo }}</strong>
+					         					<i>{{ evento.fechaHora }}</i>
+					         				</li>
+					         			{% endfor %}
+					         		</ul>
+					        	</div>
+					      	</div>
+					    </a>
+					</div>
 					{% endif %}
 
 				</div>
 				<p class="text-center"><a href="/publicaciones/" class="btn btn-primary" role="button">TODAS LAS PUBLICACIONES</a></p>
 			</div>
 		</article>
-
-
 	</section>
 	
 {% endblock %}
