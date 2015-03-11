@@ -16,6 +16,6 @@ angular
 			$scope.eventos = data;
 		})
 		.error(function(data, status, headers, config) {
-
+			console.log("Error al recuperar datos");
 		});
 	}]);
