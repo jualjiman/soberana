@@ -1,0 +1,18 @@
+angular.module('eventos',['ngMd5'])
+.config(function($locationProvider) {
+
+})
+.controller('eventos_controller', function($scope, $http, md5){
+
+	$http.get('/eventos-json/').
+	success(function(data, status, headers, config) {
+		//$scope.data = data;
+		console.log("probando..");
+		console.log(data);
+		//$scope.categorias = _(data).chain().uniq('depto').value();
+	}).
+	error(function(data, status, headers, config) {
+
+	});
+
+});

@@ -2,10 +2,9 @@
 {% load staticfiles %}
 
 {% block mainContent %}
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-	<script src="{% static "js/main.js" %}"></script>
-	<section id="mainContent" ng-app="eventos">
-		<div class="container" ng-controller="eventos_controller">
+
+	<section id="mainContent">
+		<div class="container" ng-app="eventos" ng-controller="eventos_controller">
 			<div class="row">
 				<div class="col-sm-6">
 					<h2 class="text-red">Eventos</h2>
@@ -14,61 +13,20 @@
 					
 					<form role="search" class="seach-field" action="/busqueda/" method="GET">
 					  <div class="input-group">
-					      <input type="text" placeholder="¿Qué evento esta buscando?" class="form-control" ng-model="search">
+					      <input type="text" placeholder="¿Qué evento esta buscando?" class="form-control">
 					      <span class="input-group-btn">
 					        <button id="btnSearch" type="submit" class="btn btn-success" type="button">BUSCAR</button>
 					      </span>
 					    </div><!-- /input-group -->
 					</form>
 				</div>
-				<div class="col-xs-12" ng-hide="search == ''">
-					<h4 class="text-green" ng-bind-template='Resultados para "{[{ search }]}"'></h4>
+				<div class="col-xs-12">
+					<h4 class="text-green">Resultados para ""</h4>
 				</div>
 			</div>
 
 			{% if eventos.count > 0 %}
 				<ul class="timeline">
-
-					<li ng-repeat="evento in eventos | filter: search" ng-class-even="'timeline-inverted'" ng-class-odd="''" ng-cloak>
-						<div ng-class-even="'timeline-badge danger'" ng-class-odd="'timeline-badge success'">
-							<i class="glyphicon glyphicon-hand-left"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4 class="text-red">{[{ evento.titulo }]}</h4>
-								<p><small class="text-muted">
-									<i class="glyphicon glyphicon-time"></i> 
-									<div ng-show="evento.fechaHoraFin != ''">
-										<strong>Desde: </strong>{[{ evento.fechaHora}]}
-										|
-										<strong>Hasta: </strong>{[{ evento.fechaHoraFin}]}
-									</div>
-									<div ng-show="evento.fechaHoraFin == ''">
-										{[{ evento.fechaHora}]}
-									</div>
-									</small>
-								</p>
-							</div>
-							<div class="timeline-body">
-								 
-								<div class="event-description">
-									<p>
-									{[{ evento.descripcion }]}
-									</p>	
-								</div>
-								
-								<div class="text-right" ng-show="evento.textoLink != ''" >
-									<a href="{[{ evento.link }]}" target="_blank">
-										<span class="icon-link"></span>
-										{[{ evento.textoLink }]}
-									</a>
-								</div>
-								
-							</div>
-						</div>
-					</li>
-
-					{% comment %}
 					{% for evento in eventos %}
 						{% if forloop.counter|divisibleby:2 %}
 							<li class="timeline-inverted">
@@ -113,15 +71,13 @@
 								
 							</div>
 						</div>
-					
+					</li>
 					{% endfor %}
-					{% endcomment %}
-
 				</ul>
 			{% endif %}
-
 		</div>
 	</section>
-	
+	{# n <script src="{% static "js/angular.min.js" %}"></script> #}
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
 {% endblock %}
