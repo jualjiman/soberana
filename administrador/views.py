@@ -102,6 +102,18 @@ def publicaciones(request):
 		}
 	)
 
+def publicaciones_json(request):
+	publicaciones = queryset(datetime.now())
+	result = []
+	for i in publicaciones:
+		data = {}
+		data['titulo'] = i.titulo
+		data['resumen'] = i.resumen
+		data['fecha'] = str(i.fecha)
+		data['imagen'] = i.imagen.url
+		result.append(data)
+	return HttpResponse(json.dumps(result), content_type = "application/json")
+
 def eventos(request):
 	titulo = "Eventos"
 	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
@@ -118,17 +130,18 @@ def eventos(request):
 def eventos_json(request):
 	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
 	result = []
+	data['fechaHora'] = i.fechaHora.strftime(format)
 	for i in eventos:
 		data = {}
 		data['titulo'] = i.titulo
 		data['descripcion'] = i.descripcion
-		data['fechaHora'] = str(i.fechaHora)
-		data['fechaHoraFin'] = str(i.fechaHoraFin)
-
+		data['fechaHora'] = i.fechaHora.strftime(format)
+ 		data['fechaHoraFin'] = ""
+ 		if i.fechaHoraFin:
+ 			data['fechaHoraFin'] = i.fechaHoraFin.strftime(format)
 		data['textoLink'] = i.textoLink
 		data['link'] = i.link
 		result.append(data)
-            
 	return HttpResponse(json.dumps(result), content_type = "application/json")
 
 def busqueda(request):
