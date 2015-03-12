@@ -46,7 +46,6 @@ def home(request):
 				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
-				"url_website" : settings.URL_WEBSITE,
 				"searchform" : searchform
 			}
 		)
