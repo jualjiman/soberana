@@ -67,8 +67,6 @@ urlpatterns = patterns('',
     
     url(r'^api/eventos/$', views.eventos_json, name="eventos_json"),
     url(r'^api/publicaciones/$', views.publicaciones_json, name="publicaciones_json"),
-
-    publicaciones_json
 )
 
 handler404 = "administrador.views.e404"#TemplateView.as_view(template_name="404.html")
