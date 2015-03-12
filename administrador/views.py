@@ -110,7 +110,9 @@ def publicaciones_json(request):
 		data['titulo'] = i.titulo
 		data['resumen'] = i.resumen
 		data['fecha'] = str(i.fecha)
-		data['imagen'] = i.imagen.url
+		data['imagen'] = ""
+		if i.imagen:
+			data['imagen'] = i.imagen.url
 		result.append(data)
 	return HttpResponse(json.dumps(result), content_type = "application/json")
 
