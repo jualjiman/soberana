@@ -130,7 +130,7 @@ def eventos(request):
 def eventos_json(request):
 	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
 	result = []
-	data['fechaHora'] = i.fechaHora.strftime(format)
+	format = "%A %d de %B del %Y a las %H:%M"
 	for i in eventos:
 		data = {}
 		data['titulo'] = i.titulo
