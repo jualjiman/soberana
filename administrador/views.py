@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.conf import settings
 from datetime import datetime
 from .models import *
 from .forms import *
-from django.views.decorators.cache import cache_page
-from django.http import HttpResponse
 import json
 
 # Create your views here.
@@ -46,6 +46,7 @@ def home(request):
 				"publicacionesPermanentes" : publicacionesPermanentes,
 				"publicaciones" : publicaciones,
 				"titulo" : titulo,
+				"url_website" : settings.URL_WEBSITE,
 				"searchform" : searchform
 			}
 		)
