@@ -2,9 +2,8 @@
 {% load staticfiles %}
 
 {% block mainContent %}
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-	<script src="{% static "js/main.js" %}"></script>
-	<section id="mainContent" ng-app="eventos">
+
+	<section id="mainContent">
 		<div class="container" ng-controller="eventos_controller">
 			<div class="row">
 				<div class="col-sm-6">
@@ -67,61 +66,15 @@
 							</div>
 						</div>
 					</li>
-
-					{% comment %}
-					{% for evento in eventos %}
-						{% if forloop.counter|divisibleby:2 %}
-							<li class="timeline-inverted">
-							<div class="timeline-badge danger">
-						{% else %}
-							<li>
-							<div class="timeline-badge success">
-						{% endif %}
-							<i class="glyphicon glyphicon-hand-left"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4 class="text-red">{{ evento.titulo }}</h4>
-								<p><small class="text-muted">
-									<i class="glyphicon glyphicon-time"></i> 
-									{% if evento.fechaHoraFin %}
-										<strong>Desde: </strong>{{ evento.fechaHora}}
-										|
-										<strong>Hasta: </strong>{{ evento.fechaHoraFin}}
-									{% else %}
-										{{ evento.fechaHora}}
-									{% endif %}
-									</small>
-								</p>
-							</div>
-							<div class="timeline-body">
-								 
-								<div class="event-description">
-									<p>
-									{{ evento.descripcion }}
-									</p>	
-								</div>
-								
-								{% if evento.textoLink %}
-									<div class="text-right">
-										<a href="{{ evento.link }}" target="_blank">
-											<span class="icon-link"></span>
-											{{ evento.textoLink }}
-										</a>
-									</div>
-								{% endif %}
-								
-							</div>
-						</div>
-					
-					{% endfor %}
-					{% endcomment %}
-
 				</ul>
 			{% endif %}
 
 		</div>
 	</section>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+	<script src="{% static "js/controllers/events_controller.js" %}"></script>
+	<script src="{% static "js/controllers/publications_controller.js" %}"></script>
+	<script src="{% static "js/app.js" %}"></script>
 
 {% endblock %}

@@ -3,15 +3,10 @@ angular
 		'eventos',
 		[]
 	)
-	.config(function ($interpolateProvider) {
-		$interpolateProvider.startSymbol('{[{');
-		$interpolateProvider.endSymbol('}]}');
-
-	})
 	.controller('eventos_controller', ['$scope','$http', function($scope, $http){
 
 		$scope.search = '';
-		$http.get('/eventos-json/')
+		$http.get('/api/eventos/')
 		.success(function(data, status, headers, config) {
 			$scope.eventos = data;
 		})
