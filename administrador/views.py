@@ -9,6 +9,8 @@ from datetime import datetime
 from .models import *
 from .forms import *
 import json
+import locale 
+locale.setlocale(locale.LC_ALL, 'es_MX.utf8') 
 
 # Create your views here.
 
