@@ -76,8 +76,14 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Oferta educativa <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/oferta-educativa/ciencias-basicas">Ciencias básicas</a></li>
-	            <li><a href="{% url 'licenciaturas_ingenierias' %}">Licenciaturas/Ingenierías</a></li>
+	            <li><a href="{% url 'arquitectura' %}">Arquitectura</a></li>
+	            <li><a href="{% url 'ingenieria_en_sistemas_computacionales' %}">Ingeniería en Sistemas Computacionales</a></li>
+	            <li><a href="{% url 'ingenieria_electromecanica' %}">Ingeniería Electromecánica</a></li>
+	            <li><a href="{% url 'ingenieria_bioquimica' %}">Ingeniería Bioquímica</a></li>
+	            <li><a href="{% url 'ingenieria_en_gestion_empresarial' %}">Ingeniería en Gestión Empresarial</a></li>
+	            <li><a href="{% url 'licenciatura_en_administracion' %}">Licenciatura en Administración</a></li>
+	            <li><a href="{% url 'licenciatura_en_contabilidad' %}">Licenciatura en Contabilidad</a></li>
+
 	            <li><a href="{% url 'posgrado' %}">Posgrado</a></li>
 	            <li><a href="{% url 'cuerpos_academicos' %}">Cuerpos académicos</a></li>
 
@@ -98,7 +104,6 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estudiantes <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	          	<li><a href="/estudiantes/sii">SII</a></li>
-	          	<li><a target="_blank" href="http://www.it-acapulco.edu.mx/intratec/contacto/formcontac.phttp://www.tecnm.mx/sgahp">Búzon de quejas y sugerencias</a></li>
 	            <li><a href="/estudiantes/reinscripciones">Reinscripciones</a></li>
 	            <li><a target="_blank" href="{% static "docs/pestañaEstudiantes/ActvidadesComplementarias.zip" %}">Créditos complementarios</a></li>
 	            <li><a href="{% url 'servicio_social' %}">Servicio social</a></li>
@@ -123,11 +128,12 @@
 			<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sitios ITA <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Sistema de gestión de calidad</a></li>
-	            <li><a target="_blank" href="http://www.tecnm.mx/sga">Sistema de gestión ambiental</a></li>
-	            <li><a target="_blank" href="http://www.tecnm.mx/sgeg">Sistema de gestión de equidad de género</a></li>
-	            <li><a href="{% url 'documentos_rectores_de_planeacion' %}">Documentos rectores de planeación</a></li>
-	            <li><a target="_blank" href="http://itacapulco.trabajando.com.mx/">Bolsa de trabajo</a></li>
+	            <li><a href="#">Sistema de Gestión de Calidad</a></li>
+	            <li><a target="_blank" href="http://www.tecnm.mx/sga">Sistema de Gestión Ambiental</a></li>
+	            <li><a target="_blank" href="http://www.tecnm.mx/sgeg">Modelo de Equidad de Género</a></li>
+	            <li><a target="_blank" href="http://www.it-acapulco.edu.mx/intratec/contacto/formcontac.phttp://www.tecnm.mx/sgahp">Búzon de quejas y sugerencias</a></li>
+	            <li><a href="{% url 'documentos_rectores_de_planeacion' %}">Documentos Rectores de Planeación</a></li>
+	            <li><a target="_blank" href="http://itacapulco.trabajando.com.mx/">Bolsa de Trabajo</a></li>
 	            <li><a href="/sitios-ita/licitaciones">Licitaciones</a></li>
 	          </ul>
 	        </li>

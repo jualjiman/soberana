@@ -30,7 +30,14 @@ urlpatterns = patterns('',
     url(r'^eventos/$', 'administrador.views.eventos', name='eventos'),
 
     #OFERTA EDUCATIVA
-    url(r'^oferta-educativa/licenciaturas-ingenierias/$', TemplateView.as_view(template_name="licenciaturas-ingenierias.html"), { 'titulo' : "Licenciaturas/Ingenierias" }, name='licenciaturas_ingenierias'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/arquitectura$', TemplateView.as_view(template_name="arquitectura.html"), { 'titulo' : "Arquitectura" }, name='arquitectura'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/ingenieria-en-sistemas-computacionales$', TemplateView.as_view(template_name="ingenieria-en-sistemas-computacionales.html"), { 'titulo' : "Ingeniería en Sistemas Computacionales" }, name='ingenieria_en_sistemas_computacionales'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/ingenieria-electromecanica$', TemplateView.as_view(template_name="ingenieria-electromecanica.html"), { 'titulo' : "Ingeniería Electromecánica" }, name='ingenieria_electromecanica'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/ingenieria-bioquimica$', TemplateView.as_view(template_name="ingenieria-bioquimica.html"), { 'titulo' : "Ingeniería Bioquímica" }, name='ingenieria_bioquimica'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/ingenieria-en-gestion-empresarial$', TemplateView.as_view(template_name="ingenieria-en-gestion-empresarial.html"), { 'titulo' : "Ingeniería en Gestión Empresarial" }, name='ingenieria_en_gestion_empresarial'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/licenciatura-en-administracion$', TemplateView.as_view(template_name="licenciatura-en-administracion.html"), { 'titulo' : "Licenciatura en Administración" }, name='licenciatura_en_administracion'),
+    url(r'^oferta-educativa/licenciaturas-ingenierias/licenciatura-en-contabilidad$', TemplateView.as_view(template_name="licenciatura-en-contabilidad.html"), { 'titulo' : "Licenciatura en Contabilidad" }, name='licenciatura_en_contabilidad'),
+
     url(r'^oferta-educativa/posgrado/$', TemplateView.as_view(template_name="posgrado.html"), { 'titulo' : "Posgrado" }, name='posgrado'),
     url(r'^oferta-educativa/cuerpos-academicos/$', TemplateView.as_view(template_name="cuerpos-academicos.html"), { 'titulo' : "Cuerpos académicos" }, name='cuerpos_academicos'),
 
