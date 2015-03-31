@@ -49,6 +49,7 @@ urlpatterns = patterns('',
     
     #ESTUDIANTES
     url(r'^estudiantes/servicio-social/$', TemplateView.as_view(template_name="servicio-social.html"), { 'titulo' : "Servicio social" }, name='servicio_social'),
+    url(r'^estudiantes/creditos-complementarios/$', TemplateView.as_view(template_name="creditos-complementarios.html"), { 'titulo' : "Créditos complementarios" }, name='creditos_complementarios'),
     url(r'^estudiantes/residencias-profesionales/$', TemplateView.as_view(template_name="residencias-profesionales.html"), { 'titulo' : "Residencias profesionales" }, name='residencias_profesionales'),
     url(r'^estudiantes/titulacion/$', TemplateView.as_view(template_name="titulacion.html"), { 'titulo' : "Titulación" }, name='titulacion'),
     url(r'^estudiantes/tramites/$', TemplateView.as_view(template_name="tramites.html"), { 'titulo' : "Tramite" }, name='tramites'),
@@ -61,7 +62,8 @@ urlpatterns = patterns('',
 
     #SITIOS ITA
     url(r'^sitios-ita/documentos-rectores-de-planeacion/$', TemplateView.as_view(template_name="documentos-rectores-de-planeacion.html"), { 'titulo' : "Documentos rectores de planeación" }, name='documentos_rectores_de_planeacion'),
-    
+    url(r'^sitios-ita/modelo-de-equidad-de-genero/$', TemplateView.as_view(template_name="modelo-de-equidad-de-genero.html"), { 'titulo' : "Modelo de Equidad de Género" }, name='modelo_de_equidad_de_genero'),
+
     # SERVICIOS
     url(r'^servicios/centro-de-informacion/$', TemplateView.as_view(template_name="centro-de-informacion.html"), { 'titulo' : "Centro de información" }, name='centro_de_informacion'),
 

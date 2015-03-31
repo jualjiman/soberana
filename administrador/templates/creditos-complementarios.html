@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load thumbnail static %}
+
+{% block mainContent %}
+	
+	<section id="mainContent">
+		<div class="container">
+					<h2 class="text-red">¿Que son las actividades complementarias?</h2>
+					<div class="text-justify margin-top-low">
+
+						<p>
+							Son aquellas que realiza el estudiante en beneficio de su formación integral con el objetivo de fortalecer sus competencias profesionales.
+						</p>
+
+
+						<p>
+							Son aquellas que realiza el estudiante en beneficio de su formación integral con el objetivo de fortalecer sus competencias profesionales.
+							Las actividades complementarias pueden ser: tutorías, actividades deportivas y culturales, proyectos de investigación, participación en eventos académicos, productividad laboral, emprendedurismo, proyectos de investigación, proyectos interdisciplinarios, construcción de prototipos y desarrollo tecnológico, conservación al medio ambiente y participación en ediciones, o aquellas que valide el comité académico del ITA.
+						</p>
+
+						<p>
+							<a class="text-green link" target="_blank" href="{% static "docs/estudiantes/actividades-complementarias-concepto.pdf" %}">Descargar el documento que explica el concepto, las actividades, el procedimiento y el listado de las actividades complementarias. <span class="icon-download"></span>.</a>
+						</p>
+						<p>
+							<a class="text-green link" target="_blank" href="{% static "docs/estudiantes/solicitud-de-creditos-complementarios.doc" %}">Descargar el Formato de Solicitud de Créditos Complementarios. <span class="icon-download"></span>.</a>
+						</p>
+
+						<img src="{% static "img/creditos-complementarios.jpg" %}" class="autoWidth margin-bottom" alt="Ingeniería bioquímica - ITA">
+					</div>
+		</div>
+	</section>
+
+{% endblock %}

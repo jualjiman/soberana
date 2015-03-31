@@ -105,7 +105,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	          	<li><a href="/estudiantes/sii">SII</a></li>
 	            <li><a href="/estudiantes/reinscripciones">Reinscripciones</a></li>
-	            <li><a target="_blank" href="{% static "docs/pestañaEstudiantes/ActvidadesComplementarias.zip" %}">Créditos complementarios</a></li>
+	            <li><a href="{% url 'creditos_complementarios' %}">Créditos complementarios</a></li>
 	            <li><a href="{% url 'servicio_social' %}">Servicio social</a></li>
 	            <li><a href="{% url 'residencias_profesionales' %}">Residencias Profesionales</a></li>
 	            <li><a href="/estudiantes/becas">Becas</a></li>
@@ -130,7 +130,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="#">Sistema de Gestión de Calidad</a></li>
 	            <li><a target="_blank" href="http://www.tecnm.mx/sga">Sistema de Gestión Ambiental</a></li>
-	            <li><a target="_blank" href="http://www.tecnm.mx/sgeg">Modelo de Equidad de Género</a></li>
+	            <li><a href="{% url 'modelo_de_equidad_de_genero' %}">Modelo de Equidad de Género</a></li>
 	            <li><a target="_blank" href="http://www.it-acapulco.edu.mx/intratec/contacto/formcontac.phttp://www.tecnm.mx/sgahp">Búzon de quejas y sugerencias</a></li>
 	            <li><a href="{% url 'documentos_rectores_de_planeacion' %}">Documentos Rectores de Planeación</a></li>
 	            <li><a target="_blank" href="http://itacapulco.trabajando.com.mx/">Bolsa de Trabajo</a></li>
