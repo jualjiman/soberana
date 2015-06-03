@@ -7,7 +7,11 @@
 	<meta property="og:type"   content="website" /> 
 	<meta property="og:url"    content="http://ita.jualjiman.com{{ request.path }}" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
+	{% if publicacion.imagen %}
 	<meta property="og:image"  content="http://ita.jualjiman.com{{ publicacion.imagen.url }}" />
+	{% else %}
+	<meta property="og:image"  content="http://ita.jualjiman.com/static/img/placeholder-post.jpg" />
+	{% endif %}
 {% endblock %}
 
 {% block mainContent %}
