@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
+import json
+import locale 
+from datetime import datetime
+
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
-from datetime import datetime
-from .models import *
 from .forms import *
-import json
-import locale 
+from .models import *
+
 locale.setlocale(locale.LC_ALL, 'es_MX.utf8') 
 
 # Create your views here.
@@ -24,8 +26,14 @@ def queryset(now):
 	return query
 
 def home(request):
-	sliders = Slider.objects.filter(activo = True)
-	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")[:4]
+	sliders = Slider.objects.filter(
+		activo = True
+	)
+	
+	eventos = Evento.objects.filter(
+		activo = True, 
+		fechaHora__gte = datetime.now()
+	).order_by("fechaHora")[:3]
 
 	titulo = "Home"
 
@@ -60,9 +68,12 @@ def publicacion(request, ide):
 	publicacion = get_object_or_404(query, id=ide)
 
 	if(publicacion != None):
-		enlaces = EnlacePublicacion.objects.filter(publicacion = publicacion.id)
-		videos = VideoPublicacion.objects.filter(publicacion = publicacion.id)
-		archivos = ArchivoPublicacion.objects.filter(publicacion = publicacion.id)
+		enlaces = EnlacePublicacion.objects.filter(
+			publicacion = publicacion.id)
+		videos = VideoPublicacion.objects.filter(
+			publicacion = publicacion.id)
+		archivos = ArchivoPublicacion.objects.filter(
+			publicacion = publicacion.id)
 
 	otrasPublicaciones = query.exclude(pk=ide)[:4]
 
@@ -116,11 +127,19 @@ def publicaciones_json(request):
 		if i.imagen:
 			data['imagen'] = i.imagen.url
 		result.append(data)
-	return HttpResponse(json.dumps(result), content_type = "application/json")
+	
+	return HttpResponse(
+		json.dumps(result), 
+		content_type = "application/json"
+	)
 
 def eventos(request):
 	titulo = "Eventos"
-	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
+	
+	eventos = Evento.objects.filter(
+		activo = True, 
+		fechaHora__gte = datetime.now()
+	).order_by("fechaHora")
 
 	return render(
 		request,
@@ -132,7 +151,12 @@ def eventos(request):
 	)
 
 def eventos_json(request):
-	eventos = Evento.objects.filter(activo = True, fechaHora__gte = datetime.now()).order_by("fechaHora")
+	
+	eventos = Evento.objects.filter(
+		activo = True, 
+		fechaHora__gte = datetime.now()
+	).order_by("fechaHora")
+	
 	result = []
 	format = "%A %d de %B del %Y a las %H:%M"
 	for i in eventos:
@@ -146,7 +170,11 @@ def eventos_json(request):
 		data['textoLink'] = i.textoLink
 		data['link'] = i.link
 		result.append(data)
-	return HttpResponse(json.dumps(result), content_type = "application/json")
+	
+	return HttpResponse(
+		json.dumps(result), 
+		content_type = "application/json"
+	)
 
 def busqueda(request):
 	if request.method == 'GET': # If the form has been submitted...
@@ -192,7 +220,10 @@ def mas(request):
 	    query = queryset(datetime.now())
 	    masPublicaciones = query[pagina:(pagina+elemsPorPagina)]
 
-	    return render(request,"mas.html",{"masPublicaciones": masPublicaciones})
+	    return render(
+	    	request,"mas.html",
+	    	{"masPublicaciones": masPublicaciones}
+	    )
 	else:
 		return HttpResponseRedirect("/")
 
