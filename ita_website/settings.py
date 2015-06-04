@@ -29,10 +29,10 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    '.ita.jualjiman.com',
-    '.ita.jualjiman.com.', 
     '.www2.it-acapulco.edu.mx',
     '.www2.it-acapulco.edu.mx.',
+    '.it-acapulco.edu.mx',
+    '.it-acapulco.edu.mx.',
 ]
 
 # Application definition
