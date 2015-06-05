@@ -5,12 +5,12 @@
 {% block facebook_headers %}
 	<meta property="fb:app_id" content="1612804425607316" /> 
 	<meta property="og:type"   content="website" /> 
-	<meta property="og:url"    content="http://ita.jualjiman.com{{ request.path }}" /> 
+	<meta property="og:url"    content="http://it-acapulco.edu.mx{{ request.path }}" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
 	{% if publicacion.imagen %}
-	<meta property="og:image"  content="http://ita.jualjiman.com{{ publicacion.imagen.url }}" />
+	<meta property="og:image"  content="http://it-acapulco.edu.mx{{ publicacion.imagen.url }}" />
 	{% else %}
-	<meta property="og:image"  content="http://ita.jualjiman.com/static/img/placeholder-post.jpg" />
+	<meta property="og:image"  content="http://it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
 	{% endif %}
 {% endblock %}
 

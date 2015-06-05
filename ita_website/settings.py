@@ -29,8 +29,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    '.www2.it-acapulco.edu.mx',
-    '.www2.it-acapulco.edu.mx.',
     '.it-acapulco.edu.mx',
     '.it-acapulco.edu.mx.',
 ]
