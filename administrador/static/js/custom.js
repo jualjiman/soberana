@@ -1,13 +1,5 @@
 var scripts = {};
 
-scripts.sliderOnResize = function (){
-	if($(window).width() > 1920){
-		$("#slider").addClass("container");
-	}else{
-		$("#slider").removeClass("container");
-	}
-};
-
 scripts.boxAutoHeight = function(){
 	$selector = $(".boxAutoHeight");
 	$selector.height("initial").height( $selector.height() );
