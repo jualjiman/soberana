@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 
-from .forms import *
+from .forms import ContactoForm
 from .models import *
 
 locale.setlocale(locale.LC_ALL, 'es_MX.utf8')
@@ -225,6 +225,39 @@ def busqueda(request):
             return HttpResponseRedirect("/")
     else:
         return HttpResponseRedirect("/")
+
+
+def contacto(request):
+    if request.is_ajax():
+        nombre = request.POST['name']
+        email = request.POST['email']
+        mensaje = request.POST['message']
+
+        dfrom = nombre + " <" + email + ">"
+        mensaje = dfrom + "\n\n" + mensaje
+
+        send_mail(
+            'Mensaje desde Pagina web ITA',
+            mensaje,
+            "ITA Quejas y sujerencias "
+            "<quejas_y_sugerencias@it-acapulco.edu.mx>",
+            ['jualjiman@gmail.com', ],
+            fail_silently=False
+        )
+
+        msj = Mensaje(nombre=dfrom, email=email, mensaje=mensaje)
+        msj.save()
+
+        return HttpResponse('Ok')
+    else:
+        form = ContactoForm()
+        return render(
+            request,
+            "ubicacion-contacto.html",
+            {
+                "form": form,
+                'titulo': "Ubicación y contacto",
+            })
 
 
 @csrf_exempt

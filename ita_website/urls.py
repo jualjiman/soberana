@@ -52,11 +52,9 @@ urlpatterns = patterns(
         {'titulo': "Directorio"},
         name='directorio'
     ),
-
     url(
         r'^nuestro-instituto/ubicacion-contacto/$',
-        TemplateView.as_view(template_name="ubicacion-contacto.html"),
-        {'titulo': "Ubicación y contacto"},
+        'administrador.views.contacto',
         name='ubicacion_contacto'
     ),
 
