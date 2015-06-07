@@ -8,12 +8,10 @@ scripts.boxAutoHeight = function(){
 
 $( window ).resize(function() {
 	scripts.boxAutoHeight();
-	scripts.sliderOnResize();
 });
 
 $(function(){
 	scripts.boxAutoHeight();
-	scripts.sliderOnResize();
 
 	// Load more
 	$('#btn-loadmore').click(function(e) {
