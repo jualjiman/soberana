@@ -5,14 +5,12 @@
 {% block facebook_headers %}
 	<meta property="fb:app_id" content="1612804425607316" /> 
 	<meta property="og:type"   content="website" /> 
-	<meta property="og:url"    content="http://www.it-acapulco.edu.mx{{ request.path }}" /> 
+	<meta property="og:url"    content="http://it-acapulco.edu.mx{{ request.path }}" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
 	{% if publicacion.imagen %}
-	{% thumbnail publicacion.imagen "800x400" crop="center" as im %}
-	<meta property="og:image"  content="http://www.it-acapulco.edu.mx{{ im.url }}" />
-	{% endthumbnail %}
+	<meta property="og:image"  content="http://it-acapulco.edu.mx{{ publicacion.imagen.url }}" />
 	{% else %}
-	<meta property="og:image"  content="http://www.it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
+	<meta property="og:image"  content="http://it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
 	{% endif %}
 {% endblock %}
 
@@ -53,7 +51,7 @@
 					<div class="row margin-bottom">
 						<div class="col-sm-6">{{ publicacion.fecha }}</div>
 						<div class="col-sm-6">
-							<div class="fb-like pull-right" data-href="http://www.it-acapulco.edu.mx/publicaciones/{{ publicacion.id }}/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+							<div class="fb-like pull-right" data-href="http://it-acapulco.edu.mx/publicaciones/{{ publicacion.id }}/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 						</div>
 					</div>
 					
