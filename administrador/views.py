@@ -8,6 +8,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
+from django.core.mail import send_mail
 
 from .forms import ContactoForm, BusquedaForm
 from .models import *
@@ -232,6 +233,8 @@ def contacto(request):
         nombre = request.POST['name']
         email = request.POST['email']
         mensaje = request.POST['message']
+        
+        print "==================================CONTACTO====================="
 
         dfrom = nombre + " <" + email + ">"
         mensaje = dfrom + "\n\n" + mensaje
@@ -239,8 +242,8 @@ def contacto(request):
         send_mail(
             'Mensaje desde Pagina web ITA',
             mensaje,
-            "ITA Quejas y sujerencias <mailer@jualjiman.com>",
-            ['contacto@jualjiman.com', 'jualjiman@gmail.com', ],
+            "ITA Quejas y sujerencias <quejas_y_sugerencias@it-acapulco.edu.mx>",
+            ['jualjiman@gmail.com', ],
             fail_silently=False
         )
 
