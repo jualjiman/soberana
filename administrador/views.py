@@ -244,9 +244,6 @@ def contacto(request):
             fail_silently=False
         )
 
-        msj = Mensaje(nombre=dfrom, email=email, mensaje=mensaje)
-        msj.save()
-
         return HttpResponse('Ok')
     else:
         form = ContactoForm()
