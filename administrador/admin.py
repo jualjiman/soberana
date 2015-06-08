@@ -8,102 +8,144 @@ from django.contrib.auth.models import Group
 
 # Register your models here.
 
-#UserAdmin.list_display = ('username', 'email', 'first_name', 'last_name','get_group_permissions')
+# UserAdmin.list_display = (
+#    'username', 'email', 'first_name',
+#    'last_name', 'get_group_permissions'
+# )
+
 
 class CustomUserAdmin(UserAdmin):
-	list_display = ('username', 'email', 'first_name', 'last_name', 'grupos')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'grupos')
 
-	def save_model(self, request, obj, form, change):
-		obj.is_staff = True
-		obj.save()
+    def save_model(self, request, obj, form, change):
+        obj.is_staff = True
+        obj.save()
 
-	## Static overriding 
-	fieldsets = (
-	    (None, {'fields': ('username', 'password')}),
-	    (('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
-	    (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups')}),
-	    #(('Important dates'), {'fields': ('last_login', 'date_joined')}),
-	)
+    # Static overriding
+    fieldsets = (
+        (
+            None, {'fields': ('username', 'password')}
+        ),
+        (
+            ('Personal info'),
+            {
+                'fields': ('first_name', 'last_name', 'email')
+            }
+        ),
+        (
+            ('Permissions'),
+            {
+                'fields': ('is_active', 'is_staff', 'is_superuser', 'groups')
+            }
+        ),
+        # (('Important dates'), {'fields': ('last_login', 'date_joined')}),
+    )
 
-	def get_form(self, request, obj=None, **kwargs):
-	    self.exclude = ("user_permissions",)
-	    ## Dynamically overriding
-	    self.fieldsets[2][1]["fields"] = ('groups',)
-	    
-	    form = super(CustomUserAdmin,self).get_form(request, obj, **kwargs)
-	    return form
-	def grupos(self,model_instance):
-		grupos = model_instance.groups.all()
-		string_grupos = ""
-		
-		for nombre in grupos:
-			string_grupos += str(nombre) + " "
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = ("user_permissions",)
 
-		return string_grupos
+        # Dynamically overriding
+        self.fieldsets[2][1]["fields"] = ('groups',)
+
+        form = super(CustomUserAdmin, self).get_form(request, obj, **kwargs)
+        return form
+
+    def grupos(self, model_instance):
+        grupos = model_instance.groups.all()
+        string_grupos = ""
+
+        for nombre in grupos:
+            string_grupos += str(nombre) + " "
+
+        return string_grupos
+
 
 class EnlaceInline(admin.StackedInline):
-	model = EnlacePublicacion
-	extra = 0
+    model = EnlacePublicacion
+    extra = 0
+
 
 class VideoInline(admin.StackedInline):
-	model = VideoPublicacion
-	extra = 0
+    model = VideoPublicacion
+    extra = 0
+
 
 class ArchivoInline(admin.StackedInline):
-	model = ArchivoPublicacion
-	extra = 0
+    model = ArchivoPublicacion
+    extra = 0
+
 
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
-	list_display = ('img_slider','titulo','link','activo',)
-	search_fields = ('titulo',)
+    list_display = ('img_slider', 'titulo', 'link', 'activo',)
+    search_fields = ('titulo',)
 
-	def img_slider(self,model_instance):
-		return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'250x100',crop='center').url,)
+    def img_slider(self, model_instance):
+        return (
+            "<img src='%s' />" % (
+                get_thumbnail(
+                    model_instance.imagen,
+                    '250x100',
+                    crop='center'
+                ).url,
+            )
+        )
 
-	img_slider.allow_tags = True
+    img_slider.allow_tags = True
+
 
 @admin.register(Publicacion)
 class PublicacionAdmin(admin.ModelAdmin):
 
-	list_display = ('img_publicacion','fecha','titulo','fecha_inicio','fecha_fin','categoria','activo','creador','ultima_modificacion')
-	search_fields = ('titulo','texto','resumen',)
-	inlines = [EnlaceInline, VideoInline, ArchivoInline, ]
+    list_display = (
+        'img_publicacion', 'fecha', 'titulo', 'fecha_inicio',
+        'fecha_fin', 'categoria', 'activo', 'creador', 'ultima_modificacion'
+    )
 
-	def img_publicacion(self,model_instance):
-		if model_instance.imagen:
-			return "<img src='%s' />" % (get_thumbnail(model_instance.imagen,'100x66',crop='center').url,)
-		else:
-			return "<img src='/static/img/placeholder-thumb.jpg' />" 
+    search_fields = ('titulo', 'texto', 'resumen',)
+    inlines = [EnlaceInline, VideoInline, ArchivoInline, ]
 
-	def creador(self,model_instance):
-		return model_instance.creator
+    def img_publicacion(self, model_instance):
+        if model_instance.imagen:
+            return "<img src='%s' />" % (
+                get_thumbnail(
+                    model_instance.imagen,
+                    '100x66',
+                    crop='center'
+                ).url,
+            )
+        else:
+            return "<img src='/static/img/placeholder-thumb.jpg' />"
 
-	def ultima_modificacion(self,model_instance):
-		return model_instance.editer
-	
-	img_publicacion.allow_tags = True		
+    def creador(self, model_instance):
+        return model_instance.creator
 
-	def save_model(self, request, publication, form, change):
-		if change:
-			publication.editer = request.user
-		else:
-			publication.creator = request.user
-		
-		publication.save()
+    def ultima_modificacion(self, model_instance):
+        return model_instance.editer
 
-	def get_form(self, request, obj=None, **kwargs):
-		if request.user.groups.filter(name='Capturista').exists():
-			self.exclude = ['activo','creator','editer']
-		else:
-			self.exclude = ['creator','editer']
+    img_publicacion.allow_tags = True
 
-		return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)
+    def save_model(self, request, publication, form, change):
+        if change:
+            publication.editer = request.user
+        else:
+            publication.creator = request.user
+
+        publication.save()
+
+    def get_form(self, request, obj=None, **kwargs):
+        if request.user.groups.filter(name='Capturista').exists():
+            self.exclude = ['activo', 'creator', 'editer']
+        else:
+            self.exclude = ['creator', 'editer']
+
+        return super(PublicacionAdmin, self).get_form(request, obj, **kwargs)
+
 
 @admin.register(Evento)
 class EventoAdmin(admin.ModelAdmin):
-	list_display = ('titulo','fechaHora','fechaHoraFin','activo')
-	search_fields = ('titulo','descripcion')
+    list_display = ('titulo', 'fechaHora', 'fechaHoraFin', 'activo')
+    search_fields = ('titulo', 'descripcion')
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
