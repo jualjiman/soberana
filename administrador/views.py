@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 
-from .forms import ContactoForm
+from .forms import ContactoForm, BusquedaForm
 from .models import *
 
 locale.setlocale(locale.LC_ALL, 'es_MX.utf8')
@@ -239,9 +239,8 @@ def contacto(request):
         send_mail(
             'Mensaje desde Pagina web ITA',
             mensaje,
-            "ITA Quejas y sujerencias "
-            "<quejas_y_sugerencias@it-acapulco.edu.mx>",
-            ['jualjiman@gmail.com', ],
+            "ITA Quejas y sujerencias <mailer@jualjiman.com>",
+            ['contacto@jualjiman.com', 'jualjiman@gmail.com', ],
             fail_silently=False
         )
 
