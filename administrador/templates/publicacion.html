@@ -8,9 +8,9 @@
 	<meta property="og:url"    content="http://it-acapulco.edu.mx{{ request.path }}" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
 	{% if publicacion.imagen %}
-	<meta property="og:image"  content="http://it-acapulco.edu.mx{{ publicacion.imagen.url }}" />
+	<meta property="og:image"  content="http://www.it-acapulco.edu.mx{{ publicacion.imagen.url }}" />
 	{% else %}
-	<meta property="og:image"  content="http://it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
+	<meta property="og:image"  content="http://www.it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
 	{% endif %}
 {% endblock %}
 
