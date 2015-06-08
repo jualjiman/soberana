@@ -12,6 +12,7 @@
 	{% else %}
 	<meta property="og:image"  content="http://it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
 	{% endif %}
+	<meta property="og:description"  content="{{ publicacion.resumen|slice:':150' }}" />
 {% endblock %}
 
 {% block mainContent %}
