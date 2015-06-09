@@ -164,12 +164,6 @@ urlpatterns = patterns(
         name='aspirantes_convocatoria'
     ),
     url(
-        r'^aspirantes/resultados/$',
-        TemplateView.as_view(template_name="aspirantes-resultados.html"),
-        {'titulo': "Aspirantes Resultados"},
-        name='aspirantes_resultados'
-    ),
-    url(
         r'^aspirantes/curso-induccion/$',
         TemplateView.as_view(template_name="aspirantes-curso.html"),
         {'titulo': "Curso de inducción"},
