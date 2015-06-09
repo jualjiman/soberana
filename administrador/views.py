@@ -102,8 +102,16 @@ def publicacion(request, ide):
 
 def publicaciones(request):
     titulo = "Publicaciones"
-    todas_publicaciones = queryset(datetime.now())
+    now = datetime.now()
 
+    todas_publicaciones = Publicacion.objects.filter(
+        activo=True
+    ).order_by(
+        "-fecha", 
+        "-categoria", 
+        "-pk"
+    )
+    
     publicaciones_permanentes = todas_publicaciones[:4]
     publicaciones = todas_publicaciones[4:8]
 
@@ -233,11 +241,17 @@ def contacto(request):
         nombre = request.POST['name']
         email = request.POST['email']
         mensaje = request.POST['message']
-        
-        print "==================================CONTACTO====================="
 
         dfrom = nombre + " <" + email + ">"
         mensaje = dfrom + "\n\n" + mensaje
+
+        send_mail(
+            'Mensaje desde Pagina web ITA',
+            mensaje,
+            "ITA Quejas y sujerencias <quejas_y_sugerencias@it-acapulco.edu.mx>",
+            ['jualjiman@gmail.com', ],
+            fail_silently=False
+        )
 
         send_mail(
             'Mensaje desde Pagina web ITA',
@@ -266,7 +280,14 @@ def mas(request):
         elems_por_pagina = 4
         pagina *= elems_por_pagina
 
-        query = queryset(datetime.now())
+        query = Publicacion.objects.filter(
+            activo=True
+        ).order_by(
+            "-fecha", 
+            "-categoria", 
+            "-pk"
+        )
+         
         mas_publicaciones = query[pagina:(pagina + elems_por_pagina)]
 
         return render(
