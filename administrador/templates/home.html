@@ -5,54 +5,57 @@
 {% block mainContent %}
 
 	<section id="mainContent">
-		<div id="slider" class="container">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			  
-			  <ol class="carousel-indicators">
-			    {% for slider in sliders %}
-		    		{% if forloop.first %}
-		    			<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-		    		{% else %}
-		    			<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}"></li>
-		    		{% endif%}
-			    {% endfor %}
-			  </ol>
-			  
-			  <div class="carousel-inner">
-			    
-			    {% for slider in sliders %}
-		    		{% if forloop.first %}
-			    		<div class="item active">
-			    	{% else %}
-			    		<div class="item">
-			    	{% endif %}
-			    		
-			    		{% thumbnail slider.imagen "2250x900" crop="center" as im %}
-			      			{% if slider.link %}
-							<a href="{{ slider.link }}"><img src="{{ im.url }}" alt="{{ slider.titulo }}"></a>
-						{% else %}
-							<img src="{{ im.url }}" alt="{{ slider.titulo }}">
-						{% endif %}
-			      		{% endthumbnail %}
+		
+		<div id="slider-wrapper">
+			<div id="slider" class="container">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				  
+				  <ol class="carousel-indicators">
+				    {% for slider in sliders %}
+			    		{% if forloop.first %}
+			    			<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+			    		{% else %}
+			    			<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}"></li>
+			    		{% endif%}
+				    {% endfor %}
+				  </ol>
+				  
+				  <div class="carousel-inner">
+				    
+				    {% for slider in sliders %}
+			    		{% if forloop.first %}
+				    		<div class="item active">
+				    	{% else %}
+				    		<div class="item">
+				    	{% endif %}
+				    		
+				    		{% thumbnail slider.imagen "2250x900" crop="center" as im %}
+				      			{% if slider.link %}
+								<a href="{{ slider.link }}"><img src="{{ im.url }}" alt="{{ slider.titulo }}"></a>
+							{% else %}
+								<img src="{{ im.url }}" alt="{{ slider.titulo }}">
+							{% endif %}
+				      		{% endthumbnail %}
 
-			      	{% if slider.titulo|length > 0 %}
-						<div class="carousel-caption">
-					    	<h3>{{ slider.titulo }}</h3>
-					    </div>
-			      	{%endif%}
+				      	{% if slider.titulo|length > 0 %}
+							<div class="carousel-caption">
+						    	<h3>{{ slider.titulo }}</h3>
+						    </div>
+				      	{%endif%}
 
-			      	</div>
+				      	</div>
 
-		      	{% endfor %}
+			      	{% endfor %}
 
-			  </div>
+				  </div>
 
-			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			    <span class="icon-arrow-left"></span>
-			  </a>
-			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			    <span class="icon-arrow-right"></span>
-			  </a>
+				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				    <span class="icon-arrow-left"></span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				    <span class="icon-arrow-right"></span>
+				  </a>
+				</div>
 			</div>
 		</div>
 		
