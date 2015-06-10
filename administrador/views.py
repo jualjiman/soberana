@@ -67,7 +67,13 @@ def home(request):
 @cache_page(60 * cache_time)
 def publicacion(request, ide):
 
-    query = queryset(datetime.now())
+    query = Publicacion.objects.filter(
+        activo=True
+    ).order_by(
+        "-fecha", 
+        "-categoria", 
+        "-pk"
+    )
 
     publicacion = get_object_or_404(query, id=ide)
 
