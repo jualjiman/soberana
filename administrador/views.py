@@ -17,7 +17,7 @@ locale.setlocale(locale.LC_ALL, 'es_MX.utf8')
 
 # Create your views here.
 
-cache_time = 2  # minutos
+cache_time = 4  # minutos
 
 
 def queryset(now):
