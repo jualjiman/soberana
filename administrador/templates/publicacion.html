@@ -8,8 +8,10 @@
 	<meta property="og:url"    content="http://it-acapulco.edu.mx{{ request.path }}" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
 	{% if publicacion.imagen %}
-	<meta property="og:image"  content="http://it-acapulco.edu.mx{{ publicacion.imagen.url }}" />
-	{% else %}
+	    {% thumbnail publicacion.imagen "800x400" crop="center" as imfb %}
+        <meta property="og:image"  content="http://it-acapulco.edu.mx{{ imfb.url }}" />
+        {% endthumbnail %}
+    {% else %}
 	<meta property="og:image"  content="http://it-acapulco.edu.mx/static/img/placeholder-post.jpg" />
 	{% endif %}
 	<meta property="og:description"  content="{{ publicacion.resumen|slice:':150' }}" />
@@ -43,7 +45,7 @@
 				<p></p>
 				{% if publicacion.imagen %}
 			      	{% thumbnail publicacion.imagen "800x400" crop="center" as im %}
-	      				<img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}">
+                        <img src="{{ im.url }}" class="autoWidth" alt="{{ publicacion.titulo }}" style="border-radius:2px;">
 	      			{% endthumbnail %}
 	      		{% else %}
 	      			<img src="{% static "img/placeholder-post.jpg" %}" class="autoWidth" /> 
