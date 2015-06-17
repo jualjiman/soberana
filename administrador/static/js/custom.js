@@ -26,6 +26,10 @@ $(function(){
 	scripts.boxAutoHeight();
 	scripts.hideContactHintInfo()
 
+	var $spinner = $('#send-button-spinner');
+
+	$spinner.hide();
+
 	// Load more
 	$('#btn-loadmore').click(function(e) {
 	  e.preventDefault();
@@ -59,10 +63,13 @@ $(function(){
         var name = $('#id_nombre').val();
         var email = $('#id_email').val();
         var message = $('#id_mensaje').val();
-        var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
+        var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;	
+	
         if( name !== "" && email !== "" && message !== ""){
             if( email_regex.test(email) === true ){
+		
+		$spinner.show();
+
                 $.ajax({
                     type: "POST",
                     url: "/nuestro-instituto/ubicacion-contacto/",  // or just url: "/my-url/path/"
@@ -80,6 +87,8 @@ $(function(){
                         $('.alert-danger').text("Algo fallo!, por favor intente más tarde").hide().fadeIn();
                     }
                 });
+
+		$spinner.hide();
             }
             else{
                 $('.alert-warning').text('El formato de email que ingreso es invalido').hide().fadeIn();

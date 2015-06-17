@@ -70,8 +70,8 @@ def publicacion(request, ide):
     query = Publicacion.objects.filter(
         activo=True
     ).order_by(
-        "-fecha", 
-        "-categoria", 
+        "-fecha",
+        "-categoria",
         "-pk"
     )
 
@@ -108,16 +108,15 @@ def publicacion(request, ide):
 
 def publicaciones(request):
     titulo = "Publicaciones"
-    now = datetime.now()
 
     todas_publicaciones = Publicacion.objects.filter(
         activo=True
     ).order_by(
-        "-fecha", 
-        "-categoria", 
+        "-fecha",
+        "-categoria",
         "-pk"
     )
-    
+
     publicaciones_permanentes = todas_publicaciones[:4]
     publicaciones = todas_publicaciones[4:8]
 
@@ -289,11 +288,11 @@ def mas(request):
         query = Publicacion.objects.filter(
             activo=True
         ).order_by(
-            "-fecha", 
-            "-categoria", 
+            "-fecha",
+            "-categoria",
             "-pk"
         )
-         
+
         mas_publicaciones = query[pagina:(pagina + elems_por_pagina)]
 
         return render(
