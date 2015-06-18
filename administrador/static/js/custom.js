@@ -28,7 +28,7 @@ $(function(){
 
 	var $spinner = $('#send-button-spinner');
 
-	$spinner.hide();
+    $spinner.addClass('hidden');
 
 	// Load more
 	$('#btn-loadmore').click(function(e) {
@@ -59,7 +59,7 @@ $(function(){
 	$("#btnSend").click(function(e){
         e.preventDefault();
         scripts.hideContactHintInfo();
-
+        
         var name = $('#id_nombre').val();
         var email = $('#id_email').val();
         var message = $('#id_mensaje').val();
@@ -68,8 +68,7 @@ $(function(){
         if( name !== "" && email !== "" && message !== ""){
             if( email_regex.test(email) === true ){
 		
-		$spinner.show();
-
+		        $spinner.removeClass('hidden');
                 $.ajax({
                     type: "POST",
                     url: "/nuestro-instituto/ubicacion-contacto/",  // or just url: "/my-url/path/"
@@ -82,22 +81,27 @@ $(function(){
                     success: function(data) {
 						scripts.clearContactForm();
                         $('.alert-info').text('Mensaje enviado, Muchas gracias!').hide().fadeIn();
+
+		                $spinner.addClass('hidden');
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         $('.alert-danger').text("Algo fallo!, por favor intente más tarde").hide().fadeIn();
+                        
+		                $spinner.addClass('hidden');
                     }
                 });
 
-		$spinner.hide();
             }
             else{
                 $('.alert-warning').text('El formato de email que ingreso es invalido').hide().fadeIn();
             }
 
+
         }
         else{
             $('.alert-warning').text('Todos los campos son requeridos').hide().fadeIn();
         }
+
     });
 
 	initialize();
