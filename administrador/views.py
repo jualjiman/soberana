@@ -65,7 +65,7 @@ def home(request):
 
 
 @cache_page(60 * cache_time)
-def publicacion(request, ide):
+def publicacion_slug(request, slug):
 
     query = Publicacion.objects.filter(
         activo=True
@@ -75,7 +75,7 @@ def publicacion(request, ide):
         "-pk"
     )
 
-    publicacion = get_object_or_404(query, id=ide)
+    publicacion = get_object_or_404(query, slug=slug)
 
     if(publicacion is not None):
         enlaces = EnlacePublicacion.objects.filter(
@@ -85,7 +85,7 @@ def publicacion(request, ide):
         archivos = ArchivoPublicacion.objects.filter(
             publicacion=publicacion.id)
 
-    otras_publicaciones = query.exclude(pk=ide)[:4]
+    otras_publicaciones = query.exclude(slug=slug)[:4]
 
     titulo = "%s" % (publicacion.titulo,)
     description = publicacion.resumen
