@@ -54,7 +54,7 @@
 					<div class="row margin-bottom">
 						<div class="col-sm-6">{{ publicacion.fecha }}</div>
 						<div class="col-sm-6">
-							<div class="fb-like pull-right" data-href="http://www.it-acapulco.edu.mx/publicaciones/{{ publicacion.id }}/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+							<div class="fb-like pull-right" data-href="http://www.it-acapulco.edu.mx/publicaciones/{{ publicacion.slug }}/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 						</div>
 					</div>
 					
@@ -93,7 +93,7 @@
 					{% endfor %}
 
 					<div class="fb-comments" 
-						data-href="http://www.it-acapulco.edu.mx/publicaciones/{{ publicacion.id }}/" 
+						data-href="http://www.it-acapulco.edu.mx/publicaciones/{{ publicacion.slug }}/" 
 						data-numposts="10" 
 						data-colorscheme="light"
 						data-width="100%">
@@ -116,7 +116,7 @@
 				<h3 class="text-green border-top-g">Otras publicaciones</h3>
 				{% for publicacion in otrasPublicaciones%}
 					<div class="other-news-content border-bottom-g">
-						<a  class="text-green link" href="{% url 'publicacion' publicacion.id %}"><h4>{{ publicacion.titulo }}</h4></a>
+						<a  class="text-green link" href="{% url 'publicacion_slug' publicacion.slug %}"><h4>{{ publicacion.titulo }}</h4></a>
 						<p>{{ publicacion.resumen|slice:":150" }}</p>
 					</div>
 				{% endfor %}

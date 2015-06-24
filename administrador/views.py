@@ -106,6 +106,48 @@ def publicacion(request, ide):
     )
 
 
+@cache_page(60 * cache_time)
+def publicacion_slug(request, slug):
+
+    query = Publicacion.objects.filter(
+        activo=True
+    ).order_by(
+        "-fecha",
+        "-categoria",
+        "-pk"
+    )
+
+    publicacion = get_object_or_404(query, slug=slug)
+
+    if(publicacion is not None):
+        enlaces = EnlacePublicacion.objects.filter(
+            publicacion=publicacion.id)
+        videos = VideoPublicacion.objects.filter(
+            publicacion=publicacion.id)
+        archivos = ArchivoPublicacion.objects.filter(
+            publicacion=publicacion.id)
+
+    otras_publicaciones = query.exclude(slug=slug)[:4]
+
+    titulo = "%s" % (publicacion.titulo,)
+    description = publicacion.resumen
+    searchform = BusquedaForm()
+    return render(
+        request,
+        "publicacion.html",
+        {
+            "publicacion": publicacion,
+            "enlaces": enlaces,
+            "videos": videos,
+            "archivos": archivos,
+            "titulo": titulo,
+            "otrasPublicaciones": otras_publicaciones,
+            "searchform": searchform,
+            "description": description,
+        }
+    )
+
+
 def publicaciones(request):
     titulo = "Publicaciones"
 
