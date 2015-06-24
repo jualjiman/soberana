@@ -253,15 +253,21 @@ def contacto(request):
         send_mail(
             'Mensaje desde Pagina web ITA',
             mensaje,
-            "ITA Quejas y sujerencias <quejas_y_sugerencias@it-acapulco.edu.mx>",
-            ['jualjiman@gmail.com', ],
+            (
+                'ITA Quejas y sujerencias '
+                '<noreply@it-acapulco.edu.mx>'
+            ),
+            ['quejas_y_sugerencias@it-acapulco.edu.mx', ],
             fail_silently=False
         )
 
         send_mail(
             'Mensaje desde Pagina web ITA',
             mensaje,
-            "ITA Quejas y sujerencias <quejas_y_sugerencias@it-acapulco.edu.mx>",
+            (
+                'ITA Quejas y sujerencias '
+                '<noreply@it-acapulco.edu.mx>'
+            ),
             ['jualjiman@gmail.com', ],
             fail_silently=False
         )
