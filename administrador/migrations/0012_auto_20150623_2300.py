@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='publicacion',
             name='slug',
-            field=models.SlugField(default='blablabalbalabla', unique=True),
+            field=models.SlugField(default='provisional-slug', blank=True),
             preserve_default=False,
         ),
         migrations.AlterField(
@@ -27,19 +27,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='evento',
             name='fechaHora',
-            field=models.DateTimeField(default=datetime.datetime(2015, 6, 23, 22, 41, 51, 509183), help_text=b'Fecha y hora del evento'),
+            field=models.DateTimeField(default=datetime.datetime(2015, 6, 23, 22, 59, 26, 125055), help_text=b'Fecha y hora del evento'),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='publicacion',
             name='fecha',
-            field=models.DateField(default=datetime.datetime(2015, 6, 23, 22, 41, 51, 507095), help_text=b'Fecha que sera mostrada en la publicaci\xc3\xb3n'),
+            field=models.DateField(default=datetime.datetime(2015, 6, 23, 22, 59, 26, 120768), help_text=b'Fecha que sera mostrada en la publicaci\xc3\xb3n'),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='publicacion',
             name='fecha_inicio',
-            field=models.DateTimeField(default=datetime.datetime(2015, 6, 23, 22, 41, 51, 507119), help_text=b'Fecha y hora de inicio de la publicaci\xc3\xb3n'),
+            field=models.DateTimeField(default=datetime.datetime(2015, 6, 23, 22, 59, 26, 120812), help_text=b'Fecha y hora de inicio de la publicaci\xc3\xb3n'),
             preserve_default=True,
         ),
     ]
