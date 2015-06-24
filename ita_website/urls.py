@@ -66,9 +66,9 @@ urlpatterns = patterns(
     ),
 
     url(
-        r'^publicaciones/(\d+)/$',
-        'administrador.views.publicacion',
-        name='publicacion'
+        r'^publicaciones/(?P<slug>[\w-]+)/$',
+        'administrador.views.publicacion_slug',
+        name='publicacion_slug'
     ),
 
     url(
