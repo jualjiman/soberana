@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
+
 from sorl.thumbnail import ImageField
-from datetime import datetime
 from ckeditor.fields import RichTextField
 
 categorias = (
@@ -89,6 +92,14 @@ class Publicacion(models.Model):
         null=True,
         blank=True
     )
+
+    slug = models.SlugField(
+        unique=True
+    )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.titulo)
+        super(Publicacion, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.titulo
