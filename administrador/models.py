@@ -94,6 +94,7 @@ class Publicacion(models.Model):
     )
 
     slug = models.SlugField(
+        editable=False,
         unique=True
     )
 

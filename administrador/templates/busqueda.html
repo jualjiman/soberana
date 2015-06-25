@@ -36,7 +36,7 @@
 					
 					{% for publicacion in publicaciones %}
 						<div class="col-sm-6 col-md-3">
-						    <a class="thumbnail" href="/publicaciones/{{ publicacion.id }}">
+						    <a class="thumbnail" href="{% url 'publicacion_slug' publicacion.slug %}">
 						      <span class="news-date">{{ publicacion.fecha|date:"d M" }}</span>
 						      	{% if publicacion.imagen %}
 							      	{% thumbnail publicacion.imagen "562x300" crop="center" as im %}
