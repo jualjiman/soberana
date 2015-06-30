@@ -5,7 +5,7 @@
 {% block facebook_headers %}
 	<meta property="fb:app_id" content="1612804425607316" /> 
 	<meta property="og:type"   content="website" /> 
-    <meta property="og:url"    content="http://www.it-acapulco.edu.mx/publicaciones/{{publicacion.id}}/" /> 
+    <meta property="og:url"    content="http://www.it-acapulco.edu.mx/publicaciones/{{publicacion.slug}}/" /> 
 	<meta property="og:title"  content="{{ titulo }} | Instituto Tecnológico de Acapulco" /> 
 	{% if publicacion.imagen %}
 	    {% thumbnail publicacion.imagen "1200x600" crop="center" as imfb %}
