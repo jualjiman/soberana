@@ -99,7 +99,8 @@ class Publicacion(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.titulo)
+        if not self.slug:
+            self.slug = slugify(self.titulo)
         super(Publicacion, self).save(*args, **kwargs)
 
     def __str__(self):
