@@ -1,17 +1,12 @@
 from django.contrib import admin
-from .models import *
+from .models import (
+    Evento, Slider, Publicacion,
+    EnlacePublicacion, VideoPublicacion, ArchivoPublicacion
+)
 from sorl.thumbnail.shortcuts import get_thumbnail
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import Group
-
-# Register your models here.
-
-# UserAdmin.list_display = (
-#    'username', 'email', 'first_name',
-#    'last_name', 'get_group_permissions'
-# )
 
 
 class CustomUserAdmin(UserAdmin):
