@@ -31,7 +31,10 @@
 				    		
 				    		{% thumbnail slider.imagen "2250x900" crop="center" as im %}
 				      			{% if slider.link %}
-								<a href="{{ slider.link }}"><img src="{{ im.url }}" alt="{{ slider.titulo }}"></a>
+								<a href="{{ slider.link }}" class="linked-slide">
+                                    <span class="icon-link"></span>
+                                    <img src="{{ im.url }}" alt="{{ slider.titulo }}">
+                                </a>
 							{% else %}
 								<img src="{{ im.url }}" alt="{{ slider.titulo }}">
 							{% endif %}
