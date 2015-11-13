@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
 
 # Application definition
 INSTALLED_APPS = (
-    #'django_admin_bootstrapped',
+    # 'django_admin_bootstrapped',
     'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,19 +43,19 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third party
+    # third party
     'sorl.thumbnail',
     'ckeditor',
-    #custom
+    # custom
     'administrador',
 )
 
 # For Sidebar Menu (List of apps and models) (RECOMMENDED)
-#from django.conf import global_settings
-#TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+# from django.conf import global_settings
+# TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 #    'django.core.context_processors.request',
-#)
-#BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+# )
+# BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -91,7 +91,7 @@ if DEBUG:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql', 
+            'ENGINE': 'django.db.backends.mysql',
             'NAME': os.environ.get('DB_NAME'),
             'USER': os.environ.get('DB_USER'),
             'PASSWORD': os.environ.get('DB_PASSWORD'),
@@ -100,12 +100,12 @@ else:
         }
     }
 
-    EMAIL_USE_TLS = False                                                           
+    EMAIL_USE_TLS = False
     EMAIL_PORT = 25
     EMAIL_HOST = os.environ.get('EMAIL_HOST')
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -119,21 +119,71 @@ USE_L10N = True
 
 USE_TZ = True
 
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_JQUERY_URL = (
+    '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+)
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 """
 [
-    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
-    { name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
-    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
-    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+    {
+        name: 'document',
+        items : [
+            'Source','-','Save','NewPage',
+            'DocProps','Preview','Print',
+            '-','Templates'
+        ]
+    },
+    {
+        name: 'clipboard',
+        items : [
+            'Cut','Copy','Paste',
+            'PasteText','PasteFromWord',
+            '-','Undo','Redo'
+        ]
+    },
+    {
+        name: 'editing',
+        items : [
+            'Find','Replace',
+            '-','SelectAll','-',
+            'SpellChecker', 'Scayt'
+        ]
+    },
+    {
+        name: 'forms',
+        items : [
+            'Form', 'Checkbox', 'Radio', 'TextField',
+            'Textarea', 'Select', 'Button', 'ImageButton',
+            'HiddenField'
+        ]
+    },
     '/',
-    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
-    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+    {
+        name: 'basicstyles',
+        items : [
+            'Bold','Italic','Underline','Strike',
+            'Subscript','Superscript','-','RemoveFormat'
+        ]
+    },
+    {
+        name: 'paragraph',
+        items : [
+            'NumberedList','BulletedList','-','Outdent',
+            'Indent','-','Blockquote','CreateDiv','-',
+            'JustifyLeft','JustifyCenter','JustifyRight',
+            'JustifyBlock','-','BidiLtr','BidiRtl'
+        ]
+    },
     { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
-    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+    {
+        name: 'insert',
+        items : [
+            'Image','Flash','Table','HorizontalRule',
+            'Smiley','SpecialChar','PageBreak'
+        ]
+    },
     '/',
     { name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
     { name: 'colors',      items : [ 'TextColor','BGColor' ] },
@@ -144,14 +194,31 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': [
-            [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat','-','Table','HorizontalRule','Link','Unlink' ],
-            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote'],
-            [ 'Format','FontSize'],
-            ['Cut','Copy','Paste','-','Undo','Redo','Preview'],
+            [
+                'Bold', 'Italic',
+                'Underline', 'Strike',
+                'Subscript', 'Superscript',
+                '-', 'RemoveFormat',
+                '-', 'Table', 'HorizontalRule',
+                'Link', 'Unlink'
+            ],
+            [
+                'NumberedList', 'BulletedList',
+                '-', 'Outdent', 'Indent',
+                '-', 'Blockquote'
+            ],
+            [
+                'Format', 'FontSize'
+            ],
+            [
+                'Cut', 'Copy',
+                'Paste', '-', 'Undo',
+                'Redo', 'Preview'
+            ],
             ['Source'],
         ],
-        'skin' : 'bootstrapck',
-        'width' : 'auto',
+        'skin': 'bootstrapck',
+        'width': 'auto',
     }
 }
 # Static files (CSS, JavaScript, Images)
@@ -164,11 +231,18 @@ STATICFILES_FINDERS = (
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'administrador/static')
-# STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
+# STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)
+# [:-2] + ['static'])
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
+MEDIA_ROOT = os.sep.join(
+    os.path.abspath(
+        __file__
+    ).split(
+        os.sep
+    )[:-2] + ['media']
+)
 
-URL_WEBSITE= "http://ita.jualjiman.com"
+URL_WEBSITE = "http://ita.jualjiman.com"
