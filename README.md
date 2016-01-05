@@ -36,3 +36,10 @@ Portal del Instituto Tecnológico de Acapulco
     ```bash
     ./manage.py runserver
     ```
+7. Load media files from tar.gz backup (optional, only if exist)
+    ```bash
+    # must be at the same level of manage.py file
+    cd soberana
+    tar -xzvf media.tar.gz
+    ```
+    
